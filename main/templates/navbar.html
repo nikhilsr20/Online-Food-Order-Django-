@@ -1,0 +1,52 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="{% static 'navbar.css'%}">
+    {% block css%}
+             
+    {%endblock%}
+</head>
+<body>
+    <div class="navbar">
+          <div class="navbar-1">
+            <img class="navbar-1-logo" src="https://cdn-icons-png.flaticon.com/128/9526/9526193.png" alt="logo">
+            <p>Foody</p>
+          </div>
+
+          <div class="navbar-2">
+               <img class="navbar-2-location" src="https://cdn-icons-png.flaticon.com/128/535/535239.png" alt="location">
+               <p class="navbar-2-other">other</p>
+          
+          </div>
+
+          <div class="navbar-3">
+            <div class="navbar-3-1">
+                <img class="navbar-3-search" src="https://cdn-icons-png.flaticon.com/128/151/151773.png" alt="searchlogo">
+                <input class="navbar-3-input"  type="search" placeholder="search">
+            </div>
+
+            <div class="navbar-3-2">
+                 <img class="navbar-3-profile" src="https://cdn-icons-png.flaticon.com/128/1077/1077114.png" alt="profile">
+                 <p>sign in</p>
+            </div>
+            <div class="navbar-3-3">
+                <img class="navbar-3-cart" src="https://cdn-icons-png.flaticon.com/128/5337/5337564.png" alt="cart">
+                 <p>cart</p>
+            </div>
+          </div>
+
+          
+
+          
+
+    </div>
+    {% block body%}
+    
+    {% endblock %}
+</body>
+</html>

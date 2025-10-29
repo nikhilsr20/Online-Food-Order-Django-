@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+.navbar{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(102, 116, 124);
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    box-shadow: 0px 3px rgb(113, 185, 240);
+}
+.navbar-1{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+     color: rgb(116, 200, 255);
+    font-weight: bolder;
+   font-size: larger;
+    height: 50px;
+    cursor: pointer;
+    
+}
+.navbar-2{
+    display: flex;
+    gap: 3px;
+
+}
+.navbar-2:hover{
+    color: rgb(116, 200, 255);
+    cursor: pointer;
+    transition: color ease-in-out 0.4s;
+}
+.navbar-2-other{
+    text-decoration: underline;
+}
+.navbar-3{
+     align-items: center;
+    display: flex;
+    gap: 40px;
+}
+
+.navbar-1-logo{
+    width: 40px;
+    height: 40px;
+}
+.navbar-2-location{
+
+     width: 20px;
+    height: 20px;
+}
+.navbar-3-search{
+     width: 20px;
+    height: 20px;
+    
+}
+.navbar-3-profile{
+     width: 20px;
+    height: 20px;
+}
+.navbar-3-cart{
+     width: 20px;
+    height: 20px;
+}
+.navbar-3-1,.navbar-3-2,.navbar-3-3{
+    display: flex;
+    gap: 5px;
+}
+.navbar-3-1{
+    background-color: rgb(253, 253, 253);
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 10px;
+    gap:10px;
+}
+.navbar-3-2:hover{
+    color: rgb(116, 200, 255);
+    cursor: pointer;
+    transition: color ease-in-out 0.4s;
+}
+.navbar-3-3:hover{
+    color: rgb(116, 200, 255);
+    cursor: pointer;
+    transition: color ease-in-out 0.4s;
+}
+
+
+.navbar-3-input{
+    width: 200px;
+    border: none;
+    font-size:  medium;
+    font-family: sans-serif;
+    color: rgb(74, 74, 74);
+}
+.navbar-3-input:focus{
+      outline: none;
+      background-color: rgb(165, 198, 232);
+      transition: background-color ease-in-out 0.4s;
+}
+.navbar-3-1:focus-within{
+     background-color: rgb(165, 198, 232);
+       transition: background-color ease-in-out 0.4s;
+}
