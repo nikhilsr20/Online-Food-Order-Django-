@@ -1,4 +1,53 @@
 .main{
-    margin-top: 56px;
+    margin-top: 80px;
     
+}
+.main-div1{
+    display: flex;
+    justify-content: center;
+}
+.main-div1-img{
+    position: relative;
+    width:94%;
+    height: 370px;
+    border-radius: 10px;
+}
+.main-div1-img:hover{
+    cursor: pointer;
+    filter: brightness(0.6) contrast(0.8) saturate(0.9);
+    transition: filter ease-in 0.3s;
+}
+.main-div1-text{
+    visibility: hidden;
+    position: absolute;
+    background: rgb(1, 32, 49);
+    border-radius: 10px;
+    padding: 14px;
+    align-self: last baseline;
+    margin-bottom: 10px;
+    font-size: large;
+    /* z-index: 2; */
+    font-weight: bold;
+    color: rgb(0, 221, 255);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-shadow: 0px 2px rgb(22, 98, 146);
+    animation: pop 0.3s forwards 1 ease-in-out ;
+}
+
+@keyframes pop {
+    0%{
+        align-self: last baseline;
+    }
+    25%{
+        margin-bottom: 5px;
+    }
+    50%{
+        margin-bottom: 10px;
+    }
+    75%{
+        margin-bottom: 15px;
+    }
+    100%{
+        margin-bottom: 20px;
+    }
 }
