@@ -1,10 +1,11 @@
 .main{
     margin-top: 80px;
-    
+    z-index: -1;
 }
 .main-div1{
     display: flex;
     justify-content: center;
+    cursor: pointer;
 }
 .main-div1-img{
     position: relative;
@@ -12,27 +13,39 @@
     height: 370px;
     border-radius: 10px;
 }
-.main-div1-img:hover{
-    cursor: pointer;
-    filter: brightness(0.6) contrast(0.8) saturate(0.9);
-    transition: filter ease-in 0.3s;
-}
+
+
 .main-div1-text{
     visibility: hidden;
     position: absolute;
-    background: rgb(1, 32, 49);
+    background: rgb(255, 255, 255);
     border-radius: 10px;
-    padding: 14px;
+    padding: 10px;
+
     align-self: last baseline;
     margin-bottom: 10px;
-    font-size: large;
+    font-size: medium;
     /* z-index: 2; */
-    font-weight: bold;
-    color: rgb(0, 221, 255);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    box-shadow: 0px 2px rgb(22, 98, 146);
-    animation: pop 0.3s forwards 1 ease-in-out ;
+    
+    color: rgb(0, 0, 0);
+  
+    box-shadow: 0px 10px 20px rgb(151, 215, 255);
+    opacity: 0;
+    
 }
+.main-div1-text:hover{
+    animation: drop 0.2s ease-in-out 1 forwards ;
+}
+.main-div1:hover .main-div1-img {
+    cursor: pointer;
+  filter: brightness(0.2) contrast(0.8) saturate(0.9);
+  transition: filter 0.2s ease-in;
+}
+.main-div1:hover .main-div1-text {
+  visibility: visible;
+  opacity: 1;
+}
+
 
 @keyframes pop {
     0%{
@@ -50,4 +63,135 @@
     100%{
         margin-bottom: 20px;
     }
+}
+
+.main2{
+    display: flex;
+    justify-content: space-between;
+    margin-inline: 55px;
+    margin-top: 20px;
+}
+.main2-div1-topline{
+    font-size: medium;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+}
+.main2-div2-filter{
+    display: flex;
+  align-items: center;
+    font-size: medium;
+    width: fit-content;
+    border: solid 0.1px black;
+   
+    border-radius: 10px;
+    gap: 10px;
+    padding: 3px 20px;
+    cursor: pointer;
+    
+}
+.main2-div2-filter:hover{
+    animation: drop 0.2s ease-in-out 1 forwards ;
+}
+
+@keyframes drop {
+  0% {
+    background-image: linear-gradient(rgb(113, 185, 240));
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 1px 1px;
+  }
+  100% {
+    background-image: linear-gradient(rgb(113, 185, 240));
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 240px 240px;
+    color: rgb(253, 254, 255);
+  }
+}
+.main2-div2-filter-img{
+    width: 14px;
+   align-self: center;
+   margin-top: 3px;
+   
+}
+
+
+.main3{
+    margin-top: 30px;
+    margin-inline: 55px;
+}
+.main3-topline{
+   font-weight: bold;
+}
+.main-3-food{
+    display: flex;
+    height: 130px;
+    overflow-x: auto;
+   scroll-behavior: smooth;
+   scrollbar-width: none;
+}
+.main-3-food *{
+    width: 100px;
+    cursor: pointer;
+}
+.main3-div2{
+    display: flex;
+    align-items: center;
+}
+.main3-div2-arrows{
+    margin-inline: 15px;
+    width: 20px;
+   gap: 40px;
+   border-radius: 20px;
+   padding: 6px;
+   cursor: pointer;
+}
+.main3-div2-arrows:hover{
+    transition: background-color 0.3s ease-in;
+    
+    background-color: rgb(174, 220, 246);
+}
+.main4-restaurantslist{
+    margin-inline:55px;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+.main4-restaurantslist-restaurantcard{
+    
+    width: 200px;
+    height: 300px;
+   cursor: pointer;
+}
+.main4-restaurantslist-restaurantcard-img{
+    width: 200px;
+    height: 190px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    
+}
+.main4-restaurantslist-restaurantcard:hover .main4-restaurantslist-restaurantcard-img {
+  transform: scale(1.03);
+   box-shadow: 2px 8px 10px rgba(25, 154, 218, 0.2);
+}
+.main4-restaurantslist-restaurantcard-name{
+font-weight: 300;
+
+}
+.main4-restaurantslist-restaurantcard:hover .main4-restaurantslist-restaurantcard-name{
+color: rgb(0, 100, 188);
+}
+.main4-restaurantslist-restaurantcard-rating{
+font-weight: 300;
+color: rgb(124, 124, 124);
+
+}
+.main4-restaurantslist-restaurantcard-items{
+font-weight: 100;
+color: rgb(124, 124, 124);
+}
+.main4-restaurantslist-restaurantcard-location{
+font-weight: 100;
+color: rgb(124, 124, 124);
 }
