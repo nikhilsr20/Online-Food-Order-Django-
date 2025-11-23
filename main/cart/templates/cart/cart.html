@@ -4,12 +4,12 @@
 <link rel="stylesheet" href="{% static 'cart/csscart.css'%}">
 {% endblock %}
 {% block body %}
-<!-- <div class="cart-section">
+<div class="cart-section" id="CART-SECTION">
 <div class="cart-top">
      <div class="cart-top-addresses">
            <img class="cart-top-addresses-img" src="https://cdn-icons-png.flaticon.com/128/6218/6218733.png">
            <p class="cart-top-addresses-p">choose a delivery address</p>
-           <button class="cart-top-addresses-button" type="button">add +</button>
+           <button class="cart-top-addresses-button" type="button" onclick="opencart2()">add +</button>
      </div>
      
 </div>
@@ -86,11 +86,12 @@
     
      
 </div>
-</div> -->
+</div>
 
 
-<!-- <div class="adress-page">
+<div class="adress-page" id="ADRESS-PAGE">
   <div class="adress-page-div">
+    <button class="Addnewaddress-page-heading-button" onclick="opencart21()"><img class="Addnewaddress-page-heading-img" src="https://cdn-icons-png.flaticon.com/128/1828/1828778.png"></button>
   <h1 class="adress-page-heading">Select the location</h1>
   <div class="adress-page-addresses">
           <div class="adress-page-address1">
@@ -112,25 +113,25 @@
           </div>
 
 
-          <div class="adress-page-address1-details">
+          <div class="adress-page-address1-details" onclick="opencart3()">
                <h4>Add New Address</h4>
                <p class="adress-page-address1-details-address">D-51, Ayodhya Bypass Road, Ayodhya Bypass, Bhopal, Madhya Pradesh 462023, India</p>
                
-               <button class="adress-page-address1-details-button-unique">Add New</button>
+               <button class="adress-page-address1-details-button-unique" onclick="opencart3()">Add New</button>
           </div>
           </div>
   </div>
   </div>
   
-</div> -->
+</div>
 
 
 
 
-<div class="Addnewaddress-page">
+<div class="Addnewaddress-page" id="ADDNEWADDRESS-PAGE">
     
   <div class="Addnewaddress-page-heading">
-    <button class="Addnewaddress-page-heading-button"><img class="Addnewaddress-page-heading-img" src="https://cdn-icons-png.flaticon.com/128/1828/1828778.png"></button>
+    <button class="Addnewaddress-page-heading-button" onclick="opencart32()"><img class="Addnewaddress-page-heading-img" src="https://cdn-icons-png.flaticon.com/128/1828/1828778.png"></button>
     <h1 class="Addnewaddress-page-heading-text">
       Save delivery address
     </h1>
@@ -179,5 +180,37 @@
   
   
 </div>
+</div>
+
+
+<script>
+  function opencart2(){
+    let x=document.getElementById("CART-SECTION")
+    let y=document.getElementById("ADRESS-PAGE")
+    x.style.display='none'
+    y.style.display='flex'
+    
+  }
+   function opencart3(){
+    let x=document.getElementById("ADDNEWADDRESS-PAGE")
+    let y=document.getElementById("ADRESS-PAGE")
+    x.style.display='block'
+    y.style.display='none'
+    
+  }
+  function opencart32(){
+     let x=document.getElementById("ADDNEWADDRESS-PAGE")
+    let y=document.getElementById("ADRESS-PAGE")
+    x.style.display='none'
+    y.style.display='flex'
+  }
+   function opencart21(){
+    let x=document.getElementById("CART-SECTION")
+    let y=document.getElementById("ADRESS-PAGE")
+    x.style.display='block'
+    y.style.display='none'
+    
+  }
+</script>
 {% endblock %}
 

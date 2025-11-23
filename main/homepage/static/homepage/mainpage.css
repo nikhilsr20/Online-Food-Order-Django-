@@ -91,6 +91,7 @@ left: 0;
     font-weight: bolder;
 }
 .main2-div2-filter{
+    position: relative;
     display: flex;
   align-items: center;
     font-size: medium;
@@ -454,3 +455,34 @@ background-color: #ffffff;
     cursor: pointer;
 }
 
+/* filter */
+.sortBy-filter{
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: -28px;
+   color: black;      /* override parent color */
+  font-size: 14px;   /* override parent font-size */
+  font-family: Arial, sans-serif; /* override font */
+    margin-bottom: 25px;
+    width: 150px;
+    border:0.7px solid #c2c2c2;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+.sortBy-filter div{
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    
+    
+}
+.sortBy-filter div:hover{
+   color: #1869c6;
+}
+.main2-div2-filter:hover .sortBy-filter{
+    display: block;
+}
