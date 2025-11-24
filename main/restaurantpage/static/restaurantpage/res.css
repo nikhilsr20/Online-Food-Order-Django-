@@ -1,0 +1,50 @@
+.Restaurant-page{
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-rows: 100px 1fr;
+}
+.Restaurant-data{
+    grid-column: 2/3;
+    grid-row: 2/2;
+    
+}
+.Restaurant-data-div1{
+    border:0.3px solid rgb(198, 197, 197);
+    box-shadow: 1px 1px 10px 1px rgb(157, 203, 255);
+    border-radius: 10px;
+    height: 240px;
+    padding: 10px;
+}
+.Restaurant-data-div1-heading{
+    font-family: sans-serif;
+    background: linear-gradient(90deg,#262525,#5c5c5c);
+    width: fit-content;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.Restaurant-data-div1-div1{
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.Restaurant-data-div1-div1-img{
+  width:20px;
+  height: 20px;
+}
+.Restaurant-data-div1-div2-div{
+    display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+}
+.Restaurant-data-div1-div2-img{
+     width: 30px ;
+     height: 30px;
+}
+.Restaurant-data-div1-div2-div2{
+    
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}

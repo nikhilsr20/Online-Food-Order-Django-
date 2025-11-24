@@ -14,7 +14,7 @@
     top: 0;
     right: 0;
     left: 0;
-    
+    border-bottom: 0.2px solid rgb(176, 173, 173);
     z-index: 100;
     transition: all ease-in-out 0.2s;
 }
