@@ -16,7 +16,10 @@
       <div class="Restaurant-data-div1-div2-div">
         <img class="Restaurant-data-div1-div2-img" src="https://cdn-icons-png.flaticon.com/128/8265/8265301.png">
         <span>Outlet</span>
-        <span>DB Mall</span>
+        <div class="Restaurant-data-div1-div2-div-resname">
+        <span class="Restaurant-data-div1-div2-div-resname-name">DB Mall</span>
+        <img class="Restaurant-data-div1-div2-div-down" src="https://cdn-icons-png.flaticon.com/128/32/32195.png">
+        </div>
       </div>
 
       <div class="Restaurant-data-div1-div2-div2">
@@ -26,11 +29,105 @@
 
 
     </div>
+    <div class="Restaurant-data-offers">
+        <h1 class="Restaurant-data-offers-heading">Deals for you</h1>
+        <div class="Restaurant-data-offers-list">
+             <img
+      class="main3-div2-arrows"
+      src="https://cdn-icons-png.flaticon.com/128/271/271220.png"
+      
+     onclick="left()"/>
+     <div class="Restaurant-data-offers-main" id="offer-left">
+              <div class="Restaurant-data-offers-list-data">
+                <img class="Restaurant-data-offers-list-data-img" src="https://cdn-icons-png.flaticon.com/128/3258/3258504.png">
+                <p>Extra ₹25 Off</p>
+              </div>
+              <div class="Restaurant-data-offers-list-data">
+                <img class="Restaurant-data-offers-list-data-img" src="https://cdn-icons-png.flaticon.com/128/3258/3258504.png">
+                <p>Extra ₹25 Off</p>
+              </div>
+              <div class="Restaurant-data-offers-list-data">
+                <img class="Restaurant-data-offers-list-data-img" src="https://cdn-icons-png.flaticon.com/128/3258/3258504.png">
+                <p>Extra ₹25 Off</p>
+              </div>
+       </div>       
+               <img
+      class="main3-div2-arrows"
+      src="https://cdn-icons-png.flaticon.com/128/271/271228.png"
+      alt=""
+      id="offer-right"
+      onclick="right()"
+    />
+
+        </div>
     </div>
-     
+
+    </div>
+  
+    
+    
+    <div class="Restaurant-data-div2">
+           <img class="Restaurant-data-div2-img" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2025/9/1/41e692b6-ebaf-4c50-a868-ce01003733aa_47597.JPG">
+
+         </div>
+    </div>
+    <div class="Restaurant-menu">
+           <div class="Restaurant-menu-div">
+            <hr class="Restaurant-menu-div-hr">
+            <img class="Restaurant-menu-img" src="https://cdn-icons-png.flaticon.com/128/1046/1046747.png">
+            <span class="Restaurant-menu-div-menu">MENU</span>
+            <hr class="Restaurant-menu-div-hr">
+           </div>
+    </div>
+
+    <div class="Restaurant-menu-main">
+      <button class="Restaurant-menu-main-search" ><img class="Restaurant-menu-main-search-img" src="https://cdn-icons-png.flaticon.com/128/54/54481.png"> Search for dishes </button>
+       <div class="Restaurant-menu-main-sort">
+        <div class="Restaurant-menu-main-sort-div">
+        <p class="Restaurant-menu-main-sort-div-input" ></p>
+        <p>All</p>
+        <img class="Restaurant-menu-main-sort-img" src="https://cdn-icons-png.flaticon.com/128/1143/1143783.png">
+        </div>
+        <div class="Restaurant-menu-main-sort-div">
+        <p class="Restaurant-menu-main-sort-div-input" ></p>
+        <p>Veg</p>
+        <img class="Restaurant-menu-main-sort-img" src="https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/veg-icon.png">
+        </div>
+        <div class="Restaurant-menu-main-sort-div">
+        <p class="Restaurant-menu-main-sort-div-input" ></p>
+        <p>Nonveg </p>
+        <img class="Restaurant-menu-main-sort-img" src="https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/non-veg-icon.svg">
+        </div>
+       </div>
+      <hr class="Restaurant-menu-main-hr12">
+
+      <div class="Restaurant-menu-main-list">
+         <div class="Restaurant-menu-main-list-1">
+         </div>
+
+
+        <div>
+
+        </div>
+      </div>
+    </div>
+
+
 
     </div>
        
-</div>
+
+
+<script>
+  function right(){
+    x=document.getElementById("offer-left")
+    x.scrollBy({ left: 100, behavior: "smooth" });
+  }
+    function left(){
+    x=document.getElementById("offer-left")
+    x.scrollBy({ left: -100, behavior: "smooth" });
+  }
+
+</script>
   {% endblock %}
-</div>
+
