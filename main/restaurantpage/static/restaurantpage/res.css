@@ -219,6 +219,7 @@ grid-column: 2/3;
     justify-content: space-between;
 }
 .Restaurant-menu-main-sort-div{
+    
     display: flex;
     align-items: center;
     gap: 5px;
@@ -229,4 +230,92 @@ grid-column: 2/3;
     border:1.5px solid #262525;
     border-radius: 20px;
    cursor: pointer;
+}
+.Restaurant-menu-main-list-data-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #daf0ff;
+    padding: 1px 5px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.Restaurant-menu-main-list-data-header:hover{
+   
+    background-color: #c6e8fe;
+ 
+    cursor: pointer;
+}
+.Restaurant-menu-main-list-data-header-img{
+    width: 30px;
+    height: 30px;
+}
+.Restaurant-menu-main-list-data-header-name{
+    color: #5c5c5c;
+    font: 1.2em sans-serif;
+
+}
+.Restaurant-menu-main-list-data{
+    margin-top: 30px;
+}
+.Restaurant-menu-main-list-data-header-data{
+    transition: all ease-in-out 1s;
+    
+}
+.Restaurant-menu-main-list-data-header-data-items{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.Restaurant-menu-main-list-data-header-data-items-div1-img{
+    width: 25px;
+    height: 25px;
+}
+.Restaurant-menu-main-list-data-header-data-items-div1-rating{
+    margin-top: 10px;
+}
+.Restaurant-menu-main-list-data-header-data-items-div1-rating-img{
+    
+    width: 13px;
+    height: 13px;
+}
+.Restaurant-menu-main-list-data-header-data-items-div1-description{
+    margin-top: 14px;
+    width: 660px;
+    
+   
+}
+.Restaurant-menu-main-list-data-header-data-items-div2{
+ position: relative;
+}
+.Restaurant-menu-main-list-data-header-data-items-div2-img{
+    width: 180px;
+    height: 160px;
+    border-radius: 20px;
+   
+}
+
+.Restaurant-menu-main-list-data-header-data-items-div2-button{
+    position: absolute;
+   
+    bottom: 30px;
+    left: 35%;
+    font-size: x-large;
+   padding: 2px 6px;
+  background-color: #ffffff;
+  border:0.2px solid  #5c5c5c;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  transition: all ease-in-out 0.2s;
+}
+.Restaurant-menu-main-list-data-header-data-items-div2-button:hover{
+ 
+   padding: 3px 6px;
+  background-color: #caeaff;
+  cursor: pointer;
+ 
+}
+.res-list-hr-break{
+    margin-top: 5px;
+    color: #a8a6a6;
+    border: 0.2px solid rgb(211, 211, 211);
 }
