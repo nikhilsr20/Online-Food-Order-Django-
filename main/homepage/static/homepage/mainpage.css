@@ -3,21 +3,13 @@
 top: 0;
 right: 0;
 left: 0;
-  display: grid;
-grid-template-columns: 100px 1fr 100px;
-grid-template-rows: 10px 400px auto auto auto;
-grid-template-areas: "first first first"
-"second second second"
-". third ."
-". fourth ."
-". fifth .";
-
+  
 }
 
 
 
 .main{
-    grid-area: second;
+    
     margin-top: 55px;
     z-index: -1;
     
@@ -87,7 +79,6 @@ grid-template-areas: "first first first"
 }
 
 .main2{
-    grid-area: fourth;
     display: flex;
     justify-content: space-between;
     margin-inline: 55px;
@@ -140,9 +131,7 @@ grid-template-areas: "first first first"
 }
 
 
-
 .main3{
-    grid-area: third;
     margin-top: 40px;
     margin-inline: 55px;
 }

@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'authentication',
     'django.contrib.sites',
     'allauth',
+    'partner',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
