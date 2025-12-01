@@ -11,6 +11,7 @@
   </head>
   <body>
     <div class="navbar">
+      <div class="navbar-foody-and-location">
       <a href="{% url 'home' %}" class="navbar-1">
         <img
           class="navbar-1-logo"
@@ -28,6 +29,7 @@
         />
         <a class="navbar-2-other" onclick="openlocation()">location</a>
       </div>
+      </div>
 
       <div class="navbar-3">
         <div class="navbar-3-1">
@@ -38,6 +40,14 @@
           />
           <input class="navbar-3-input" type="search" placeholder="search" />
         </div>
+         <div class="navbar-4">
+        <img
+          class="navbar-4-wheel"
+          src="https://cdn-icons-png.flaticon.com/128/8216/8216411.png"
+          alt="location"
+        />
+        <a href="{% url 'meal' %}" class="navbar-4-name">MealWheel</a>
+      </div>
 
 
         
@@ -72,15 +82,13 @@
           />
           <a class="navbar-3-3-cart" href="{% url 'cart' %}">cart</a>
         </div>
-         <div class="navbar-4">
-        <img
-          class="navbar-4-wheel"
-          src="https://cdn-icons-png.flaticon.com/128/8216/8216411.png"
-          alt="location"
-        />
-        <a href="{% url 'meal' %}" class="navbar-4-name">MealWheel</a>
-      </div>
+        
     </div>
+
+    <div>
+       <a href="{% url 'partner' %}" class="navbar-5-name">Partner with us</a>
+    </div>
+
       </div>
 
     </div>

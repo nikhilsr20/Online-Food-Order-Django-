@@ -1,0 +1,102 @@
+.bg {
+    position: fixed;
+    inset: 0;
+    background: url('back.png') center/cover no-repeat;
+    filter: blur(7px) brightness(0.8);
+    z-index: -2;
+       transform: scale(1.1); 
+       transform-origin: center;
+}
+
+.bg::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45); /* 45% transparent black */
+    z-index: -1;
+}
+.logo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.partner-app-logo{
+    width: 50px;
+    height: 50px;
+    
+}
+.partner-app-head{
+    margin-top: 5px;
+    font-size: small;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(255, 255, 255);
+    font-weight: 100;
+    
+    text-shadow: 1px 1px 5px rgb(183, 235, 255);
+}
+.partner-app-hr{
+  width: 130px;
+  margin-bottom: 30px;
+   height: 0.1px;
+  background-color: rgb(211, 211, 211);
+}
+.partner-app-head-changelines-line{
+    font-family: Verdana, Geneva, Tahoma, sans-serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: normal;
+    font-size: xx-large;
+    background: linear-gradient(90deg,#cecece,#7bc8ff,#b3e2fa,#ffffff );
+    -webkit-background-clip: text;
+     color: transparent;
+     transition: all ease-in-out 2s;
+}
+
+.partner-login{
+    margin-top: 100px;
+      background-color: #fdfdfd; 
+   width: fit-content;
+  height: fit-content;
+  border: 1px solid rgb(228, 227, 227);
+  padding: 30px;
+  border-radius: 10px;
+    
+}
+.partner-login-head{
+      font-size: x-larger;
+   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.partner-login-p1{
+    font-family: 'Times New Roman', Times, serif;
+    color: #616060;
+}
+.partner-login-input{
+    display: block;
+    width: 320px;
+    height: 30px;
+   font-size: large;
+   border-radius: 4px;
+   border: 0.2px solid rgb(174, 174, 174);
+}
+.partner-login-input:focus{
+    outline: none;
+}
+.partner-login-input::placeholder{
+    color: #b0afaf;
+}
+.partner-login-button{
+    width: 325px;
+    height: 30px;
+    margin-top: 10px;
+    background-color: #76bcf5;
+    border: 0.4px solid rgb(86, 86, 86);
+    color: white;
+    font-size: large;
+}
+.partner-login-button:hover{
+   cursor: pointer;
+    background-color: #339bf1;
+    
+}
+.partner-login-p2{
+    font-family: 'Times New Roman', Times, serif;
+    color: #818080;
+}

@@ -8,6 +8,47 @@
 </head>
 <link rel="stylesheet" href="{% static 'partner/partner.css'%}">
 <body>
-    <h1> hello </h1>
+    <div class="bg">
+         
+    </div>
+     <div class="logo">
+             <img
+          class="partner-app-logo"
+          src="https://cdn-icons-png.flaticon.com/128/9526/9526193.png"
+          alt="logo"
+        />
+        <span class="partner-app-head">PARTNER WITH FOODY!</span>
+        <hr class="partner-app-hr">
+
+        <div class="partner-app-head-changelines" >
+              <span class="partner-app-head-changelines-line" id="x">Access to Foody tools and support</span>
+        </div>
+
+
+
+        <div class="partner-login">
+            <h3 class="partner-login-head">Get Started</h3>
+             <p class="partner-login-p1">Enter a mobile number or restaurant ID to continue</p>
+
+             <input class="partner-login-input" type="phone" placeholder="Enter Restaurant id  or Mobile number">
+
+             <button class="partner-login-button">Continue</button>
+
+             <p class="partner-login-p2">
+By logging in, I agree to Foody’s 
+terms & conditions</p>
+        </div>
+          </div>
+
+
+          <script>
+               a=["Increase your online orders","Access to Foody tools and support","Reach customers far away from you"]
+               let y=document.getElementById("x")
+                setInterval(() => {
+            let pop = a.shift();
+            y.textContent = pop; 
+            a.push(pop);
+        }, 2000);
+          </script>
 </body>
 </html>
