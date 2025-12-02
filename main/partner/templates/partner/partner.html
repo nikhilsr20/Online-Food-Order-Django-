@@ -30,9 +30,29 @@
             <h3 class="partner-login-head">Get Started</h3>
              <p class="partner-login-p1">Enter a mobile number or restaurant ID to continue</p>
 
-             <input class="partner-login-input" type="phone" placeholder="Enter Restaurant id  or Mobile number">
+         
+            <form method="post">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
 
+    <div>
+        {{ form.phone.errors }}
+        {{ form.phone }}
+    </div>
+
+    <div>
+        {{ form.password.errors }}
+        {{ form.password }}
+    </div>
+
+    <div>
+        {{ form.confirmpass.errors }}
+        {{ form.confirmpass }}
+    </div>
              <button class="partner-login-button">Continue</button>
+             </form>
+
+             <a class="loginhref" href="{% url 'partnerlogin'%}" >Login</a>
 
              <p class="partner-login-p2">
 By logging in, I agree to Foody’s 
@@ -42,6 +62,12 @@ terms & conditions</p>
 
 
           <script>
+
+
+            if ( window.history.replaceState ) {
+                  window.history.replaceState( null, null, window.location.href );
+             }
+
                a=["Increase your online orders","Access to Foody tools and support","Reach customers far away from you"]
                let y=document.getElementById("x")
                 setInterval(() => {
@@ -49,6 +75,9 @@ terms & conditions</p>
             y.textContent = pop; 
             a.push(pop);
         }, 2000);
+   
+  
+
           </script>
 </body>
 </html>

@@ -1,16 +1,38 @@
 from django.db import models
 
+from django.core import validators
+
+from django.core.exceptions import ValidationError
+
+def passwordcheck(value):
+   if len(str(value))<6:
+      raise ValidationError("password is too short")
+
+
+
+class PartnerSignup(models.Model):
+    phone=models.CharField(max_length=10)
+    password=models.CharField(max_length=100,validators=[passwordcheck])
+    confirmpass=models.CharField(max_length=100)
+
+
+
+
+
+
+
+
 # Create your models here.
 class Restaurants(models.Model):
-    Name=models.CharField(max_length=100)
+    Name = models.CharField(max_length=100, null=True, blank=True)
     description = models.TextField(blank=True)
-    Location=models.CharField(max_length=150)
+    Location = models.CharField(max_length=150, null=True, blank=True)
     Timeopen=models.TimeField(blank=True,null=True)
     Closetime=models.TimeField(blank=True,null=True)
-    image=models.URLField(blank=True)
-    city=models.CharField(max_length=30)
+    image = models.URLField(blank=True, null=True)
+    city = models.CharField(max_length=30, null=True, blank=True)
     Isopen=models.BooleanField(default=True)
-    rating=models.FloatField(default=0)
+    rating = models.FloatField(default=0, null=True, blank=True)
     deliverytime=models.FloatField(default=30)
     
     class Meta:

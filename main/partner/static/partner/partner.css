@@ -69,6 +69,7 @@
     color: #616060;
 }
 .partner-login-input{
+    margin-top: 15px;
     display: block;
     width: 320px;
     height: 30px;
@@ -90,6 +91,7 @@
     border: 0.4px solid rgb(86, 86, 86);
     color: white;
     font-size: large;
+    margin-bottom: 10px;
 }
 .partner-login-button:hover{
    cursor: pointer;
@@ -99,4 +101,23 @@
 .partner-login-p2{
     font-family: 'Times New Roman', Times, serif;
     color: #818080;
+}
+.errorlist{
+    color: red;
+    list-style-type: none;
+}
+
+.loginhref{
+    margin-top: 30px;
+    color: black;
+    /* text-decoration: none; */
+    font-size: larger;
+    transition:all ease 0.3s;
+}
+.loginhref:hover{
+
+    color: rgb(42, 134, 255);
+  
+    
+    
 }
