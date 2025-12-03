@@ -1,0 +1,81 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <link rel="stylesheet" href="{% static 'partner/partner.css'%}" />
+  <body>
+    <div class="partner-1">
+    <div class="partner-navbar">
+      <div>
+        <a class="partner-navbar-1">
+          <img
+            class="partner-navbar-img-logo"
+            src="https://cdn-icons-png.flaticon.com/128/9526/9526193.png"
+            alt="logo"
+          />
+          <p>Foody</p>
+        </a>
+      </div>
+
+      <div class="partner-navbar-2">
+        <div class="partner-navbar-2-1">
+            <img class="partner-navbar-img" src="https://cdn-icons-png.flaticon.com/128/1828/1828673.png">
+            <p class="partner-navbar-img-title">Dashboard</p>
+        </div>
+         <div class="partner-navbar-2-1">
+            <img class="partner-navbar-img" src="https://cdn-icons-png.flaticon.com/128/18782/18782664.png">
+            <p class="partner-navbar-img-title">Orders</p>
+        </div>
+         <div class="partner-navbar-2-1">
+            <img class="partner-navbar-img" src="https://cdn-icons-png.flaticon.com/128/1046/1046747.png">
+            <p class="partner-navbar-img-title">Menu</p>
+        </div>
+      </div>
+
+      <div class="partner-navbar-3">
+        <img
+          class="partner-navbar-img"
+          src="https://cdn-icons-png.flaticon.com/128/1077/1077114.png"
+          alt="profile"
+        />
+
+        {% if not request.session.username %}
+        <a class="partner-navbar-signin" href="{% url 'partner' %}"> Sign in </a>
+        {% else %}
+        <div class="navbar-3-2-div">
+          <h3  class="navbar-username partner-navbar-img-title">{{ request.session.username }}</h3>
+          <div class="profile-list">
+            <ul>
+               <li class="profile-list-li">
+                
+                <a class="profile-list-li-1" href="{% url 'partnerlogin' %}"
+                  > Profile</a
+                >
+              </li>
+              <li class="profile-list-li">
+                
+                <a class="profile-list-li-1" href="{% url 'partnerlogout' %}"
+                 onclick="logout()" > Logout</a
+                >
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+
+    </div>
+    </div>
+
+   
+
+    {% block body %}
+    
+    {%endblock%}
+  </body>
+</html>

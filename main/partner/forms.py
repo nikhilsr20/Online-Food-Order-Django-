@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import PartnerSignup
+from .models import PartnerSignup,Restaurants
 
 
 class PartnerSignupForm(ModelForm):
@@ -8,6 +8,10 @@ class PartnerSignupForm(ModelForm):
         model = PartnerSignup
         fields = "__all__" 
         widgets = {
+        'username': forms.TextInput(attrs={
+        'class': 'partner-login-input',
+        'placeholder': 'Enter username'
+         }),    
         'phone': forms.TextInput(attrs={
         'class': 'partner-login-input',
         'placeholder': 'Enter your Mobile number'
@@ -78,8 +82,5 @@ class PartnerLoginForm(ModelForm):
         if user is not None:
             if user.password!=password:
                 raise forms.ValidationError("The password is wrong")
-                 
-            
-            
-        
         return password  
+    

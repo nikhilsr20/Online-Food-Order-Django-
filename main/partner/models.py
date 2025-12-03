@@ -11,9 +11,11 @@ def passwordcheck(value):
 
 
 class PartnerSignup(models.Model):
+    username=models.CharField(max_length=100,default="user")
     phone=models.CharField(max_length=10)
     password=models.CharField(max_length=100,validators=[passwordcheck])
     confirmpass=models.CharField(max_length=100)
+
 
 
 
