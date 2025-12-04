@@ -26,16 +26,34 @@ class PartnerSignup(models.Model):
 
 # Create your models here.
 class Restaurants(models.Model):
+    VEG='veg'
+    NONVEG='nonveg'
+    Both='both'
+    cho=[
+       (VEG,'veg'),
+       (NONVEG,'nonveg'),
+       (Both,'both')
+
+    ]
+    
+
     Name = models.CharField(max_length=100, null=True, blank=True)
+    Restauranttype=models.CharField(max_length=20,choices=cho,default=Both)
+    Cuisenetypes=models.CharField(max_length=100,default="Indian")
     description = models.TextField(blank=True)
+    image = models.URLField(blank=True, null=True)
+
     Location = models.CharField(max_length=150, null=True, blank=True)
+    city = models.CharField(max_length=30, null=True, blank=True)
+    state=models.CharField()
+    pincode=models.CharField(max_length=10)
+
+    rating = models.FloatField(default=0, null=True, blank=True)
+    
+    deliverytime=models.FloatField(default=30)
     Timeopen=models.TimeField(blank=True,null=True)
     Closetime=models.TimeField(blank=True,null=True)
-    image = models.URLField(blank=True, null=True)
-    city = models.CharField(max_length=30, null=True, blank=True)
     Isopen=models.BooleanField(default=True)
-    rating = models.FloatField(default=0, null=True, blank=True)
-    deliverytime=models.FloatField(default=30)
     
     class Meta:
         verbose_name_plural = "Restaurants"

@@ -52,7 +52,11 @@ def login(request):
             
     return render(request,'partner/partnerlogin.html',{'form':form})
 
-@never_cache
+
 def logout(request):
     request.session.flush()
     return redirect('partnerlogin')
+
+
+def profile(request):
+    return render(request,'partner/partner-profile.html')
