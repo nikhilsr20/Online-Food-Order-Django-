@@ -1,3 +1,4 @@
+
 .bg {
     position: fixed;
     inset: 0;
@@ -237,4 +238,129 @@ gap: 80px;
    color: #339bf1;
    transition: all ease-in 0.3s;
    cursor: pointer;
+}
+
+/* profile page */
+
+.partner-body{
+    margin: -20px;
+   padding: 0px;
+   margin-top: -10px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+
+.Partner-profile{
+    display: flex;
+     
+}
+.partner-profile-1{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    width: 350px;
+    padding: 10px;
+    height: 100vh;
+    background: linear-gradient(180deg,#a6f5ff,#87c4f6,#3b9ff1);
+}
+.partner-profile-1-img{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: all ease-in 0.1s;
+}
+.partner-profile-1-img:hover{
+   transform: scale(1.1);
+    
+}
+.partner-profile-1-head{
+    
+ font-size: xx-large;
+ font-family: sans-serif;
+ word-break: keep-all;
+ margin-top: 59px;
+ color: #5d5d5d;
+  background: linear-gradient(90deg, #5d5e61,#02266f,#4f4f4f);
+    -webkit-background-clip: text;
+    color: transparent;
+ 
+}
+.partner-profile-1-div{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    font-family: serif;
+}
+.partner-profile-1-div1 , .partner-profile-1-div2, .partner-profile-1-div3{
+    display: flex;
+   
+    gap: 20px;
+    margin-top: 15px;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+.partner-profile-1-div1-circle{
+    width: 55px;
+    height: 55px;
+    border-radius: 50px;
+    /* border: 1px solid #000000; */
+    background-color: #ffffff;
+}
+.partner-profile-1-div1-p{
+    font-size: x-large;
+    background: linear-gradient(90deg, #191919,#3c3b3b,#4f4f4f);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.partner-profile-2{
+    flex: 1;   
+    margin-left: 400px;
+    
+}
+
+.partner-profile-2-head1{
+      font-size: 40px;
+    color: white;
+    display: block;
+    width: 100%;
+    background: linear-gradient(90deg,#2275e2,#58adf2,#8dc0ea);
+    padding: 2px 6px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+.partner-profile-2-nav{
+    /* border-bottom: 0.2px solid rgb(183, 180, 180); */
+    padding: 1px;
+}
+.partner-profile-2-div1{
+    /* border: 1px solid #000; */
+    height: 84vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding:5px;
+}
+.partner-profile-2-head2{
+    font-size: xx-large;
+font-family: Arial, Helvetica, sans-serif;
+ background: linear-gradient(90deg, #13097b,#3c3b3b,#4f4f4f);
+    -webkit-background-clip: text;
+    color: transparent;
+    border: 0.1px solid rgb(212, 212, 212);
+    width: fit-content;
+    border-radius:10px ;
+    box-shadow: 1px 1px 5px 1px #3b9ff1;
+    padding:4px 10px;
+    
+}
+
+
+.partner-profile-2-restaurant-p{
+    font-size: x-large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 3px;
 }

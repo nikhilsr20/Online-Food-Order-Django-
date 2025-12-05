@@ -37,22 +37,22 @@ class Restaurants(models.Model):
     ]
     
 
-    Name = models.CharField(max_length=100, null=True, blank=True)
+    Name = models.CharField(max_length=100)
     Restauranttype=models.CharField(max_length=20,choices=cho,default=Both)
-    Cuisenetypes=models.CharField(max_length=100,default="Indian")
+    Cuisenetypes=models.CharField(max_length=100,default="Indian,Chinese")
     description = models.TextField(blank=True)
     image = models.URLField(blank=True, null=True)
 
-    Location = models.CharField(max_length=150, null=True, blank=True)
-    city = models.CharField(max_length=30, null=True, blank=True)
+    Location = models.CharField(max_length=150)
+    city = models.CharField(max_length=30)
     state=models.CharField()
     pincode=models.CharField(max_length=10)
 
     rating = models.FloatField(default=0, null=True, blank=True)
     
     deliverytime=models.FloatField(default=30)
-    Timeopen=models.TimeField(blank=True,null=True)
-    Closetime=models.TimeField(blank=True,null=True)
+    Timeopen=models.TimeField()
+    Closetime=models.TimeField()
     Isopen=models.BooleanField(default=True)
     
     class Meta:

@@ -3,6 +3,69 @@ from django.forms import ModelForm
 from .models import PartnerSignup,Restaurants
 
 
+class RestaurantsForm(ModelForm):
+
+    class Meta:
+        model=Restaurants
+        fields= "__all__"
+        widgets = {
+        'name': forms.TextInput(attrs={'class': 'Restaurant-name', 'placeholder': "Enter Restaurant Name"}),
+        'restaurant_type': forms.TextInput(attrs={'class': 'Restaurant-type', 'placeholder': "Enter Restaurant Type"}),
+        'cuisine_types': forms.TextInput(attrs={'class': 'Restaurant-cuisines', 'placeholder':"Enter Restaurant cuisines"}),
+        'description': forms.Textarea(attrs={'class':'Restaurant-description','placeholder':"Enter Restaurant Description"}),
+        'image': forms.FileInput(attrs={'class':'Restaurant-img'}),
+        'Location': forms.TextInput(attrs={
+                'class': 'Restaurant-location',
+                'placeholder': "Enter Full Location"
+            }),
+        'city': forms.TextInput(attrs={
+                 'class': 'Restaurant-city',
+                'placeholder': "Enter City Name"
+            }),
+        'state': forms.TextInput(attrs={
+                'class': 'Restaurant-state',
+                'placeholder': "Enter State Name"
+            }),
+        'pincode': forms.TextInput(attrs={
+                'class': 'Restaurant-pincode',
+                'placeholder': "Enter Pincode"
+            }),
+
+       
+        'rating': forms.NumberInput(attrs={
+                'class': 'Restaurant-rating',
+                'placeholder': "Rating (0 to 5)",
+                'step': "0.1",
+                'min': "0",
+                'max': "5"
+            }),
+         'deliverytime': forms.NumberInput(attrs={
+                'class': 'Restaurant-delivery-time',
+                'placeholder': "Delivery time in minutes"
+            }),
+
+        
+        'Timeopen': forms.TimeInput(attrs={
+                'class': 'Restaurant-time-open',
+                'type': 'time'
+            }),
+        'Closetime': forms.TimeInput(attrs={
+                'class': 'Restaurant-time-close',
+                'type': 'time'
+            }),
+
+
+        'Isopen': forms.CheckboxInput(attrs={
+                'class': 'Restaurant-isopen'
+            }),
+        }
+
+
+
+    
+
+
+
 class PartnerSignupForm(ModelForm):
     class Meta:
         model = PartnerSignup

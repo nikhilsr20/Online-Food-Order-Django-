@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,41 +7,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Partner-Profile</title>
 </head>
-<body>
-    <div class="partner-profile">
+
+<link rel="stylesheet" href="{% static 'partner/partner.css'%}">
+<body class="partner-body">
+    <div class="Partner-profile">
+
     <div class="partner-profile-1">
-        <img src="https://cdn-icons-png.flaticon.com/128/8022/8022662.png" alt="">
-        <div>Fill in your restaurant details to help us verify and set up your partner account</div>
-        <div>
-            <div>
-              <div></div>
-              <p>Restaurant Details</p>
+        <img class="partner-profile-1-img" src="https://cdn-icons-png.flaticon.com/128/2099/2099238.png" alt="">
+        <div class="partner-profile-1-head">Fill your restaurant details to help us verify and set up your partner account</div>
+        <div class="partner-profile-1-div">
+            <div class="partner-profile-1-div1">
+              <div class="partner-profile-1-div1-circle"></div>
+              <p class="partner-profile-1-div1-p">Restaurant Details</p>
             </div>
-            <div>
-                 <div></div>
-              <p>Restaurant Location</p>
+            <div class="partner-profile-1-div2">
+                 <div class="partner-profile-1-div1-circle"></div>
+              <p class="partner-profile-1-div1-p">Restaurant Location</p>
             </div>
-            <div>
-                 <div></div>
-              <p>Restaurant Timing</p>
+            <div class="partner-profile-1-div3">
+                 <div class="partner-profile-1-div1-circle"></div>
+              <p class="partner-profile-1-div1-p">Restaurant Timing</p>
             </div>
         </div>
 
         
     </div>
+
     <div class="partner-profile-2">
-        <h1>Partner with us</h1>
-          <h1>Complete your Restaurant Profile</h1>
+      <div class="partner-profile-2-nav">
+        <p class="partner-profile-2-head1">Partner with us</p>
+        <hr>
+      </div>
+      <div class="partner-profile-2-div1">
+          <h1 class="partner-profile-2-head2">Complete your Restaurant Profile</h1>
           <div class="partner-profile-2-restaurantdetails">
+            <p class="partner-profile-2-restaurant-p"> Restaurant Details </p>
+            <div class="partner-profile-2-restaurantdetails-div">
+
+            </div>
              
           </div>
            <div class="partner-profile-2-restaurantlocation">
-             
+             <p class="partner-profile-2-restaurant-p"> Restaurant Location </p>
+             <div class="partner-profile-2-restaurantlocation-div">
+              
+            </div>
           </div>
            <div class="partner-profile-2-restauranttiming">
-             
+             <p class="partner-profile-2-restaurant-p"> Restaurant Timing </p>
+             <div class="partner-profile-2-restauranttiming-div">
+              
+            </div>
           </div>
           <button>Save & continue</button>
+          </div>
     </div>
     </div>
 </body>
