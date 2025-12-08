@@ -60,7 +60,7 @@ def logout(request):
 
 
 def profile(request):
-    phone = request.session.get['phone']
+    phone = request.session.get('users-phone')
      
     user_instance=get_object_or_404(PartnerSignup,phone=phone)
 
@@ -71,8 +71,8 @@ def profile(request):
 
 
   
-    if request.POST:
-        form=RestaurantsForm(request.POST,instance=restaurant_instance)
+    if request.method=='POST':
+        form=RestaurantsForm(request.POST,request.FILES,instance=restaurant_instance)
 
         if form.is_valid():
           
@@ -81,5 +81,5 @@ def profile(request):
             res.save()
 
     else:
-        form=RestaurantsForm()
+        form=RestaurantsForm(instance=restaurant_instance)
     return render(request,'partner/partner-profile.html',{'form':form})

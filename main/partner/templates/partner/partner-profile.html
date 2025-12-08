@@ -40,26 +40,52 @@
       </div>
       <div class="partner-profile-2-div1">
           <h1 class="partner-profile-2-head2">Complete your Restaurant Profile</h1>
+          <form method="post" enctype="multipart/form-data" >
+            {% csrf_token %}
           <div class="partner-profile-2-restaurantdetails">
             <p class="partner-profile-2-restaurant-p"> Restaurant Details </p>
+            
             <div class="partner-profile-2-restaurantdetails-div">
+                  {{form.Name}}
+                  {{form.Restauranttype}}
                   
+                  {{form.Cuisenetypres}}
+                  {{form.description}}
+                  {{form.image}}
+                  {{form.non_field_errors}}
+                
+
             </div>
              
           </div>
            <div class="partner-profile-2-restaurantlocation">
              <p class="partner-profile-2-restaurant-p"> Restaurant Location </p>
              <div class="partner-profile-2-restaurantlocation-div">
+              {{form.Location}}
+              {{form.city}}
+              {{form.state}}
+              {{form.pincode}}
+              {{form.non_field_errors}}
+
               
             </div>
           </div>
            <div class="partner-profile-2-restauranttiming">
              <p class="partner-profile-2-restaurant-p"> Restaurant Timing </p>
              <div class="partner-profile-2-restauranttiming-div">
+
+              {{form.deliverytime}}
+              {{form.Timeopen}}
+              {{form.Closetime}}
+              {{form.Isopen}}
+              {{form.non_field_errors}}
               
             </div>
           </div>
-          <button>Save & continue</button>
+          
+
+          <button class="partne-profile-submit-button">Save & continue</button>
+          </form>
           </div>
     </div>
     </div>
