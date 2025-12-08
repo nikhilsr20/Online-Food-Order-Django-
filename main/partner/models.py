@@ -1,5 +1,5 @@
 from django.db import models
-
+import datetime
 from django.core import validators
 
 from django.core.exceptions import ValidationError
@@ -36,23 +36,23 @@ class Restaurants(models.Model):
 
     ]
     
-
-    Name = models.CharField(max_length=100)
-    Restauranttype=models.CharField(max_length=20,choices=cho,default=Both)
-    Cuisenetypes=models.CharField(max_length=100,default="Indian,Chinese")
+    user = models.OneToOneField(PartnerSignup,on_delete=models.CASCADE,null=True, blank=True,related_name='USER')
+    Name = models.CharField(max_length=100,blank=True, null=True)
+    Restauranttype=models.CharField(max_length=20,choices=cho,default=Both,blank=True, null=True)
+    Cuisenetypes=models.CharField(max_length=100,default="Indian,Chinese",blank=True, null=True)
     description = models.TextField(blank=True)
     image = models.URLField(blank=True, null=True)
 
-    Location = models.CharField(max_length=150)
-    city = models.CharField(max_length=30)
-    state=models.CharField()
-    pincode=models.CharField(max_length=10)
+    Location = models.CharField(max_length=150,blank=True, null=True)
+    city = models.CharField(max_length=30,blank=True, null=True)
+    state=models.CharField(max_length=100,blank=True, null=True)
+    pincode=models.CharField(max_length=10,default="000000")
 
     rating = models.FloatField(default=0, null=True, blank=True)
     
-    deliverytime=models.FloatField(default=30)
-    Timeopen=models.TimeField()
-    Closetime=models.TimeField()
+    deliverytime=models.FloatField(default=30,blank=True, null=True)
+    Timeopen=models.TimeField(default=datetime.time(9,0))
+    Closetime=models.TimeField(default=datetime.time(22,0))
     Isopen=models.BooleanField(default=True)
     
     class Meta:

@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from django.shortcuts import redirect
-from .forms import PartnerSignupForm,PartnerLoginForm
-from .models import PartnerSignup
+from .forms import PartnerSignupForm,PartnerLoginForm,RestaurantsForm
+from .models import PartnerSignup,Restaurants
 from django.views.decorators.cache import never_cache
+
 # Create your views here.
 def signup(request):
     if request.method=='POST':
@@ -59,4 +60,26 @@ def logout(request):
 
 
 def profile(request):
-    return render(request,'partner/partner-profile.html')
+    phone = request.session.get['phone']
+     
+    user_instance=get_object_or_404(PartnerSignup,phone=phone)
+
+    try:
+        restaurant_instance=user_instance.USER
+    except Restaurants.DoesNotExist:
+        restaurant_instance=None
+
+
+  
+    if request.POST:
+        form=RestaurantsForm(request.POST,instance=restaurant_instance)
+
+        if form.is_valid():
+          
+            res=form.save(commit=False)
+            res.user=user_instance
+            res.save()
+
+    else:
+        form=RestaurantsForm()
+    return render(request,'partner/partner-profile.html',{'form':form})
