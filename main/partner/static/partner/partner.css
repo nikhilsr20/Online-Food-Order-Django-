@@ -364,3 +364,146 @@ font-family: Arial, Helvetica, sans-serif;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-left: 3px;
 }
+.partner-all-p{
+    font-size: larger;
+    font-family: sans-serif;
+}
+.partner-profile-2-restaurantdetails-div{
+    margin-left: 20px;
+}
+.Restaurant-name{
+    width: 500px;
+    height: 49px;
+    margin-bottom: 20px;
+    font-size: large;
+    border-radius: 10px;
+    border: 0.2px solid rgb(83, 82, 82);
+    padding: 3px;
+}
+.Restaurant-name:focus{
+  outline: none;
+box-shadow: 1px 1px 4px 1px #3a88f5;
+ border-radius: 10px;
+    border: 0.2px solid rgb(83, 82, 82);
+    cursor: pointer;
+}
+
+
+.Restaurant-type{
+    width:400px;
+    height: 40px;
+    font-size: large;
+    margin-bottom: 20px;
+    padding: 3px;
+}
+.Restaurant-type:focus{
+    outline: none;
+box-shadow: 1px 1px 4px 1px #3a88f5;
+    font-size: x-large;
+    cursor: pointer;
+}
+.Restaurant-cuisines{
+     width: 500px;
+    height: 49px;
+    margin-bottom: 20px;
+    font-size: large;
+    border-radius: 10px;
+    border: 0.2px solid rgb(83, 82, 82);
+    padding: 3px;
+    
+}
+.Restaurant-cuisines:focus{
+   outline: none;
+box-shadow: 1px 1px 4px 1px #3a88f5;
+    
+    cursor: pointer;
+}
+.Restaurant-description{
+      width: 1000px;
+    height: 109px;
+    margin-bottom: 20px;
+    font-size: large;
+    border-radius: 10px;
+    border: 0.2px solid rgb(83, 82, 82);
+    padding: 3px;
+}
+.Restaurant-description:focus{
+       outline: none;
+box-shadow: 1px 1px 4px 1px #3a88f5;
+    
+    cursor: pointer;
+}
+.Restaurant-img{
+     display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.partner-profile-2-restaurantdetails{
+    border: 0.2px solid #9b9b9b;
+    padding: 5px;
+    background-color: #d1eaff;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+.partner-profile-2-restaurant-p{
+    font-weight: bolder;
+    width: fit-content;
+    border: 0.2px solid rgb(165, 165, 165);
+    padding: 3px 5px;
+    color: #fafafa;
+    border-radius: 10px;
+    background-color: #549bff;
+}
+.Restaurant-location{
+     width: 500px;
+    height: 49px;
+    margin-bottom: 20px;
+    font-size: large;
+    border-radius: 10px;
+    border: 0.2px solid rgb(83, 82, 82);
+    padding: 3px;
+}
+.Restaurant-location:focus{
+   outline: none;
+box-shadow: 1px 1px 4px 1px #3a88f5;
+    
+    cursor: pointer;
+}
+.Restaurant-time{
+     width: 200px;
+    height: 49px;
+    margin-bottom: 20px;
+    font-size: large;
+    border-radius: 10px;
+    border: 0.2px solid rgb(83, 82, 82);
+    padding: 3px;
+}
+.isopen-flex{
+    display: flex;
+    
+}
+.partner-profile-submit-button{
+    margin: 20px ;
+    background-color: #ffffff;
+    width: 200px;
+    height: 40px;
+    border: 0.6px solid #807f7f;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all ease-in-out 0.2s;
+}
+.partner-profile-submit-button:hover{
+   background-color: #2275e2;
+   color: aliceblue;
+}
+
+.partner-button-flex{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 40px;
+    margin-bottom: 30px;
+}

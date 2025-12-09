@@ -46,45 +46,102 @@
             <p class="partner-profile-2-restaurant-p"> Restaurant Details </p>
             
             <div class="partner-profile-2-restaurantdetails-div">
+                  <div>
+                  <h1 class="partner-all-p">Restaurant Name</h1>
                   {{form.Name}}
-                  {{form.Restauranttype}}
                   
-                  {{form.Cuisenetypres}}
-                  {{form.description}}
-                  {{form.image}}
+                  </div>
+                  <div>
+                    <h1 class="partner-all-p">Restaurant Type</h1>
+                      {{form.Restauranttype}}
+                    
+                  </div>
+                   <div>
+                    <h1 class="partner-all-p">Restaurant Cuisenes</h1>
+                  {{form.Cuisenetypes}}
+                  </div>
+                  <div>
+                    <h1 class="partner-all-p">Description</h1>
+                    {{form.description}}
+                  </div>
+                  <div>
+                  <h1 class="partner-all-p">Restaurant Image</h1>
+
+                    {{form.image}}
+                  </div>
                   {{form.non_field_errors}}
-                
+           
+              
 
             </div>
              
           </div>
-           <div class="partner-profile-2-restaurantlocation">
+           <div class="partner-profile-2-restaurantdetails">
              <p class="partner-profile-2-restaurant-p"> Restaurant Location </p>
-             <div class="partner-profile-2-restaurantlocation-div">
+             <div class="partner-profile-2-restaurantdetails-div">
+              <div>
+                  <h1 class="partner-all-p">Location</h1>
               {{form.Location}}
+              </div>
+              <div>
+                  <h1 class="partner-all-p">City</h1>
               {{form.city}}
-              {{form.state}}
-              {{form.pincode}}
+              </div>
+               <div>
+                  <h1 class="partner-all-p">State</h1>
+               {{form.state}}
+              </div>
+              <div>
+                  <h1 class="partner-all-p">Pincode</h1>
+               {{form.pincode}}
+              </div>
+             
+
+              
+
+              
+             
+              
               {{form.non_field_errors}}
 
               
             </div>
           </div>
-           <div class="partner-profile-2-restauranttiming">
+           <div class="partner-profile-2-restaurantdetails">
              <p class="partner-profile-2-restaurant-p"> Restaurant Timing </p>
-             <div class="partner-profile-2-restauranttiming-div">
+             <div class="partner-profile-2-restaurantdetails-div">
 
+               <div>
+                  <h1 class="partner-all-p">Deliverytime(min)</h1>
               {{form.deliverytime}}
-              {{form.Timeopen}}
-              {{form.Closetime}}
-              {{form.Isopen}}
+              </div>
+               <div>
+                  <h1 class="partner-all-p">Opening Time</h1>
+               {{form.Timeopen}}
+              </div>
+
+              <div>
+                  <h1 class="partner-all-p">Closing Time</h1>
+               {{form.Closetime}}
+              </div>
+
+               <div class="isopen-flex">
+                  <h1 class="partner-all-p">Is open  </h1>
+                  {{form.Isopen}}
+                 
+              </div>
+
+             
+              
+            
               {{form.non_field_errors}}
               
             </div>
           </div>
           
-
-          <button class="partne-profile-submit-button">Save & continue</button>
+             <div class="partner-button-flex">
+          <button class="partner-profile-submit-button">Save & continue</button>
+          </div>
           </form>
           </div>
     </div>

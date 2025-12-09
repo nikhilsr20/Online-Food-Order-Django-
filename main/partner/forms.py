@@ -9,9 +9,9 @@ class RestaurantsForm(ModelForm):
         model=Restaurants
         fields= "__all__"
         widgets = {
-        'name': forms.TextInput(attrs={'class': 'Restaurant-name', 'placeholder': "Enter Restaurant Name"}),
-        'restaurant_type': forms.TextInput(attrs={'class': 'Restaurant-type', 'placeholder': "Enter Restaurant Type"}),
-        'cuisine_types': forms.TextInput(attrs={'class': 'Restaurant-cuisines', 'placeholder':"Enter Restaurant cuisines"}),
+        'Name': forms.TextInput(attrs={'class': 'Restaurant-name', 'placeholder': "Enter Restaurant Name"}),
+        'Restauranttype': forms.Select(attrs={'class': 'Restaurant-type', 'placeholder': "Enter Restaurant Type"}),
+        'Cuisenetypes': forms.TextInput(attrs={'class': 'Restaurant-cuisines', 'placeholder':"Enter Restaurant cuisines"}),
         'description': forms.Textarea(attrs={'class':'Restaurant-description','placeholder':"Enter Restaurant Description"}),
         'image': forms.FileInput(attrs={'class':'Restaurant-img'}),
         'Location': forms.TextInput(attrs={
@@ -19,15 +19,15 @@ class RestaurantsForm(ModelForm):
                 'placeholder': "Enter Full Location"
             }),
         'city': forms.TextInput(attrs={
-                 'class': 'Restaurant-city',
+                 'class': 'Restaurant-location',
                 'placeholder': "Enter City Name"
             }),
         'state': forms.TextInput(attrs={
-                'class': 'Restaurant-state',
+                'class': 'Restaurant-location',
                 'placeholder': "Enter State Name"
             }),
         'pincode': forms.TextInput(attrs={
-                'class': 'Restaurant-pincode',
+                'class': 'Restaurant-location',
                 'placeholder': "Enter Pincode"
             }),
 
@@ -40,23 +40,23 @@ class RestaurantsForm(ModelForm):
                 'max': "5"
             }),
          'deliverytime': forms.NumberInput(attrs={
-                'class': 'Restaurant-delivery-time',
+                'class': 'Restaurant-time',
                 'placeholder': "Delivery time in minutes"
             }),
 
         
         'Timeopen': forms.TimeInput(attrs={
-                'class': 'Restaurant-time-open',
+                'class': 'Restaurant-time',
                 'type': 'time'
             }),
         'Closetime': forms.TimeInput(attrs={
-                'class': 'Restaurant-time-close',
+                'class': 'Restaurant-time',
                 'type': 'time'
             }),
 
 
         'Isopen': forms.CheckboxInput(attrs={
-                'class': 'Restaurant-isopen'
+                'class': 'Restaurant-time'
             }),
         }
 
