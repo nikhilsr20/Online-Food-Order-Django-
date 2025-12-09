@@ -498,7 +498,7 @@ box-shadow: 1px 1px 4px 1px #3a88f5;
 }
 .partner-profile-submit-button:hover{
    background-color: #2275e2;
-   color: aliceblue;
+   color: rgb(227, 227, 227);
 }
 
 .partner-button-flex{
@@ -506,4 +506,6 @@ box-shadow: 1px 1px 4px 1px #3a88f5;
     justify-content: flex-end;
     margin-right: 40px;
     margin-bottom: 30px;
+
+
 }
