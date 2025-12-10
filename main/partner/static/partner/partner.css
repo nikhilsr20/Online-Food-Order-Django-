@@ -26,6 +26,16 @@
     height: 50px;
     
 }
+.partner-navbar-img-menu{
+    text-decoration: none;
+    color: black;
+    
+}
+.partner-navbar-img-menu:hover{
+   color: #339bf1;
+   transition: all ease-in 0.3s;
+   cursor: pointer;
+}
 .partner-app-head{
     margin-top: 5px;
     font-size: small;
@@ -509,3 +519,6 @@ box-shadow: 1px 1px 4px 1px #3a88f5;
 
 
 }
+
+
+/* menu page */

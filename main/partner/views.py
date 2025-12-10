@@ -83,3 +83,6 @@ def profile(request):
     else:
         form=RestaurantsForm(instance=restaurant_instance)
     return render(request,'partner/partner-profile.html',{'form':form})
+
+def menu(request):
+    return render(request,'partner/partner-menu.html')
