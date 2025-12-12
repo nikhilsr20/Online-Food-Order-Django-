@@ -204,6 +204,10 @@ gap: 80px;
  
     cursor: pointer;
 }
+.partner-navbar-img-title{
+    text-decoration: none;
+    color: black;
+}
 .profile-list:hover{
    
       cursor: pointer;
@@ -751,7 +755,7 @@ box-shadow: 1px 1px 4px 1px #3a88f5;
      border: 0.1px solid rgb(167, 164, 164);
      padding: 5px;
      border-radius: 5px;
-
+  
 }
 .partner-add-category-div-elem3:hover{
   
@@ -760,4 +764,187 @@ box-shadow: 1px 1px 4px 1px #3a88f5;
   cursor: pointer;
   
 
+}
+
+/* orders page css  */
+
+.partner-orders{
+    margin-top: 6rem;
+    margin-inline: 6rem;
+    position: fixed;
+    inset: 0;
+}
+.partner-orders-top{
+    display: flex;
+    justify-content: space-between;
+    margin-inline: 14rem;
+}
+.partner-orders-top-button{
+    background-color: white;
+    border: 0.2px solid #7b7b7b;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-family: sans-serif;
+}
+.partner-orders-current-orders{
+    height: 700px;
+    overflow-y: auto;
+}
+.partner-orders-top-button:hover{
+   color: rgb(83, 158, 207);
+   box-shadow: 1px 1px 1px 1px #0c90ee;
+}
+.partner-orders-current-orders-div{
+    display: flex;
+    border: 0.1px solid rgb(218, 216, 216);
+    justify-content: space-between;
+    padding-inline: 20px;
+    border-radius: 5px;
+    align-items: center;
+    margin-top: 30px;
+}
+.partner-orders-current-orders-div-1-elem1{
+    font-family: sans-serif;
+    width: fit-content;
+   
+
+}
+.partner-orders-current-orders-div-1-elem1-child{
+    font-size: large;
+    color: #ffffff;
+    background: linear-gradient(90deg,#156cee,#85bcff,#51abf0,#7ec1f7,#156cee);
+   -webkit-background-clip: text;
+   color: transparent;
+   
+   
+}
+.partner-orders-current-orders-div-1-elem2{
+    /* border: 0.1px solid rgb(193, 193, 193); */
+  
+    padding:5px 10px;
+    border-radius: 4px;
+    background-color: #c9e7ff;
+    margin-bottom: 10px;
+}
+.partner-orders-current-orders-div-1-elem2-child{
+    font-size: small;
+    font-family: sans-serif;
+    font-weight: 400;
+}
+.partner-orders-current-orders-div-1-elem2-child-head{
+text-align: center;
+font-size: small;
+font-family: sans-serif;
+  font-weight: 400;
+}
+.partner-orders-current-orders-div-2{
+   
+display: flex;
+      gap: 10px;
+}
+.partner-orders-current-orders-div-2-elem1{
+ border: 0.1px solid rgb(193, 193, 193);
+  height: 150px;
+    padding:5px 6px;
+    border-radius: 4px;
+   width: 300px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.partner-orders-current-orders-div-2-elem1-head{
+    font-size: larger;
+font-family: sans-serif;
+  font-weight: 400;
+  background-color: #eaf0ff;
+  width: fit-content;
+  padding: 2px;
+  color: rgb(118, 115, 115);
+  border-radius: 4px;
+}
+.partner-orders-current-orders-div-2-elem2{
+margin-top: 40px;
+align-content: end;
+
+
+}
+.partner-orders-current-orders-div-2-elem2-child{
+    
+     font-size: larger;
+font-family: sans-serif;
+  font-weight: 1000;
+  color: #319be8;
+  background-color: #e7e7e7;
+  padding: 2px;
+  border-radius: 2px;
+
+}
+
+.partner-orders-current-orders-div-3-elem2{
+    font-size: small;
+    font-family: sans-serif;
+     display: flex;
+     gap: 40px;
+     margin-top: 20px;
+}
+.partner-orders-current-orders-div-3-elem2-child1{
+    font-size:medium;
+    font-family: sans-serif;
+    font-weight: 300;
+    /* border: 0.1px solid rgb(193, 193, 193); */
+    padding:6px;
+    border-radius:6px;
+    background-color: rgb(18, 222, 21);
+    color: white;
+    cursor: pointer;
+}
+.partner-orders-current-orders-div-3-elem2-child2{
+    font-size:medium;
+    font-family: sans-serif;
+    font-weight: 300;
+    /* border: 0.1px solid rgb(193, 193, 193); */
+    padding:6px;
+    border-radius:6px;
+     background-color: rgb(255, 59, 59);
+     color: white;
+      cursor: pointer;
+}
+.partner-orders-current-orders-div-3-elem2-child2:hover{
+    font-size:medium;
+    font-family: sans-serif;
+    font-weight: 300;
+    /* border: 0.1px solid rgb(193, 193, 193); */
+    padding:6px;
+    border-radius:6px;
+     background-color: rgb(201, 19, 19);
+     color: white;
+      cursor: pointer;
+}
+.partner-orders-current-orders-div-3-elem2-child1:hover{
+    font-size:medium;
+    font-family: sans-serif;
+    font-weight: 300;
+    /* border: 0.1px solid rgb(193, 193, 193); */
+    padding:6px;
+    border-radius:6px;
+     background-color: rgb(6, 185, 9);
+     color: white;
+      cursor: pointer;
+}
+.partner-orders-current-orders-div-3-elem1{
+       border: 0.1px solid rgb(193, 193, 193);
+       padding: 5px;
+       border-radius: 3px;
+}
+.partner-orders-current-orders-div-3-elem1-child1{
+       font-size:medium;
+    font-family: sans-serif;
+    font-weight: 300;
+    text-align: center;
+}
+.partner-orders-current-orders-div-3-elem1-child2{
+       font-size:x-large;
+    font-family: sans-serif;
+    font-weight: 500;
+    text-align: center;
 }

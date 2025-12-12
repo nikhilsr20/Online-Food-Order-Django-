@@ -86,3 +86,8 @@ def profile(request):
 
 def menu(request):
     return render(request,'partner/partner-menu.html')
+
+
+
+def orders(request):
+    return render(request,"partner/partner-orders.html")
