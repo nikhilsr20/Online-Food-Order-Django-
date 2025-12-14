@@ -3,15 +3,15 @@
 {% block body %}
 <div class="partner-menu">
       <div class="partner-menu-buttons">
-            <button class="partner-menu-buttons-i">Add Category +</button>
-            <button class="partner-menu-buttons-i">Add Item +</button>
-            <!-- <div class="partner-add-category-div">
+            <button class="partner-menu-buttons-i" onclick="opencategory(event) ">Add Category +</button>
+            <button class="partner-menu-buttons-i" onclick="openitem(event)">Add Item +</button>
+            <div class="partner-add-category-div" id="addcategory" onclick="event.stopPropagation()">
                      <h1 class="partner-add-category-div-elem1">Add Category</h1>
                      <input class="partner-add-category-div-elem2" type="text" placeholder="enter category name">
                      <button class="partner-add-category-div-elem3">confirm</button>
-      </div> -->
+      </div>
 
-             <!-- <div class="partner-add-category-div">
+             <div class="partner-add-category-div" id="additem" onclick="event.stopPropagation()">
                      
                      <h1 class="partner-add-category-div-elem1">Add Item</h1>
                      <select><option>Select Category</option></select>
@@ -22,10 +22,10 @@
                      <select><option>Food type</option></select>
                      <input type="file" name="" id="">
                      <button class="partner-add-category-div-elem3">confirm</button>
-                  </div> -->
+                  </div>
                   
       </div>
-      <div class="partner-menu-data">
+      <div class="partner-menu-data" >
             <div class="partner-menu-data-top">
                   <h1 class="partner-menu-data-top-h">Menu</h1>
                   <img class="partner-menu-data-top-img" src="https://cdn-icons-png.flaticon.com/128/1046/1046747.png">
@@ -91,4 +91,35 @@
       </div>
       
 </div>
+<script>
+     let a =false
+      function opencategory(event){
+            event.stopPropagation();
+            let x=document.getElementById('addcategory')
+            let y=document.getElementById('additem')
+            
+            x.style.display='block'
+            y.style.display='none'
+            a=true
+      }
+      function openitem(event){
+            event.stopPropagation();
+            let x=document.getElementById('addcategory')
+            let y=document.getElementById('additem')
+            x.style.display='none'
+            y.style.display='block'
+            a=true
+      }
+
+     window.addEventListener('click', function(){
+    if(a){
+        document.getElementById('addcategory').style.display='none';
+        document.getElementById('additem').style.display='none';
+        a = false; 
+    }
+});
+
+
+      
+</script>
 {% endblock %}
