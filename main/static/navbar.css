@@ -24,6 +24,9 @@
     gap: 20px;
 
 }
+.navbar-1-logo-label{
+   font-size: medium;
+}
 .navbar-cart{
     box-sizing: border-box;
     display: flex;

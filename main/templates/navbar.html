@@ -18,7 +18,7 @@
           src="https://cdn-icons-png.flaticon.com/128/9526/9526193.png"
           alt="logo"
         />
-        <p>Foody</p>
+        <p class="navbar-1-logo-label">Foody</p>
       </a>
 
       <div class="navbar-2">
@@ -86,7 +86,18 @@
     </div>
 
     <div>
+      {% if not request.session.username %}
        <a href="{% url 'partner' %}" class="navbar-5-name">Partner with us</a>
+
+
+      {% else %}  
+         <a href="{% url 'partner-main' %}" class="navbar-5-name">Partner with us</a>
+
+
+      {% endif %}
+       
+       
+  
     </div>
 
       </div>
