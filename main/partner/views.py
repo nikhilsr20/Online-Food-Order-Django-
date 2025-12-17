@@ -85,9 +85,14 @@ def profile(request):
     return render(request,'partner/partner-profile.html',{'form':form})
 
 def menu(request):
+    # if request.method=="POST":
+    #     res_data=get_object_or_404()
+
     return render(request,'partner/partner-menu.html')
 
 
 
 def orders(request):
     return render(request,"partner/partner-orders.html")
+
+
