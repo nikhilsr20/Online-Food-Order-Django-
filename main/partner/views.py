@@ -1,7 +1,7 @@
 from django.shortcuts import render,get_object_or_404
 from django.shortcuts import redirect
-from .forms import PartnerSignupForm,PartnerLoginForm,RestaurantsForm
-from .models import PartnerSignup,Restaurants
+from .forms import PartnerSignupForm,PartnerLoginForm,RestaurantsForm,CategoryForm
+from .models import PartnerSignup,Restaurants,Category
 from django.views.decorators.cache import never_cache
 
 # Create your views here.
@@ -85,10 +85,35 @@ def profile(request):
     return render(request,'partner/partner-profile.html',{'form':form})
 
 def menu(request):
-    # if request.method=="POST":
-    #     res_data=get_object_or_404()
+    phone = request.session.get('users-phone')
+    user=get_object_or_404(PartnerSignup,phone=phone)
 
-    return render(request,'partner/partner-menu.html')
+    try:
+        Restaurant = user.USER
+    except Restaurants.DoesNotExist:
+        return redirect('partner-profile')
+    
+    categories = Restaurant.categories.all()
+
+
+
+    
+    if request.method=="POST":
+        if 'add_category' in request.POST:
+            category_form = CategoryForm(request.POST)
+            if category_form.is_valid():
+                cat = category_form.save(commit=False)
+                cat.restaurant = Restaurant
+                cat.save()
+                return redirect('partner-menu')
+        if 'add_item' in request.POST:
+            item_form=ItemForm(request)    
+    else:
+        form=CategoryForm()
+
+    categories=Restaurant.categories.all()
+        
+    return render(request,'partner/partner-menu.html',{'form':form,'categories':categories})
 
 
 

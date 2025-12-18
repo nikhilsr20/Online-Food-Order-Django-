@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import PartnerSignup,Restaurants
+from .models import PartnerSignup,Restaurants,Category,Item
 
 
 class RestaurantsForm(ModelForm):
@@ -147,3 +147,12 @@ class PartnerLoginForm(ModelForm):
                 raise forms.ValidationError("The password is wrong")
         return password  
     
+
+class CategoryForm(ModelForm):
+   
+    class Meta:
+        model=Category
+        fields="__all__"
+        widgets={
+            'name':forms.TextInput(attrs={'class':'partner-add-category-div-elem2','placeholder':"enter a category"})
+        }
