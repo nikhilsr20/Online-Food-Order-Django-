@@ -79,7 +79,8 @@ class Item(models.Model):
    ]
    
 
-   category=models.ForeignKey(Category,on_delete=models.CASCADE,related_name="item")   
+
+   category=models.ForeignKey(Category,on_delete=models.CASCADE,related_name="items")   
    image=models.URLField(blank=True)
    name=models.CharField(max_length=100)
    description=models.CharField(max_length=300)

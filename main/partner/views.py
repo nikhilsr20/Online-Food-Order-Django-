@@ -1,7 +1,7 @@
 from django.shortcuts import render,get_object_or_404
 from django.shortcuts import redirect
-from .forms import PartnerSignupForm,PartnerLoginForm,RestaurantsForm,CategoryForm
-from .models import PartnerSignup,Restaurants,Category
+from .forms import PartnerSignupForm,PartnerLoginForm,RestaurantsForm,CategoryForm,ItemForm
+from .models import PartnerSignup,Restaurants,Category,Item
 from django.views.decorators.cache import never_cache
 
 # Create your views here.
@@ -94,26 +94,56 @@ def menu(request):
         return redirect('partner-profile')
     
     categories = Restaurant.categories.all()
+    
+    
+    category_id=request.POST.get('category_id')
+    category = Category.objects.filter(
+                    id=category_id,
+                    restaurant=Restaurant
+                ).first()
 
+    
+    items_list=category.items.all()
+
+    # <button type="submit" name="edit_item" value="{{ item.id }}"> aesa button bnana h abhi 
+
+    value = request.POST.get('edit_item')
+
+    if 'add-item' in request.POST:
+        item_instance=None
+    else:
+        item_instance=Item.objects.get(id=value,category=category).first()    
+
+
+    
 
 
     
     if request.method=="POST":
+
         if 'add_category' in request.POST:
             category_form = CategoryForm(request.POST)
             if category_form.is_valid():
                 cat = category_form.save(commit=False)
                 cat.restaurant = Restaurant
                 cat.save()
-                return redirect('partner-menu')
+                
         if 'add_item' in request.POST:
-            item_form=ItemForm(request)    
+            item_form=ItemForm(request.POST, request.FILES,item_instance) 
+            if item_form.is_valid():
+                item = item_form.save(commit=False)
+                # abhi put krni h 
+                item.category=category
+                item.save()
+
     else:
         form=CategoryForm()
+        form=ItemForm()
 
     categories=Restaurant.categories.all()
+
         
-    return render(request,'partner/partner-menu.html',{'form':form,'categories':categories})
+    return render(request,'partner/partner-menu.html',{'form':form,'categories':categories,'item_form': item_form,})
 
 
 

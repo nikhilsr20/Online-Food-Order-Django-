@@ -156,3 +156,19 @@ class CategoryForm(ModelForm):
         widgets={
             'name':forms.TextInput(attrs={'class':'partner-add-category-div-elem2','placeholder':"enter a category"})
         }
+
+
+class ItemForm(ModelForm):
+   
+    class Meta:
+        model=Item
+        fields="__all__"
+        widgets={
+            'name':forms.TextInput(attrs={'class':'partner-add-category-div-elem2','placeholder':"enter a category"}),
+            'description':forms.TextInput(attrs={'class':'partner-add-category-div-elem2','placeholder':"enter a category"}),
+            'price':forms.NumberInput(attrs={'class':'partner-add-category-div-elem2','placeholder':"enter a category"}),
+            'food_type':forms.TextInput(attrs={'class':'partner-add-category-div-elem2','placeholder':"enter a category"}),
+            'total_orders':forms.NumberInput(attrs={'class':'partner-add-category-div-elem2','placeholder':"enter a category"}),
+            'rating':forms.NumberInput(attrs={'class':'partner-add-category-div-elem2','placeholder':"enter a category"}),
+            'is_available':forms.CheckboxInput(attrs={'class':'partner-add-category-div-elem2','placeholder':"enter a category"})
+        }
