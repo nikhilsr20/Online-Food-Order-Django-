@@ -7,21 +7,30 @@
             <button class="partner-menu-buttons-i" onclick="openitem(event)">Add Item +</button>
             <div class="partner-add-category-div" id="addcategory" onclick="event.stopPropagation()">
                      <h1 class="partner-add-category-div-elem1">Add Category</h1>
-                     <input class="partner-add-category-div-elem2" type="text" placeholder="enter category name">
+                     <form action="POST">
+                     {{form.name}}
                      <button class="partner-add-category-div-elem3" name="add_category">confirm</button>
+                     </form>
       </div>
 
              <div class="partner-add-category-div" id="additem" onclick="event.stopPropagation()">
                      
                      <h1 class="partner-add-category-div-elem1">Add Item</h1>
-                     <select><option>Select Category</option></select>
-                     
-                     <input class="partner-add-category-div-elem2" type="text" placeholder="enter Item name">
-                     <input class="partner-add-category-div-elem2" type="text" placeholder="enter Item price">
-                     <input class="partner-add-category-div-elem2" type="text" placeholder="enter Item description">
-                     <select><option>Food type</option></select>
-                     <input type="file" name="" id="">
+                     <select name="category_id">
+                        <option>Select Category</option>
+                        {% for i in categories %}
+                        <option value="{{i.name}}">{{i.id}}</option>
+                        {% endfor%}
+                     </select>
+                     <form action="POST" enctype="multipart/form-data">
+                     {{item_form.name}}
+                     {{item_form.price}}
+                     {{item_form.description}}
+                     {{item_form.food_type}}
+                     {{item_form.image}}
                      <button class="partner-add-category-div-elem3" name="add_item">confirm</button>
+                     
+                     </form>
                   </div>
                   
       </div>

@@ -84,30 +84,47 @@ def profile(request):
         form=RestaurantsForm(instance=restaurant_instance)
     return render(request,'partner/partner-profile.html',{'form':form})
 
+
+
+
+# may include bugs so abhi shi krna h  menu wala 
+
+
 def menu(request):
     phone = request.session.get('users-phone')
+    print(phone)
     user=get_object_or_404(PartnerSignup,phone=phone)
+    print(user)
 
     try:
         Restaurant = user.USER
     except Restaurants.DoesNotExist:
         return redirect('partner-profile')
     
+    print(Restaurant)
+
+
+
     categories = Restaurant.categories.all()
+    print(categories)
     
     
     category_id=request.POST.get('category_id')
+
+    print(category_id)
+
     category = Category.objects.filter(
                     id=category_id,
                     restaurant=Restaurant
                 ).first()
-
     
-    items_list=category.items.all()
+    print(category)
+    
+    # items_list = Item.objects.filter(category__restaurant=Restaurant)
 
-    # <button type="submit" name="edit_item" value="{{ item.id }}"> aesa button bnana h abhi 
+    # # <button type="submit" name="edit_item" value="{{ item.id }}"> aesa button bnana h abhi 
 
-    value = request.POST.get('edit_item')
+    value = int(request.POST.get('edit_item'))
 
     if 'add-item' in request.POST:
         item_instance=None
@@ -129,10 +146,10 @@ def menu(request):
                 cat.save()
                 
         if 'add_item' in request.POST:
-            item_form=ItemForm(request.POST, request.FILES,item_instance) 
+            item_form=ItemForm(request.POST, request.FILES,instance=item_instance) 
             if item_form.is_valid():
                 item = item_form.save(commit=False)
-                # abhi put krni h 
+              
                 item.category=category
                 item.save()
 
@@ -140,10 +157,10 @@ def menu(request):
         form=CategoryForm()
         form=ItemForm()
 
-    categories=Restaurant.categories.all()
+    # categories=Restaurant.categories.all()
 
         
-    return render(request,'partner/partner-menu.html',{'form':form,'categories':categories,'item_form': item_form,})
+    return render(request,'partner/partner-menu.html',{'form':form,'categories':categories,'item_form': item_form})
 
 
 
