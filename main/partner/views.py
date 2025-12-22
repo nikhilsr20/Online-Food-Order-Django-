@@ -92,44 +92,51 @@ def profile(request):
 
 def menu(request):
     phone = request.session.get('users-phone')
-    print(phone)
+    
     user=get_object_or_404(PartnerSignup,phone=phone)
-    print(user)
+    
+    
 
     try:
-        Restaurant = user.USER
+        restaurant = user.USER
+       
     except Restaurants.DoesNotExist:
+   
         return redirect('partner-profile')
     
-    print(Restaurant)
-
-
-
-    categories = Restaurant.categories.all()
-    print(categories)
     
+
+
+
+    categories = restaurant.categories.all()
     
     category_id=request.POST.get('category_id')
 
-    print(category_id)
+    
 
     category = Category.objects.filter(
                     id=category_id,
-                    restaurant=Restaurant
+                    restaurant=restaurant
                 ).first()
     
     print(category)
     
-    # items_list = Item.objects.filter(category__restaurant=Restaurant)
+    items_list = Item.objects.filter(category__restaurant=restaurant)
 
-    # # <button type="submit" name="edit_item" value="{{ item.id }}"> aesa button bnana h abhi 
+    # <button type="submit" name="edit_item" value="{{ item.id }}"> aesa button bnana h abhi 
+    
+   
+        
+    
 
-    value = int(request.POST.get('edit_item'))
-
-    if 'add-item' in request.POST:
+    if 'add-item' not in request.POST:
+        print("patakha")
         item_instance=None
     else:
-        item_instance=Item.objects.get(id=value,category=category).first()    
+        print("atom-bomb")
+        value = request.POST.get('edit_item')
+        v=int(value)
+        item_instance=Item.objects.filter(id=v,category=category).first()    
 
 
     
@@ -137,17 +144,27 @@ def menu(request):
 
     
     if request.method=="POST":
-
+        
         if 'add_category' in request.POST:
-            category_form = CategoryForm(request.POST)
-            if category_form.is_valid():
-                cat = category_form.save(commit=False)
-                cat.restaurant = Restaurant
+           
+            item_form=ItemForm()
+            
+            form = CategoryForm(request.POST)
+           
+            if form.is_valid():
+                print("hello")
+                cat = form.save(commit=False)
+                cat.restaurant = restaurant
                 cat.save()
                 
-        if 'add_item' in request.POST:
+        elif 'add_item' in request.POST:
+            print("hello")
             item_form=ItemForm(request.POST, request.FILES,instance=item_instance) 
+            form=CategoryForm()
+            print("hello")
+            print(item_form)
             if item_form.is_valid():
+                print("heello")
                 item = item_form.save(commit=False)
               
                 item.category=category
@@ -155,12 +172,12 @@ def menu(request):
 
     else:
         form=CategoryForm()
-        form=ItemForm()
+        item_form=ItemForm()
 
     # categories=Restaurant.categories.all()
 
         
-    return render(request,'partner/partner-menu.html',{'form':form,'categories':categories,'item_form': item_form})
+    return render(request,'partner/partner-menu.html',{'form':form,'categories':categories,'item_form': item_form,'item_list':items_list})
 
 
 

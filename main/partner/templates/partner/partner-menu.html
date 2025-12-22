@@ -7,7 +7,8 @@
             <button class="partner-menu-buttons-i" onclick="openitem(event)">Add Item +</button>
             <div class="partner-add-category-div" id="addcategory" onclick="event.stopPropagation()">
                      <h1 class="partner-add-category-div-elem1">Add Category</h1>
-                     <form action="POST">
+                     <form method="POST">
+                        {%csrf_token%}
                      {{form.name}}
                      <button class="partner-add-category-div-elem3" name="add_category">confirm</button>
                      </form>
@@ -15,18 +16,24 @@
 
              <div class="partner-add-category-div" id="additem" onclick="event.stopPropagation()">
                      
-                     <h1 class="partner-add-category-div-elem1">Add Item</h1>
-                     <select name="category_id">
-                        <option>Select Category</option>
+                     <h1 >Add Item</h1>
+                     <form method="POST" enctype="multipart/form-data">
+                        {%csrf_token%}
+                     <select class="select_category_for_item" name="category_id">
+                        <option class="select_category_for_item">Select Category</option>
                         {% for i in categories %}
-                        <option value="{{i.name}}">{{i.id}}</option>
+                        <option class="select_category_for_item" value="{{i.id}}">{{i.name}}</option>
                         {% endfor%}
                      </select>
-                     <form action="POST" enctype="multipart/form-data">
+                     
+                         
                      {{item_form.name}}
                      {{item_form.price}}
                      {{item_form.description}}
+                     <div class="food_type">
+                     <label for="">Foodtype: </label>
                      {{item_form.food_type}}
+                     </div>
                      {{item_form.image}}
                      <button class="partner-add-category-div-elem3" name="add_item">confirm</button>
                      
@@ -35,6 +42,7 @@
                   
       </div>
       <div class="partner-menu-data" >
+
             <div class="partner-menu-data-top">
                   <h1 class="partner-menu-data-top-h">Menu</h1>
                   <img class="partner-menu-data-top-img" src="https://cdn-icons-png.flaticon.com/128/1046/1046747.png">
@@ -101,6 +109,11 @@
       
 </div>
 <script>
+
+      if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+      }
+
      let a =false
       function opencategory(event){
             event.stopPropagation();

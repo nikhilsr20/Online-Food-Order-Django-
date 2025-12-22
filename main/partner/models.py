@@ -41,14 +41,14 @@ class Restaurants(models.Model):
     Restauranttype=models.CharField(max_length=20,choices=cho,default=Both,blank=True, null=True)
     Cuisenetypes=models.CharField(max_length=100,default="Indian,Chinese",blank=True, null=True)
     description = models.TextField(blank=True)
-    image = models.URLField(blank=True, null=True)
+    image = models.ImageField(upload_to='items/',blank=True, null=True)
 
     Location = models.CharField(max_length=150,blank=True, null=True)
     city = models.CharField(max_length=30,blank=True, null=True)
     state=models.CharField(max_length=100,blank=True, null=True)
     pincode=models.CharField(max_length=10,default="000000")
 
-    rating = models.FloatField(default=0, null=True, blank=True)
+    rating = models.FloatField(default=0)
     
     deliverytime=models.FloatField(default=30,blank=True, null=True)
     Timeopen=models.TimeField(default=datetime.time(9,0))
@@ -81,10 +81,10 @@ class Item(models.Model):
 
 
    category=models.ForeignKey(Category,on_delete=models.CASCADE,related_name="items")   
-   image=models.URLField(blank=True)
+   image=models.ImageField(upload_to='items/',blank=True,null=True)
    name=models.CharField(max_length=100)
    description=models.CharField(max_length=300)
-   rating=models.FloatField(max_length=20)
+   rating=models.FloatField(default=0)
    price=models.FloatField(max_length=20)
    food_type=models.CharField(max_length=10,choices=Foodchoice)
    is_available=models.BooleanField(default=True)

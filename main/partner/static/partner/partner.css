@@ -455,6 +455,7 @@ box-shadow: 1px 1px 4px 1px #3a88f5;
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
+    
 }
 .partner-profile-2-restaurantdetails{
     border: 0.2px solid #9b9b9b;
@@ -1082,4 +1083,17 @@ font-family: sans-serif;
 #additem{
     display: none;
      transition: all ease-in 0.2s;
+}
+
+.food_type{
+  margin-bottom: 20px;
+  margin-top: 10px;
+  font-family: sans-serif;
+}
+.select_category_for_item{
+   font-size: larger;
+    cursor: pointer;
+    padding: 2px;
+
+    
 }

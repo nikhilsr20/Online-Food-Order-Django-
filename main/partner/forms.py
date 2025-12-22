@@ -152,7 +152,7 @@ class CategoryForm(ModelForm):
    
     class Meta:
         model=Category
-        fields="__all__"
+        fields = ['name']
         widgets={
             'name':forms.TextInput(attrs={'class':'partner-add-category-div-elem2','placeholder':"enter a category"})
         }
@@ -162,13 +162,15 @@ class ItemForm(ModelForm):
    
     class Meta:
         model=Item
-        fields="__all__"
+        fields=['name','description','price','image','food_type']
         widgets={
-            'name':forms.TextInput(attrs={'class':'partner-add-category-div-elem2','placeholder':"enter a category"}),
-            'description':forms.TextInput(attrs={'class':'partner-add-category-div-elem2','placeholder':"enter a category"}),
-            'price':forms.NumberInput(attrs={'class':'partner-add-category-div-elem2','placeholder':"enter a category"}),
-            'food_type':forms.TextInput(attrs={'class':'partner-add-category-div-elem2','placeholder':"enter a category"}),
-            'total_orders':forms.NumberInput(attrs={'class':'partner-add-category-div-elem2','placeholder':"enter a category"}),
+            'name':forms.TextInput(attrs={'class':'partner-add-category-div-elem2','placeholder':"enter item name"}),
+            'description':forms.TextInput(attrs={'class':'partner-add-category-div-elem2','placeholder':"enter description for item"}),
+            'price':forms.NumberInput(attrs={'class':'partner-add-category-div-elem2','placeholder':"enter price"}),
+
+            'image': forms.FileInput(attrs={'class':'Restaurant-img'}),
+            # 'food_type':forms.ChoiceField(attrs={'class':'partner-add-category-div-elem2','placeholder':"enter food type"}),
+            'total_orders':forms.NumberInput(attrs={'class':'partner-add-category-div-elem2','placeholder':"enter "}),
             'rating':forms.NumberInput(attrs={'class':'partner-add-category-div-elem2','placeholder':"enter a category"}),
             'is_available':forms.CheckboxInput(attrs={'class':'partner-add-category-div-elem2','placeholder':"enter a category"})
         }
