@@ -696,7 +696,7 @@ box-shadow: 1px 1px 4px 1px #3a88f5;
     border-radius:10px ;
 }
 .partner-menu-data-item-div1-itemimgchnge{
-    margin-top: 10px;
+    margin-top: 60px;
     background-color: #a1d8f7;
     border: none;
     border-radius: 10px;
@@ -705,7 +705,7 @@ box-shadow: 1px 1px 4px 1px #3a88f5;
     transition: all ease 0.2s;
 }
 .partner-menu-data-item-div1-itemimgchnge:hover{
-    margin-top: 10px;
+    margin-top: 60px;
     background-color: #50aff4;
     border: 0.2px solid rgb(169, 169, 169);
     border-radius: 10px;
@@ -1095,5 +1095,12 @@ font-family: sans-serif;
     cursor: pointer;
     padding: 2px;
 
+    
+}
+
+#edit_item_div{
+
+  display: none;
+  justify-content: center;
     
 }

@@ -1,7 +1,7 @@
 {% extends "partner/partner-navbar.html" %}
 
 {% block body %}
-<div class="partner-menu">
+<div class="partner-menu" id="main-parter">
       <div class="partner-menu-buttons">
             <button class="partner-menu-buttons-i" onclick="opencategory(event) ">Add Category +</button>
             <button class="partner-menu-buttons-i" onclick="openitem(event)">Add Item +</button>
@@ -12,14 +12,14 @@
                      {{form.name}}
                      <button class="partner-add-category-div-elem3" name="add_category">confirm</button>
                      </form>
-      </div>
+             </div>
 
-             <div class="partner-add-category-div" id="additem" onclick="event.stopPropagation()">
+            <div class="partner-add-category-div" id="additem" onclick="event.stopPropagation()">
                      
                      <h1 >Add Item</h1>
                      <form method="POST" enctype="multipart/form-data">
                         {%csrf_token%}
-                     <select class="select_category_for_item" name="category_id">
+                     <select class="select_category_for_item"  name="category_id">
                         <option class="select_category_for_item">Select Category</option>
                         {% for i in categories %}
                         <option class="select_category_for_item" value="{{i.id}}">{{i.name}}</option>
@@ -59,6 +59,7 @@
                        
                         <div class="partner-menu-data-item-data">
                                {% for j in item_list %}
+                               {% if i.id == j.category_id %}
                               <div class="partner-menu-data-item">
                                    <div class="partner-menu-data-item-div1">
                                    <p class="partner-menu-data-item-div1-itemname"  >{{j.name}}</p>
@@ -73,41 +74,25 @@
                                    </div>
                                    <div class="partner-menu-data-item-div1-itemaimage" class="partner-menu-data-item-div2">
                                    <img class="partner-menu-data-item-div1-itemaimage1" src="{{j.image.url}}">
-                                   <button class="partner-menu-data-item-div1-itemimgchnge">Edit item</button>
+                                   <button class="partner-menu-data-item-div1-itemimgchnge" onclick="edit_item( '{{ j.id }}',
+                              '{{ j.name|escapejs }}',
+                              '{{ j.description }}',
+                              '{{ j.price }}',
+                                '{{ j.food_type }}',
+                              '{{ j.image.url }}',
+                               '{{ i.id}}')">Edit item</button>
                                    </div>
 
                               </div>
                               
                               <hr class="marging-menu-items">
+                              {% endif %}
                               {% endfor %}
                         </div>
                         {% endfor %}
 
-                        <div class="partner-add-category-div-new" id="additem" onclick="event.stopPropagation()">
-                     
-                     <h1 >Add Item</h1>
-                     <form method="POST" enctype="multipart/form-data">
-                        {%csrf_token%}
-                     <select class="select_category_for_item" name="category_id">
-                        <option class="select_category_for_item">Select Category</option>
-                        {% for i in categories %}
-                        <option class="select_category_for_item" value="{{i.id}}">{{i.name}}</option>
-                        {% endfor%}
-                     </select>
-                     
-                         
-                     {{item_form.name}}
-                     {{item_form.price}}
-                     {{item_form.description}}
-                     <div class="food_type">
-                     <label for="">Foodtype: </label>
-                     {{item_form.food_type}}
-                     </div>
-                     {{item_form.image}}
-                     <button class="partner-add-category-div-elem3" name="add_item">confirm</button>
-                     
-                     </form>
-                  </div>
+                        
+                        
                   
 
 
@@ -116,6 +101,38 @@
       </div>
       
 </div>
+
+                      <div id="edit_item_div" onclick="event.stopPropagation()">
+
+                       <div class="partner-add-category-div" >
+                      
+                                <h1 >Edit item</h1>
+                     <form method="POST" enctype="multipart/form-data">
+                        {%csrf_token%}
+                     <select class="select_category_for_item" id="cat_name" name="category_id">
+                        <option class="select_category_for_item">Select Category</option>
+                        {% for i in categories %}
+                        <option class="select_category_for_item" value="{{i.id}}">{{i.name}}</option>
+                        {% endfor%}
+                     </select>
+                     
+                         
+                     {{edit_form.name}}
+                     {{edit_form.price}}
+                     {{edit_form.description}}
+                     <div class="food_type">
+                     <label for="">Foodtype: </label>
+                     {{edit_form.food_type}}
+                     </div>
+                     {{edit_form.image}}
+                     <button class="partner-add-category-div-elem3"   name="edit_item" id="button-for-edit">confirm</button>
+                     
+                     </form>
+                  
+                        </div>
+                        </div>
+
+
 <script>
 
       if (window.history.replaceState) {
@@ -145,9 +162,39 @@
     if(a){
         document.getElementById('addcategory').style.display='none';
         document.getElementById('additem').style.display='none';
+        document.getElementById('edit_item_div').style.display='none';
         a = false; 
     }
+
+
+    
+
+
 });
+function edit_item(id, name,description, price, food_type, imageUrl, categoryName){
+     
+      let x=document.getElementById("edit_item_div");
+      x.style.display="flex";
+
+      let y= document.getElementById('main-parter');
+      y.style.opacity="0.3";
+      console.log( document.getElementById('button-for-edit'))
+      //  console.log(name)
+        console.log(id)
+
+        
+        document.getElementById('button-for-edit').value=id;
+      document.getElementById("edit_name").value = name;
+      document.getElementById("edit_description").value = description;
+      document.getElementById("edit_price").value = price;
+      document.getElementById("edit_food_type").value = food_type;
+       document.getElementById("cat_name").value = categoryName; 
+
+      
+
+
+    }
+
 
 
       

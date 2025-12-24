@@ -174,3 +174,24 @@ class ItemForm(ModelForm):
             'rating':forms.NumberInput(attrs={'class':'partner-add-category-div-elem2','placeholder':"enter a category"}),
             'is_available':forms.CheckboxInput(attrs={'class':'partner-add-category-div-elem2','placeholder':"enter a category"})
         }
+
+
+
+class EditItemForm(ModelForm):
+   
+    class Meta:
+        model=Item
+        fields=['name','description','price','image','food_type']
+        widgets={
+            'name':forms.TextInput(attrs={'class':'partner-add-category-div-elem2','id':'edit_name','placeholder':"enter item name"}),
+            'description':forms.TextInput(attrs={'class':'partner-add-category-div-elem2','id':'edit_description','placeholder':"enter description for item"}),
+            'price':forms.NumberInput(attrs={'class':'partner-add-category-div-elem2','placeholder':"enter_price",'id':'edit_price'}),
+            'food_type': forms.Select(attrs={
+                'id': 'edit_food_type'
+            }),
+            'image': forms.FileInput(attrs={'class':'Restaurant-img','id':'edit_image'}),
+           
+            'total_orders':forms.NumberInput(attrs={'class':'partner-add-category-div-elem2','placeholder':"enter "}),
+            'rating':forms.NumberInput(attrs={'class':'partner-add-category-div-elem2','placeholder':"enter a category"}),
+            'is_available':forms.CheckboxInput(attrs={'class':'partner-add-category-div-elem2','placeholder':"enter a category"})
+        }        

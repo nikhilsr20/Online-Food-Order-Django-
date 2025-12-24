@@ -1,6 +1,6 @@
 from django.shortcuts import render,get_object_or_404
 from django.shortcuts import redirect
-from .forms import PartnerSignupForm,PartnerLoginForm,RestaurantsForm,CategoryForm,ItemForm
+from .forms import PartnerSignupForm,PartnerLoginForm,RestaurantsForm,CategoryForm,ItemForm,EditItemForm
 from .models import PartnerSignup,Restaurants,Category,Item
 from django.views.decorators.cache import never_cache
 
@@ -129,11 +129,10 @@ def menu(request):
         
     
 
-    if 'add-item' not in request.POST:
+    if 'add_item' in request.POST:
         print("patakha")
         item_instance=None
-    else:
-        print("atom-bomb")
+    elif 'edit_item' in request.POST:
         value = request.POST.get('edit_item')
         v=int(value)
         item_instance=Item.objects.filter(id=v,category=category).first()    
@@ -148,7 +147,7 @@ def menu(request):
         if 'add_category' in request.POST:
            
             item_form=ItemForm()
-            
+            edit_form=EditItemForm()
             form = CategoryForm(request.POST)
            
             if form.is_valid():
@@ -161,6 +160,7 @@ def menu(request):
             print("hello")
             item_form=ItemForm(request.POST, request.FILES,instance=item_instance) 
             form=CategoryForm()
+            edit_form=EditItemForm()
             print("hello")
             print(item_form)
             if item_form.is_valid():
@@ -170,14 +170,29 @@ def menu(request):
                 item.category=category
                 item.save()
 
+        elif 'edit_item' in request.POST:
+            
+            edit_form=EditItemForm(request.POST, request.FILES,instance=item_instance) 
+            form=CategoryForm()
+            item_form=ItemForm()
+            
+            
+            if edit_form.is_valid():
+                
+                edit = edit_form.save(commit=False)
+              
+                edit.category=category
+                edit.save()        
+
     else:
         form=CategoryForm()
+        edit_form=EditItemForm()
         item_form=ItemForm()
 
     # categories=Restaurant.categories.all()
 
         
-    return render(request,'partner/partner-menu.html',{'form':form,'categories':categories,'item_form': item_form,'item_list':items_list})
+    return render(request,'partner/partner-menu.html',{'form':form,'categories':categories,'item_form': item_form,'edit_form':edit_form,'item_list':items_list})
 
 
 
