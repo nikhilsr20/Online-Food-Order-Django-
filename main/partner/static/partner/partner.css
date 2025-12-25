@@ -581,30 +581,38 @@ box-shadow: 1px 1px 4px 1px #3a88f5;
     font-family: sans-serif;
     background-color: #aad9ff;
     
-  
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* border-radius: 10px; */
+    border: 1px solid rgb(165, 165, 165);
     cursor: pointer;
+    
 }
 .partner-menu-data-category-data-head1{
-   font-size: medium;
-   color: rgb(52, 52, 52);
+   font-size: small;
+   color: rgb(126, 124, 124);
     margin-inline:10px;
 }
 .partner-menu-data-category-data-head2{
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
    font-size: medium;
    color: white;
    margin-right: 10px;
-  
+   transform: rotate(180deg);
+   transition: transform ease-in-out 0.3s;
+}
 
-}
 .partner-menu-data-item-data{
+    display: block;
     border: 0.2px solid rgb(192, 191, 191);
+    /* height: auto;
+    overflow: hidden;
+    transition: height 0.4s ease; */
 }
+
+
 .partner-menu-data-item{
     display: flex;
     justify-content: space-between;
@@ -866,6 +874,7 @@ font-family: sans-serif;
   padding: 2px;
   color: rgb(118, 115, 115);
   border-radius: 4px;
+  
 }
 .partner-orders-current-orders-div-2-elem2{
 margin-top: 40px;

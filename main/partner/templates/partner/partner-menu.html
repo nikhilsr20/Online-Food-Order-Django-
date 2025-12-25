@@ -52,12 +52,13 @@
             <div class="partner-menu-data-bottom">
                   <div class="partner-menu-data-category-data">
                         {% for i in categories %}
-                        <div class="partner-menu-data-category-data-head">
+                        <div class="partner-menu-data-category-data-head" onclick="toggleevent('{{i.id}}_category','{{i.id}}_arrow')">
                               <h1 class="partner-menu-data-category-data-head1">{{i.name}}</h1>
-                              <img src="https://cdn-icons-png.flaticon.com/128/32/32195.png" class="partner-menu-data-category-data-head2"></img>
+                              <img src="https://cdn-icons-png.flaticon.com/128/32/32195.png" class="partner-menu-data-category-data-head2" id="{{i.id}}_arrow"></img>
                         </div>
-                       
-                        <div class="partner-menu-data-item-data">
+
+
+                        <div class="partner-menu-data-item-data" id="{{i.id}}_category">
                                {% for j in item_list %}
                                {% if i.id == j.category_id %}
                               <div class="partner-menu-data-item">
@@ -171,6 +172,7 @@
 
 
 });
+
 function edit_item(id, name,description, price, food_type, imageUrl, categoryName){
      
       let x=document.getElementById("edit_item_div");
@@ -178,9 +180,6 @@ function edit_item(id, name,description, price, food_type, imageUrl, categoryNam
 
       let y= document.getElementById('main-parter');
       y.style.opacity="0.3";
-      console.log( document.getElementById('button-for-edit'))
-      //  console.log(name)
-        console.log(id)
 
         
         document.getElementById('button-for-edit').value=id;
@@ -193,6 +192,22 @@ function edit_item(id, name,description, price, food_type, imageUrl, categoryNam
       
 
 
+    }
+    function toggleevent(cat_id,arrow){
+        console.log("clicked")
+        let el=document.getElementById(cat_id);
+        let a=document.getElementById(arrow);
+        if (el.style.display === "none") {
+        el.style.display = "block";
+      //    el.style.height = el.scrollHeight + "px";
+        
+        a.style.transform = "rotate(180deg)";
+    } else {
+        el.style.display = "none";
+      //  el.style.height = "0px";
+        a.style.transform = "rotate(0deg)";
+       
+    }
     }
 
 
