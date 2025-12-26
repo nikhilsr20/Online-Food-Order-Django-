@@ -1,60 +1,116 @@
-{% extends "partner/partner-navbar.html" %}
-
-{% block body %}
+{% extends "partner/partner-navbar.html" %} {% block body %}
 <div class="partner-orders">
-      <div class="partner-orders-top">
-        <button class="partner-orders-top-button">Current Orders</button>
-        <button class="partner-orders-top-button">Orders History</button>
+  <div class="partner-orders-top">
+    <button class="partner-orders-top-button1" onclick="openordercurrent()">Current Orders</button>
+    <button class="partner-orders-top-button2" onclick="openorderhistory()">Orders History</button>
+  </div>
+  <hr />
+  <div class="partner-orders-current-orders" id="order-page-1">
+    <div class="partner-orders-current-orders-div">
+      <div class="partner-orders-current-orders-div-1">
+        <div class="partner-orders-current-orders-div-1-elem1">
+          <h1 class="partner-orders-current-orders-div-1-elem1-child">
+            order-id: #123
+          </h1>
+          <h1 class="partner-orders-current-orders-div-1-elem1-child">
+            order-Time: 12Dec ,9:10PM
+          </h1>
+        </div>
+        <div class="partner-orders-current-orders-div-1-elem2">
+          <h1 class="partner-orders-current-orders-div-1-elem2-child-head">
+            Customer Details
+          </h1>
+          <h1 class="partner-orders-current-orders-div-1-elem2-child">
+            Customer: Rahul Sharma
+          </h1>
+          <h1 class="partner-orders-current-orders-div-1-elem2-child">
+            Phone: 9000393827
+          </h1>
+          <h1 class="partner-orders-current-orders-div-1-elem2-child">
+            Address: 221B MG Road, Indore (Opp. City Mall)
+          </h1>
+        </div>
       </div>
-      <hr>
-      <div class="partner-orders-current-orders">
-              <div class="partner-orders-current-orders-div">
-                <div class="partner-orders-current-orders-div-1">
-                   <div class="partner-orders-current-orders-div-1-elem1">
-                    <h1 class="partner-orders-current-orders-div-1-elem1-child">order-id: #123</h1>
-                    <h1 class="partner-orders-current-orders-div-1-elem1-child">order-Time: 12Dec ,9:10PM</h1>
-                   </div>
-                   <div class="partner-orders-current-orders-div-1-elem2">
-                    <h1 class="partner-orders-current-orders-div-1-elem2-child-head">Customer Details</h1>
-                    <h1 class="partner-orders-current-orders-div-1-elem2-child">Customer: Rahul Sharma</h1>
-                    <h1 class="partner-orders-current-orders-div-1-elem2-child">Phone: 9000393827</h1>
-                    <h1 class="partner-orders-current-orders-div-1-elem2-child">Address: 221B MG Road, Indore (Opp. City Mall)</h1>
-                   </div>
-                </div>
-                <div class="partner-orders-current-orders-div-2">
-                 <div class="partner-orders-current-orders-div-2-elem1">
-                 <h1 class="partner-orders-current-orders-div-2-elem1-head">Items</h1>
-                 <ul class="partner-orders-current-orders-div-2-elem1-head-child">
-                     <li>Paneer Butter Masala x 1 (No onion)</li>
-                     <li>Butter Naan x 4</li>
-                 </ul>
-                </div>
-                <div class="partner-orders-current-orders-div-2-elem2">
-                 <h1 class="partner-orders-current-orders-div-2-elem2-child">Total Amount: $456</h1>
-                 <h1 class="partner-orders-current-orders-div-2-elem2-child">Payment: UPI (Paid)</h1>
-                </div>
-
-                </div>
-                
-
-                   <div class="partner-orders-current-orders-div-3">
-                    <div class="partner-orders-current-orders-div-3-elem1">
-                    <h1 class="partner-orders-current-orders-div-3-elem1-child1">Since Arrival</h1>
-                    <h1 class="partner-orders-current-orders-div-3-elem1-child2">30 min</h1>
-                    </div>
-                    <div class="partner-orders-current-orders-div-3-elem2">
-                    <h1 class="partner-orders-current-orders-div-3-elem2-child1">Complete</h1>
-                    <h1 class="partner-orders-current-orders-div-3-elem2-child2">Cancel</h1>
-                    </div>
-                   </div>
-
-              </div>
-              
-              
-              
+      <div class="partner-orders-current-orders-div-2">
+        <div class="partner-orders-current-orders-div-2-elem1">
+          <h1 class="partner-orders-current-orders-div-2-elem1-head">Items</h1>
+          <ul class="partner-orders-current-orders-div-2-elem1-head-child">
+            <li>Paneer Butter Masala x 1 (No onion)</li>
+            <li>Butter Naan x 4</li>
+          </ul>
+        </div>
+        <div class="partner-orders-current-orders-div-2-elem2">
+          <h1 class="partner-orders-current-orders-div-2-elem2-child">
+            Total Amount: $456
+          </h1>
+          <h1 class="partner-orders-current-orders-div-2-elem2-child">
+            Payment: UPI (Paid)
+          </h1>
+        </div>
       </div>
-      <div class="partner-orders-order-history">
 
+      <div class="partner-orders-current-orders-div-3">
+        <div class="partner-orders-current-orders-div-3-elem1">
+          <h1 class="partner-orders-current-orders-div-3-elem1-child1">
+            Since Arrival
+          </h1>
+          <h1 class="partner-orders-current-orders-div-3-elem1-child2">
+            30 min
+          </h1>
+        </div>
+        <div class="partner-orders-current-orders-div-3-elem2">
+          <h1 class="partner-orders-current-orders-div-3-elem2-child1">
+            Complete
+          </h1>
+          <h1 class="partner-orders-current-orders-div-3-elem2-child2">
+            Cancel
+          </h1>
+        </div>
       </div>
+    </div>
+  </div>
+  <div class="partner-orders-order-history" id="order-page-2">
+
+
+
+     <p class="no-order-history">No order History</p>
+
+
+  </div>
 </div>
+<script>
+
+  function openorderhistory(){
+    let y=document.getElementById('order-page-1');
+    y.style.display='none'
+    let x=document.getElementById('order-page-2');
+    x.style.display='block'
+    
+    let z=document.querySelector('.partner-orders-top-button2');
+    console.log(z)
+    z.style.color='rgb(83, 158, 207)'
+    z.style.boxShadow='1px 1px 1px 1px #0c90ee';
+    let w=document.querySelector('.partner-orders-top-button1');
+    console.log(z)
+    w.style.color='black'
+    w.style.boxShadow='none';
+    
+  }
+    function openordercurrent(){
+    let x=document.getElementById('order-page-2');
+    x.style.display='none'
+    let y=document.getElementById('order-page-1');
+    y.style.display='block'
+
+    let z=document.querySelector('.partner-orders-top-button2');
+     z.style.color='black'
+    z.style.boxShadow='none';
+   
+    let w=document.querySelector('.partner-orders-top-button1');
+     w.style.color='rgb(83, 158, 207)'
+    w.style.boxShadow='1px 1px 1px 1px #0c90ee';
+   
+    
+  }
+</script>
 {% endblock %}
