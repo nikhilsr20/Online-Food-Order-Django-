@@ -77,7 +77,10 @@
       onclick="rightmove()"
     />
   </div>
+  
 </div>
+<hr class="separator-x">
+
 
 <div class="main2">
   <div class="main2-div1-topline">What you want to order today 🍔 ?</div>
@@ -115,199 +118,23 @@
 </div>
 
 <div class="main4">
+
   <div class="main4-restaurantslist">
-    <div class="main4-restaurantslist-restaurantcard">
+    {% for r in Restaurant%}
+    <div class="main4-restaurantslist-restaurantcard" id="{r.id}">
       <img
         class="main4-restaurantslist-restaurantcard-img"
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2025/9/1/41b0492e-3e4e-4b8a-8f7b-bed178cc209b_695745.JPG"
+        src="{{r.image.url}}"
       />
-      <h3 class="main4-restaurantslist-restaurantcard-name">Pizza Hut</h3>
+      <h3 class="main4-restaurantslist-restaurantcard-name">{{r.Name}}</h3>
       <h4 class="main4-restaurantslist-restaurantcard-rating">
-        ⭐️ 4.3 | 30-35 mins
+        ⭐️ {{r.rating}} | {{r.deliverytime}} mins
       </h4>
-      <h5 class="main4-restaurantslist-restaurantcard-items">pizzas,pasta</h5>
-      <h5 class="main4-restaurantslist-restaurantcard-location">location</h5>
+      <h5 class="main4-restaurantslist-restaurantcard-items">{{r.Cuisenetypes}}</h5>
+      <h5 class="main4-restaurantslist-restaurantcard-location">{{r.Location}}</h5>
     </div>
-    <div class="main4-restaurantslist-restaurantcard">
-      <img
-        class="main4-restaurantslist-restaurantcard-img"
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2025/9/1/41b0492e-3e4e-4b8a-8f7b-bed178cc209b_695745.JPG"
-      />
-      <h3 class="main4-restaurantslist-restaurantcard-name">Pizza Hut</h3>
-      <h4 class="main4-restaurantslist-restaurantcard-rating">
-        ⭐️ 4.3 | 30-35 mins
-      </h4>
-      <h5 class="main4-restaurantslist-restaurantcard-items">pizzas,pasta</h5>
-      <h5 class="main4-restaurantslist-restaurantcard-location">location</h5>
-    </div>
-    <div class="main4-restaurantslist-restaurantcard">
-      <img
-        class="main4-restaurantslist-restaurantcard-img"
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2025/9/1/41b0492e-3e4e-4b8a-8f7b-bed178cc209b_695745.JPG"
-      />
-      <h3 class="main4-restaurantslist-restaurantcard-name">Pizza Hut</h3>
-      <h4 class="main4-restaurantslist-restaurantcard-rating">
-        ⭐️ 4.3 | 30-35 mins
-      </h4>
-      <h5 class="main4-restaurantslist-restaurantcard-items">pizzas,pasta</h5>
-      <h5 class="main4-restaurantslist-restaurantcard-location">location</h5>
-    </div>
-    <div class="main4-restaurantslist-restaurantcard">
-      <img
-        class="main4-restaurantslist-restaurantcard-img"
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2025/9/1/41b0492e-3e4e-4b8a-8f7b-bed178cc209b_695745.JPG"
-      />
-      <h3 class="main4-restaurantslist-restaurantcard-name">Pizza Hut</h3>
-      <h4 class="main4-restaurantslist-restaurantcard-rating">
-        ⭐️ 4.3 | 30-35 mins
-      </h4>
-      <h5 class="main4-restaurantslist-restaurantcard-items">pizzas,pasta</h5>
-      <h5 class="main4-restaurantslist-restaurantcard-location">location</h5>
-    </div>
-    <div class="main4-restaurantslist-restaurantcard">
-      <img
-        class="main4-restaurantslist-restaurantcard-img"
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2025/9/1/41b0492e-3e4e-4b8a-8f7b-bed178cc209b_695745.JPG"
-      />
-      <h3 class="main4-restaurantslist-restaurantcard-name">Pizza Hut</h3>
-      <h4 class="main4-restaurantslist-restaurantcard-rating">
-        ⭐️ 4.3 | 30-35 mins
-      </h4>
-      <h5 class="main4-restaurantslist-restaurantcard-items">pizzas,pasta</h5>
-      <h5 class="main4-restaurantslist-restaurantcard-location">location</h5>
-    </div>
-    <div class="main4-restaurantslist-restaurantcard">
-      <img
-        class="main4-restaurantslist-restaurantcard-img"
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2025/9/1/41b0492e-3e4e-4b8a-8f7b-bed178cc209b_695745.JPG"
-      />
-      <h3 class="main4-restaurantslist-restaurantcard-name">Pizza Hut</h3>
-      <h4 class="main4-restaurantslist-restaurantcard-rating">
-        ⭐️ 4.3 | 30-35 mins
-      </h4>
-      <h5 class="main4-restaurantslist-restaurantcard-items">pizzas,pasta</h5>
-      <h5 class="main4-restaurantslist-restaurantcard-location">location</h5>
-    </div>
-    <div class="main4-restaurantslist-restaurantcard">
-      <img
-        class="main4-restaurantslist-restaurantcard-img"
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2025/9/1/41b0492e-3e4e-4b8a-8f7b-bed178cc209b_695745.JPG"
-      />
-      <h3 class="main4-restaurantslist-restaurantcard-name">Pizza Hut</h3>
-      <h4 class="main4-restaurantslist-restaurantcard-rating">
-        ⭐️ 4.3 | 30-35 mins
-      </h4>
-      <h5 class="main4-restaurantslist-restaurantcard-items">pizzas,pasta</h5>
-      <h5 class="main4-restaurantslist-restaurantcard-location">location</h5>
-    </div>
-    <div class="main4-restaurantslist-restaurantcard">
-      <img
-        class="main4-restaurantslist-restaurantcard-img"
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2025/9/1/41b0492e-3e4e-4b8a-8f7b-bed178cc209b_695745.JPG"
-      />
-      <h3 class="main4-restaurantslist-restaurantcard-name">Pizza Hut</h3>
-      <h4 class="main4-restaurantslist-restaurantcard-rating">
-        ⭐️ 4.3 | 30-35 mins
-      </h4>
-      <h5 class="main4-restaurantslist-restaurantcard-items">pizzas,pasta</h5>
-      <h5 class="main4-restaurantslist-restaurantcard-location">location</h5>
-    </div>
-    <div class="main4-restaurantslist-restaurantcard">
-      <img
-        class="main4-restaurantslist-restaurantcard-img"
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2025/9/1/41b0492e-3e4e-4b8a-8f7b-bed178cc209b_695745.JPG"
-      />
-      <h3 class="main4-restaurantslist-restaurantcard-name">Pizza Hut</h3>
-      <h4 class="main4-restaurantslist-restaurantcard-rating">
-        ⭐️ 4.3 | 30-35 mins
-      </h4>
-      <h5 class="main4-restaurantslist-restaurantcard-items">pizzas,pasta</h5>
-      <h5 class="main4-restaurantslist-restaurantcard-location">location</h5>
-    </div>
-    <div class="main4-restaurantslist-restaurantcard">
-      <img
-        class="main4-restaurantslist-restaurantcard-img"
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2025/9/1/41b0492e-3e4e-4b8a-8f7b-bed178cc209b_695745.JPG"
-      />
-      <h3 class="main4-restaurantslist-restaurantcard-name">Pizza Hut</h3>
-      <h4 class="main4-restaurantslist-restaurantcard-rating">
-        ⭐️ 4.3 | 30-35 mins
-      </h4>
-      <h5 class="main4-restaurantslist-restaurantcard-items">pizzas,pasta</h5>
-      <h5 class="main4-restaurantslist-restaurantcard-location">location</h5>
-    </div>
-    <div class="main4-restaurantslist-restaurantcard">
-      <img
-        class="main4-restaurantslist-restaurantcard-img"
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2025/9/1/41b0492e-3e4e-4b8a-8f7b-bed178cc209b_695745.JPG"
-      />
-      <h3 class="main4-restaurantslist-restaurantcard-name">Pizza Hut</h3>
-      <h4 class="main4-restaurantslist-restaurantcard-rating">
-        ⭐️ 4.3 | 30-35 mins
-      </h4>
-      <h5 class="main4-restaurantslist-restaurantcard-items">pizzas,pasta</h5>
-      <h5 class="main4-restaurantslist-restaurantcard-location">location</h5>
-    </div>
-    <div class="main4-restaurantslist-restaurantcard">
-      <img
-        class="main4-restaurantslist-restaurantcard-img"
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2025/9/1/41b0492e-3e4e-4b8a-8f7b-bed178cc209b_695745.JPG"
-      />
-      <h3 class="main4-restaurantslist-restaurantcard-name">Pizza Hut</h3>
-      <h4 class="main4-restaurantslist-restaurantcard-rating">
-        ⭐️ 4.3 | 30-35 mins
-      </h4>
-      <h5 class="main4-restaurantslist-restaurantcard-items">pizzas,pasta</h5>
-      <h5 class="main4-restaurantslist-restaurantcard-location">location</h5>
-    </div>
-    <div class="main4-restaurantslist-restaurantcard">
-      <img
-        class="main4-restaurantslist-restaurantcard-img"
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2025/9/1/41b0492e-3e4e-4b8a-8f7b-bed178cc209b_695745.JPG"
-      />
-      <h3 class="main4-restaurantslist-restaurantcard-name">Pizza Hut</h3>
-      <h4 class="main4-restaurantslist-restaurantcard-rating">
-        ⭐️ 4.3 | 30-35 mins
-      </h4>
-      <h5 class="main4-restaurantslist-restaurantcard-items">pizzas,pasta</h5>
-      <h5 class="main4-restaurantslist-restaurantcard-location">location</h5>
-    </div>
-    <div class="main4-restaurantslist-restaurantcard">
-      <img
-        class="main4-restaurantslist-restaurantcard-img"
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2025/9/1/41b0492e-3e4e-4b8a-8f7b-bed178cc209b_695745.JPG"
-      />
-      <h3 class="main4-restaurantslist-restaurantcard-name">Pizza Hut</h3>
-      <h4 class="main4-restaurantslist-restaurantcard-rating">
-        ⭐️ 4.3 | 30-35 mins
-      </h4>
-      <h5 class="main4-restaurantslist-restaurantcard-items">pizzas,pasta</h5>
-      <h5 class="main4-restaurantslist-restaurantcard-location">location</h5>
-    </div>
-    <div class="main4-restaurantslist-restaurantcard">
-      <img
-        class="main4-restaurantslist-restaurantcard-img"
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2025/9/1/41b0492e-3e4e-4b8a-8f7b-bed178cc209b_695745.JPG"
-      />
-      <h3 class="main4-restaurantslist-restaurantcard-name">Pizza Hut</h3>
-      <h4 class="main4-restaurantslist-restaurantcard-rating">
-        ⭐️ 4.3 | 30-35 mins
-      </h4>
-      <h5 class="main4-restaurantslist-restaurantcard-items">pizzas,pasta</h5>
-      <h5 class="main4-restaurantslist-restaurantcard-location">location</h5>
-    </div>
-    <div class="main4-restaurantslist-restaurantcard">
-      <img
-        class="main4-restaurantslist-restaurantcard-img"
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2025/9/1/41b0492e-3e4e-4b8a-8f7b-bed178cc209b_695745.JPG"
-      />
-      <h3 class="main4-restaurantslist-restaurantcard-name">Pizza Hut</h3>
-      <h4 class="main4-restaurantslist-restaurantcard-rating">
-        ⭐️ 4.3 | 30-35 mins
-      </h4>
-      <h5 class="main4-restaurantslist-restaurantcard-items">pizzas,pasta</h5>
-      <h5 class="main4-restaurantslist-restaurantcard-location">location</h5>
-    </div>
+    
+    {% endfor %}
   </div>
 </div>
 

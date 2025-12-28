@@ -48,7 +48,7 @@ class Restaurants(models.Model):
     state=models.CharField(max_length=100,blank=True, null=True)
     pincode=models.CharField(max_length=10,default="000000")
 
-    rating = models.FloatField(default=0)
+    rating = models.FloatField(default=0,blank=True, null=True)
     
     deliverytime=models.FloatField(default=30,blank=True, null=True)
     Timeopen=models.TimeField(default=datetime.time(9,0))

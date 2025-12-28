@@ -133,10 +133,19 @@ left: 0;
 
 .main3{
     margin-top: 40px;
-    margin-inline: 55px;
+    margin-inline: 150px;
+    background-color: #ffffff;
 }
 .main3-topline{
    font-weight: bold;
+   text-align: center;
+   font-size: x-large;
+   background: linear-gradient(90deg,#343434,#9c9b9b,#2c2b2b);
+   -webkit-background-clip: text;
+   color: transparent;
+}
+.separator-x{
+    border: 1px solid rgb(230, 230, 230);
 }
 .main-3-food{
     display: flex;
@@ -166,10 +175,20 @@ left: 0;
     
     background-color: rgb(174, 220, 246);
 }
+.main4{
+     margin-inline:100px;
+     display: flex;
+     justify-content: flex-start;
+}
+.main2{
+    margin-top: 50px;
+    margin-inline:155px;
+}
 .main4-restaurantslist{
     margin-inline:55px;
     margin-top: 20px;
     display: flex;
+    justify-content: flex-start;
     flex-wrap: wrap;
     gap: 25px;
 }

@@ -61,11 +61,13 @@ def logout(request):
 
 def profile(request):
     phone = request.session.get('users-phone')
-     
     user_instance=get_object_or_404(PartnerSignup,phone=phone)
+    
+    print(user_instance)
 
     try:
         restaurant_instance=user_instance.USER
+        print(restaurant_instance)
     except Restaurants.DoesNotExist:
         restaurant_instance=None
 
@@ -73,13 +75,12 @@ def profile(request):
   
     if request.method=='POST':
         form=RestaurantsForm(request.POST,request.FILES,instance=restaurant_instance)
-
+        print(form)
         if form.is_valid():
-          
+            print("saving form")
             res=form.save(commit=False)
             res.user=user_instance
             res.save()
-
     else:
         form=RestaurantsForm(instance=restaurant_instance)
     return render(request,'partner/partner-profile.html',{'form':form})

@@ -104,9 +104,9 @@
 </div>
 
                       <div id="edit_item_div" onclick="event.stopPropagation()">
-
+                       
                        <div class="partner-add-category-div" >
-                      
+                        <img class="back-edit-item" src="https://cdn-icons-png.flaticon.com/128/3114/3114883.png" alt="" onclick="closeedit()">
                                 <h1 >Edit item</h1>
                      <form method="POST" enctype="multipart/form-data">
                         {%csrf_token%}
@@ -129,7 +129,6 @@
                      <button class="partner-add-category-div-elem3"   name="edit_item" id="button-for-edit">confirm</button>
                      
                      </form>
-                  
                         </div>
                         </div>
 
@@ -180,6 +179,7 @@ function edit_item(id, name,description, price, food_type, imageUrl, categoryNam
 
       let y= document.getElementById('main-parter');
       y.style.opacity="0.3";
+      y.style.blur="10px";
 
         
         document.getElementById('button-for-edit').value=id;
@@ -189,10 +189,17 @@ function edit_item(id, name,description, price, food_type, imageUrl, categoryNam
       document.getElementById("edit_food_type").value = food_type;
        document.getElementById("cat_name").value = categoryName; 
 
-      
-
-
     }
+
+    function closeedit(){
+      let x=document.getElementById("edit_item_div");
+      x.style.display="none";
+
+      let y= document.getElementById('main-parter');
+      y.style.opacity="1";
+     
+    }
+
     function toggleevent(cat_id,arrow){
         console.log("clicked")
         let el=document.getElementById(cat_id);

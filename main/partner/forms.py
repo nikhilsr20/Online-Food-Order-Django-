@@ -7,7 +7,8 @@ class RestaurantsForm(ModelForm):
 
     class Meta:
         model=Restaurants
-        fields= "__all__"
+        # fields= "__all__"
+        exclude = ['user']
         widgets = {
         'Name': forms.TextInput(attrs={'class': 'Restaurant-name', 'placeholder': "Enter Restaurant Name"}),
         'Restauranttype': forms.Select(attrs={'class': 'Restaurant-type', 'placeholder': "Enter Restaurant Type"}),
