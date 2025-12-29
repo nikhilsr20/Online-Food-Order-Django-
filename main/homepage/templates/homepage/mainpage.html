@@ -121,7 +121,7 @@
 
   <div class="main4-restaurantslist">
     {% for r in Restaurant%}
-    <div class="main4-restaurantslist-restaurantcard" id="{r.id}">
+    <div  class="main4-restaurantslist-restaurantcard" id="{{r.id}}" onclick="gotomenu('{{r.id}}')">
       <img
         class="main4-restaurantslist-restaurantcard-img"
         src="{{r.image.url}}"
@@ -283,6 +283,11 @@
     function leftmove(){
     x=document.getElementById("main-3")
     x.scrollBy({ left: -100, behavior: "smooth" });
+  }
+
+
+  function gotomenu(restaurantid){
+    window.location.href=`/restaurant/res/${restaurantid}/`
   }
 
 </script>

@@ -15,6 +15,7 @@
     right: 0;
     left: 0;
     border-bottom: 0.2px solid rgb(176, 173, 173);
+    height: 60px;
     z-index: 100;
     transition: all ease-in-out 0.2s;
 }
@@ -83,7 +84,7 @@
 .navbar-3{
      align-items: center;
     display: flex;
-    gap: 100px;
+    gap: 40px;
 }
 
 .navbar-1-logo{
@@ -98,7 +99,10 @@
 .navbar-3-search{
      width: 20px;
     height: 20px;
-    
+    /* border: 1px solid blue; */
+    padding: 4px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px 1px #669edf;
 }
 .navbar-3-profile{
      width: 20px;
@@ -148,7 +152,7 @@
     background-color: rgb(253, 253, 253);
     border: 0.3px solid rgb(156, 155, 155);
     padding: 5px;
-    border-radius: 10px;
+    border-radius: 15px;
     gap:10px;
 }
 .navbar-2-other{
@@ -176,11 +180,12 @@
 
 
 .navbar-3-input{
-    width: 200px;
+    width: 400px;
     border: none;
     font-size:  medium;
     font-family: sans-serif;
     color: rgb(154, 154, 154);
+    margin-left: 50px;
   
 
 }
@@ -270,4 +275,7 @@
   text-decoration: none;
  
  color: aqua;
+}
+.separator-y{
+   height: 30px;
 }

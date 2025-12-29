@@ -5,10 +5,10 @@
 <div class="Restaurant-page">
    <div class="Restaurant-data">
     <div class="Restaurant-data-div1">
-    <h1 class="Restaurant-data-div1-heading">Pizza hut</h1>
+    <h1 class="Restaurant-data-div1-heading">{{restaurant.Name}}</h1>
     <div class="Restaurant-data-div1-div1">
         <img class="Restaurant-data-div1-div1-img" src="https://cdn-icons-png.flaticon.com/128/10453/10453904.png">
-        <span>4.3</span>
+        <span>{{restaurant.rating}}</span>
         <span>(2.5K+ ratings)  | </span>
         <span>$350 for two</span>
     </div>
@@ -67,8 +67,7 @@
     
     
     <div class="Restaurant-data-div2">
-           <img class="Restaurant-data-div2-img" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2025/9/1/41e692b6-ebaf-4c50-a868-ce01003733aa_47597.JPG">
-
+           <img class="Restaurant-data-div2-img" src="{{restaurant.image.url}}">
          </div>
     </div>
     <div class="Restaurant-menu">
@@ -103,49 +102,41 @@
 
       <div class="Restaurant-menu-main-list">
          <div class="Restaurant-menu-main-list-data">
+             {% for i in category %}
               <div class="Restaurant-menu-main-list-data-header" onclick="openlist()">
-              <h1 class="Restaurant-menu-main-list-data-header-name">Pizzas (2)</h1>
+              <h1 class="Restaurant-menu-main-list-data-header-name">{{i.name}}</h1>
               <img class="Restaurant-menu-main-list-data-header-img" src="https://cdn-icons-png.flaticon.com/128/2985/2985150.png">
               </div>
               
+
+             
+              
               <div class="Restaurant-menu-main-list-data-header-data" id="Restaurant-menu-main-list-data-header-data-id">
+                 {%for j in items%}
+                {% if i.id == j.category_id  %}
                 <div class="Restaurant-menu-main-list-data-header-data-items">
                   <div class="Restaurant-menu-main-list-data-header-data-items-div1">
-                  <img class="Restaurant-menu-main-list-data-header-data-items-div1-img" id="Restaurant-menu-main-list-data-header-data-items-div1-img-id" src="https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/veg-icon.png">
-                  <p class="Restaurant-menu-main-list-data-header-data-items-div1-itemname">Margherita</p>
-                  <p class="Restaurant-menu-main-list-data-header-data-items-div1-rs">$169</p>
-                  <p class="Restaurant-menu-main-list-data-header-data-items-div1-rating" ><img class="Restaurant-menu-main-list-data-header-data-items-div1-rating-img"  src="https://cdn-icons-png.flaticon.com/128/10453/10453904.png"> 4.4 (120)</p>
-                  <p class="Restaurant-menu-main-list-data-header-data-items-div1-description">Pizza topped with our herb-infused signature pan sauce and mozzarella cheese. A classic treat for all cheese lovers out there! PAN Per/Med-292 Kcal/100g | TnC-293 Kcal/100g | Stuffed Crust Add : Per: 295 Kcal/Pizza | Med: 448kcal/Pizza| Ultimate Cheese : PER: 250 kcal/Pizza | MED: 375 kcal/Pizza. Contains Cereals containing Gluten (Wheat), Soya and Milk & Milk Products.</p>
+                  <img class="Restaurant-menu-main-list-data-header-data-items-div1-img" id="Restaurant-menu-main-list-data-header-data-items-div1-img-id" 
+                  src="{% if j.food_type == 'veg' %}https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/veg-icon.png{% else %}https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/non-veg-icon.png{% endif %}">
+                  <p class="Restaurant-menu-main-list-data-header-data-items-div1-itemname">{{j.name}}</p>
+                  <p class="Restaurant-menu-main-list-data-header-data-items-div1-rs">${{j.price}}</p>
+                  <p class="Restaurant-menu-main-list-data-header-data-items-div1-rating" >
+                    <img class="Restaurant-menu-main-list-data-header-data-items-div1-rating-img"  src="https://cdn-icons-png.flaticon.com/128/10453/10453904.png"> {{j.rating}}</p>
+                  <p class="Restaurant-menu-main-list-data-header-data-items-div1-description">{{j.description}}</p>
                   </div>
                   <div class="Restaurant-menu-main-list-data-header-data-items-div2">
-                    <img class="Restaurant-menu-main-list-data-header-data-items-div2-img" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/FOOD_CATALOG/IMAGES/CMS/2025/4/17/ef2f1053-c8e3-4072-aaa7-4539a67c8554_e8da5065-4d03-47d7-bad7-5413398a1564.jpg_compressed">
-                    <button  class="Restaurant-menu-main-list-data-header-data-items-div2-button">ADD</button>
+                    <img class="Restaurant-menu-main-list-data-header-data-items-div2-img" src="{{j.image.url}}">
+                     <button  class="Restaurant-menu-main-list-data-header-data-items-div2-button">ADD</button>
                   </div>
                     
                 </div>
-
                 <hr class="res-list-hr-break">
-               
-
-                       <div class="Restaurant-menu-main-list-data-header-data-items">
-                  <div class="Restaurant-menu-main-list-data-header-data-items-div1">
-                  <img class="Restaurant-menu-main-list-data-header-data-items-div1-img" src="https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/veg-icon.png">
-                  <p class="Restaurant-menu-main-list-data-header-data-items-div1-itemname">Margherita</p>
-                  <p class="Restaurant-menu-main-list-data-header-data-items-div1-rs">$169</p>
-                  <p class="Restaurant-menu-main-list-data-header-data-items-div1-rating" ><img class="Restaurant-menu-main-list-data-header-data-items-div1-rating-img"  src="https://cdn-icons-png.flaticon.com/128/10453/10453904.png"> 4.4 (120)</p>
-                  <p class="Restaurant-menu-main-list-data-header-data-items-div1-description">Pizza topped with our herb-infused signature pan sauce and mozzarella cheese. A classic treat for all cheese lovers out there! PAN Per/Med-292 Kcal/100g | TnC-293 Kcal/100g | Stuffed Crust Add : Per: 295 Kcal/Pizza | Med: 448kcal/Pizza| Ultimate Cheese : PER: 250 kcal/Pizza | MED: 375 kcal/Pizza. Contains Cereals containing Gluten (Wheat), Soya and Milk & Milk Products.</p>
-                  </div>
-                  <div class="Restaurant-menu-main-list-data-header-data-items-div2">
-                    <img class="Restaurant-menu-main-list-data-header-data-items-div2-img" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/FOOD_CATALOG/IMAGES/CMS/2025/4/17/ef2f1053-c8e3-4072-aaa7-4539a67c8554_e8da5065-4d03-47d7-bad7-5413398a1564.jpg_compressed">
-                    <button  class="Restaurant-menu-main-list-data-header-data-items-div2-button">ADD</button>
-                  </div>
-                    
-                </div>
-
-                <hr class="res-list-hr-break">
-
-
+                 {% endif %}
+                {% endfor %}
+        
               </div>
+             
+              {% endfor %}
          </div>
 
 
@@ -153,6 +144,7 @@
 
         </div>
       </div>
+
     </div>
 
 
