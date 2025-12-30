@@ -3,6 +3,10 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate
+
+from .models import Cart
+
+
 class Register(UserCreationForm):
     username=forms.CharField(max_length=150,widget=forms.TextInput(attrs={'class':'register-username'}))
     password1=forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class':'register-password1','placeholder':'Enter password'}))
@@ -77,3 +81,14 @@ class Login(AuthenticationForm):
 
    
         
+class Cart_form(forms.ModelForm):
+
+    class Meta:
+        model=Cart
+        exclude=['user']
+        widgets = {
+            'item': forms.TextInput(attrs={'class': 'not'}),
+            'food_type': forms.TextInput(attrs={'class': 'not'}),
+            'quantity': forms.NumberInput(attrs={'class': 'not'}),
+            'price': forms.NumberInput(attrs={'class': 'not'}),
+        }
