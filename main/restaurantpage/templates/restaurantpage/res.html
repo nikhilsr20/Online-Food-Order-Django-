@@ -114,6 +114,7 @@
               <div class="Restaurant-menu-main-list-data-header-data" id="Restaurant-menu-main-list-data-header-data-id">
                  {%for j in items%}
                 {% if i.id == j.category_id  %}
+               
                 <div class="Restaurant-menu-main-list-data-header-data-items">
                   <div class="Restaurant-menu-main-list-data-header-data-items-div1">
                   <img class="Restaurant-menu-main-list-data-header-data-items-div1-img" id="Restaurant-menu-main-list-data-header-data-items-div1-img-id" 
@@ -126,7 +127,10 @@
                   </div>
                   <div class="Restaurant-menu-main-list-data-header-data-items-div2">
                     <img class="Restaurant-menu-main-list-data-header-data-items-div2-img" src="{{j.image.url}}">
-                     <button  class="Restaurant-menu-main-list-data-header-data-items-div2-button">ADD</button>
+                    <form method="POST">
+                      {% csrf_token %}
+                     <button  class="Restaurant-menu-main-list-data-header-data-items-div2-button"  value="{{ j.id }},{{ i.id }},{{ restaurant.id }},ADD" name="add_to_cart">ADD</button>
+                     </form>
                   </div>
                     
                 </div>

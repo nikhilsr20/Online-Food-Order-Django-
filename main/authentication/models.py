@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class Cart(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE,related_name="user")
     restaurantid=models.IntegerField(null=True, blank=True)
-    item_id=models.IntegerField(null=True, blank=True)
+    item_id=models.IntegerField()
     item=models.CharField(max_length=50)
     quantity=models.IntegerField(default=1)
     food_type=models.CharField(max_length=20)
