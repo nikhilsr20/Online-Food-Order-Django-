@@ -9,10 +9,10 @@ def restaurant(request,id):
     if 'add_to_cart' in request.POST:
         x = request.POST.get('add_to_cart')
 
-        cat_id, itemid, res_id, AD = x.split(',')
+        itemid, cat_id, res_id, AD = x.split(',')
 
-        cat_id = int(cat_id)
         itemid = int(itemid)
+        cat_id = int(cat_id)
         res_id = int(res_id)
     
     
@@ -42,9 +42,11 @@ def restaurant(request,id):
         
         else:
             print("xxx")
-            item_data = get_object_or_404(Item, id=itemid)
-           
-            print(item_data)
+            restaurant=get_object_or_404(Restaurants,id=res_id)
+            item_data = Item.objects.get(category__restaurant=restaurant,id=itemid)
+            print("itemid:", itemid, type(itemid))
+            
+            print(item_data.price)
             Cart.objects.create(
                 user=request.user,
                 restaurantid=id,
