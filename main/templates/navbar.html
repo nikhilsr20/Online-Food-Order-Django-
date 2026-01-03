@@ -79,11 +79,17 @@
 </div>
 
         <div class="navbar-3-3">
+          
+          
+          {% if cartlength %}
+          <span class="cart_length">{{cartlength}}</span>
+          {% else%}
           <img
             class="navbar-3-cart"
             src="https://cdn-icons-png.flaticon.com/128/5337/5337564.png"
             alt="cart"
           />
+          {% endif %}
           <a class="navbar-3-3-cart" href="{% url 'cart' %}">cart</a>
         </div>
         

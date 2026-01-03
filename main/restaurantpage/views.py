@@ -1,9 +1,16 @@
 from django.shortcuts import render,get_object_or_404
 from partner.models import Restaurants,Item
 from authentication.models import Cart
+
+
+
+   
 # Create your views here.
 
 def restaurant(request,id):
+ 
+    
+  
 
 
     if 'add_to_cart' in request.POST:
@@ -36,12 +43,12 @@ def restaurant(request,id):
             else:
                 cart = Cart.objects.get(item_id=itemid)
                 cart.quantity-=1
-
+                cart.save()
                 if cart.quantity==0:
                     cart.delete()  
         
         else:
-            print("xxx")
+            
             restaurant=get_object_or_404(Restaurants,id=res_id)
             item_data = Item.objects.get(category__restaurant=restaurant,id=itemid)
             print("itemid:", itemid, type(itemid))
@@ -68,7 +75,22 @@ def restaurant(request,id):
 
     items=Item.objects.filter(category__restaurant=restaurant)
 
-    return render(request,'restaurantpage/res.html',{'category':category,'items':items,'restaurant':restaurant})
+    q=[]
+    for i in items:
+        x = Cart.objects.filter(item_id=i.id).first()
+        if x:
+            q.append({
+            "id":i.id,    
+            "quantity":x.quantity,
+            })
+        else:
+            q.append({
+            "id":i.id,    
+            "quantity": 0,
+            })   
+
+
+    return render(request,'restaurantpage/res.html',{'category':category,'items':items,'restaurant':restaurant,'q':q})
 
 
 

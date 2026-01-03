@@ -103,7 +103,7 @@
       <div class="Restaurant-menu-main-list">
          <div class="Restaurant-menu-main-list-data">
              {% for i in category %}
-              <div class="Restaurant-menu-main-list-data-header" onclick="openlist()">
+              <div class="Restaurant-menu-main-list-data-header" onclick="openlist('{{i.id}}')">
               <h1 class="Restaurant-menu-main-list-data-header-name">{{i.name}}</h1>
               <img class="Restaurant-menu-main-list-data-header-img" src="https://cdn-icons-png.flaticon.com/128/2985/2985150.png">
               </div>
@@ -111,7 +111,7 @@
 
              
               
-              <div class="Restaurant-menu-main-list-data-header-data" id="Restaurant-menu-main-list-data-header-data-id">
+              <div class="Restaurant-menu-main-list-data-header-data" id="{{i.id}}">
                  {%for j in items%}
                 {% if i.id == j.category_id  %}
                
@@ -129,7 +129,22 @@
                     <img class="Restaurant-menu-main-list-data-header-data-items-div2-img" src="{{j.image.url}}">
                     <form method="POST">
                       {% csrf_token %}
-                     <button  class="Restaurant-menu-main-list-data-header-data-items-div2-button"  value="{{ j.id }},{{ i.id }},{{ restaurant.id }},ADD" name="add_to_cart">ADD</button>
+                      {% for x in q %}
+                      {% if x.id == j.id %}
+                      {% if x.quantity == 0 %}
+                     <button  class="Restaurant-menu-main-list-data-header-data-items-div2-button"  value="{{ j.id }},{{ i.id }},{{ restaurant.id }},ADD"name="add_to_cart">Add</button>
+                     {% else %}
+                       <div class="new-button-div-realtime-update">
+
+                        <button class="new-button-div-realtime-update-button" value="{{ j.id }},{{ i.id }},{{ restaurant.id }},minus"name="add_to_cart">-</button>
+                            <span>{{x.quantity}}</span>
+                         <button class="new-button-div-realtime-update-button" value="{{ j.id }},{{ i.id }},{{ restaurant.id }},ADD"name="add_to_cart">+</button>
+                       </div>
+                    
+
+                      {% endif %}
+                      {% endif %}
+                    {% endfor %}
                      </form>
                   </div>
                     
@@ -158,6 +173,11 @@
 
 
 <script>
+   if(window.history.replaceState){
+    window.history.replaceState(null,null,window.location.href)
+   }
+
+
   function right(){
     x=document.getElementById("offer-left")
     x.scrollBy({ left: 100, behavior: "smooth" });
@@ -167,9 +187,12 @@
     x.scrollBy({ left: -100, behavior: "smooth" });
   }
 
-  function openlist(){
-    let x=document.getElementById("Restaurant-menu-main-list-data-header-data-id")
+  function openlist(id){
+    let x=document.getElementById(id)
     console.log(x.style.display)
+
+    x.scrollBy({bottom: 100,behavior:"smooth" });
+
     // let y=document.getElementById("Restaurant-menu-main-list-data-header-data-items-div1-img-id")
     // console.log(y)
     if(x.style.display==="none" ){

@@ -279,3 +279,16 @@
 .separator-y{
    height: 30px;
 }
+
+.cart_length{
+   
+    right: 250px;
+    background-color: #8bb8ec;
+    border-radius: 100px;
+    padding: 1px;
+    width: 20px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: small;
+
+}

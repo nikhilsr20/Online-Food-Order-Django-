@@ -132,15 +132,41 @@ cursor: pointer;
     height: 50px;
     gap: 10px;
     cursor: pointer;
-     
+     transition: box-shadow ease-in-out 0.25s;
+}
+.not-available-coupans{
+    display: none;
+    position: absolute;
+     margin-bottom: 60px;
+     font-size: medium;
+     font-family: monospace;
+     background-color: rgb(110, 109, 109);
+     padding: 5px;
+     color: white;
+     font-weight: 200;
+     border-radius: 10px;
+}
+#cart-main-card-no-items{
+  display: flex;
+  justify-content: center;
+   align-items: center;
+   font-family:  sans-serif;
 }
 .cart-main-card-coupons-img{
     width: 30px;
 }
+.cart-main-card-coupons:hover{
+    box-shadow: 0.1px 0.1px 6px 0.1px black;
+}
+.cart-main-card-coupons:hover .not-available-coupans{
+    display: block;
+}
+
 
 .cart-main-card-bill{
     margin-top: 10px;
 }
+
 
 .cart-main-card-bill-div1,.cart-main-card-bill-div2,.cart-main-card-bill-div3,.cart-main-card-bill-div4{
     margin-top: 10px;
