@@ -81,14 +81,14 @@ class Login(AuthenticationForm):
 
    
         
-class Cart_form(forms.ModelForm):
+# class Cart_form(forms.ModelForm):
 
-    class Meta:
-        model=Cart
-        exclude=['user']
-        widgets = {
-            'item': forms.TextInput(attrs={'class': 'not'}),
-            'food_type': forms.TextInput(attrs={'class': 'not'}),
-            'quantity': forms.NumberInput(attrs={'class': 'not'}),
-            'price': forms.NumberInput(attrs={'class': 'not'}),
-        }
+#     class Meta:
+#         model=Cart
+#         exclude=['user']
+#         widgets = {
+#             'item': forms.TextInput(attrs={'class': 'not'}),
+#             'food_type': forms.TextInput(attrs={'class': 'not'}),
+#             'quantity': forms.NumberInput(attrs={'class': 'not'}),
+#             'price': forms.NumberInput(attrs={'class': 'not'}),
+#         }

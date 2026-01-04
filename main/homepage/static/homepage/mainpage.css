@@ -505,3 +505,15 @@ background-color: #ffffff;
 .main2-div2-filter:hover .sortBy-filter{
     display: block;
 }
+.paginator{
+    display: flex;
+    justify-content: center;
+}
+
+.paginator-num{
+    width: fit-content;
+    border-radius: 100px;
+    padding: 4px;
+    background-color: #95c2f5;
+    color: #ffffff;
+}

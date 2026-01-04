@@ -139,6 +139,19 @@
 </div>
 
 </div>
+ <div class="paginator">
+    {% if Restaurant.has_previous %}
+       <a href="?page=1">1</a>
+       <a href="?page={{Restaurant.previous_page_number}}"><img src="https://cdn-icons-png.flaticon.com/128/5343/5343109.png" alt=""></a>
+    {% endif %}
+
+    <span class="paginator-num">{{Restaurant.number}}</span>
+
+     {% if Restaurant.has_next %}
+       <a href="?page={{Restaurant.next_page_number}}">1</a>
+       <a href="?page={{ Restaurant.paginator.num_pages }}"><img src="https://cdn-icons-png.flaticon.com/128/5279/5279789.png" alt=""></a>
+    {% endif %}
+  </div>
 
 <!-- location -->
 
@@ -240,6 +253,8 @@
       </div>
     </div>
   </div>
+
+ 
 
   
 <script>
