@@ -134,6 +134,13 @@
     background-color: rgb(168, 208, 246);
     padding: 2px 10px;
     border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.partner-img-navbar{
+    width: 23px;
+    height: 26px;
 }
 .navbar-5-name:hover{
  color: rgb(255, 255, 255);

@@ -86,9 +86,12 @@ left: 0;
     
 }
 .main2-div1-topline{
-    font-size: medium;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: bolder;
+    font-weight: bold;
+   text-align: center;
+   font-size: x-large;
+   background: linear-gradient(90deg,#515050,#9c9b9b,#9c9b9b,#565454);
+   -webkit-background-clip: text;
+   color: transparent;
 }
 .main2-div2-filter{
     position: relative;
@@ -210,8 +213,11 @@ left: 0;
    box-shadow: 2px 8px 10px rgba(25, 154, 218, 0.2);
 }
 .main4-restaurantslist-restaurantcard-name{
-font-weight: 300;
-
+font-weight: 700;
+font-family: sans-serif;
+background: linear-gradient(90deg,#252526,#7f7f7f,#757474,#676767,#676767,#252526);
+-webkit-background-clip: text;
+color: transparent;
 }
 .main4-restaurantslist-restaurantcard:hover .main4-restaurantslist-restaurantcard-name{
 color: rgb(0, 100, 188);
@@ -219,6 +225,9 @@ color: rgb(0, 100, 188);
 .main4-restaurantslist-restaurantcard-rating{
 font-weight: 300;
 color: rgb(124, 124, 124);
+display: flex;
+align-items: center;
+margin-top:6px ;
 
 }
 .main4-restaurantslist-restaurantcard-items{
@@ -516,4 +525,9 @@ background-color: #ffffff;
     padding: 4px;
     background-color: #95c2f5;
     color: #ffffff;
+}
+.res-rate-img{
+    width: 16px;
+    height: 16px;
+    margin-right: 3px;
 }

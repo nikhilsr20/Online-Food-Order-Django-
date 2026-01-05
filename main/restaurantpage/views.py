@@ -10,9 +10,6 @@ from authentication.models import Cart
 def restaurant(request,id):
  
     
-  
-
-
     if 'add_to_cart' in request.POST:
         x = request.POST.get('add_to_cart')
 

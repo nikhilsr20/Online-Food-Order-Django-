@@ -841,7 +841,7 @@ box-shadow: 1px 1px 4px 1px #3a88f5;
 .partner-orders-current-orders-div-1-elem1-child{
     font-size: large;
     color: #ffffff;
-    background: linear-gradient(90deg,#156cee,#85bcff,#51abf0,#7ec1f7,#156cee);
+    background: linear-gradient(90deg,#323333,#5d5e5f,#848484,#afb0b1);
    -webkit-background-clip: text;
    color: transparent;
    
@@ -852,8 +852,9 @@ box-shadow: 1px 1px 4px 1px #3a88f5;
   
     padding:5px 10px;
     border-radius: 4px;
-    background-color: #c9e7ff;
+    background-color: #f4f2f2;
     margin-bottom: 10px;
+    color: #6f6e6e;
 }
 .partner-orders-current-orders-div-1-elem2-child{
     font-size: small;
@@ -884,7 +885,7 @@ display: flex;
     font-size: larger;
 font-family: sans-serif;
   font-weight: 400;
-  background-color: #eaf0ff;
+  background-color: #e0e0e1;
   width: fit-content;
   padding: 2px;
   color: rgb(118, 115, 115);
@@ -892,20 +893,19 @@ font-family: sans-serif;
   
 }
 .partner-orders-current-orders-div-2-elem2{
-margin-top: 40px;
+margin-top: 60px;
 align-content: end;
-
-
 }
 .partner-orders-current-orders-div-2-elem2-child{
     
-     font-size: larger;
+     font-size: medium;
 font-family: sans-serif;
-  font-weight: 1000;
-  color: #319be8;
-  background-color: #e7e7e7;
-  padding: 2px;
-  border-radius: 2px;
+  font-weight: 700;
+  color: #555454;
+  background-color: #f1f1f1;
+  padding: 4px;
+  border-radius: 5px;
+  
 
 }
 

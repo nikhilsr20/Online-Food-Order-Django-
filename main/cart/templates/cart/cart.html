@@ -9,7 +9,7 @@
      <div class="cart-top-addresses">
            <img class="cart-top-addresses-img" src="https://cdn-icons-png.flaticon.com/128/6218/6218733.png">
            <p class="cart-top-addresses-p">choose a delivery address</p>
-           <button class="cart-top-addresses-button" type="button" onclick="opencart2()">add +</button>
+           <button class="cart-top-addresses-button" type="button" onclick="opencartx()">add +</button>
      </div>
      
 </div>
@@ -195,11 +195,13 @@
 
 <script>
   if(window.history.replaceState){
-    return window.history.replaceState(null,null,window.location.href);
+     window.history.replaceState(null,null,window.location.href);
   }
-  function opencart2(){
+  function opencartx(){
+    console.log("hill")
     let x=document.getElementById("CART-SECTION")
     let y=document.getElementById("ADRESS-PAGE")
+    console.log(y)
     x.style.display='none'
     y.style.display='flex'
     
@@ -224,6 +226,7 @@
     y.style.display='none'
     
   }
+  
 </script>
 {% endblock %}
 

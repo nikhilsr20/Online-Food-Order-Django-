@@ -18,7 +18,7 @@
         <span>Outlet</span>
         <div class="Restaurant-data-div1-div2-div-resname">
         <span class="Restaurant-data-div1-div2-div-resname-name">DB Mall</span>
-        <img class="Restaurant-data-div1-div2-div-down" src="https://cdn-icons-png.flaticon.com/128/32/32195.png">
+       
         </div>
       </div>
 
@@ -120,7 +120,7 @@
                   <img class="Restaurant-menu-main-list-data-header-data-items-div1-img" id="Restaurant-menu-main-list-data-header-data-items-div1-img-id" 
                   src="{% if j.food_type == 'veg' %}https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/veg-icon.png{% else %}https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/non-veg-icon.png{% endif %}">
                   <p class="Restaurant-menu-main-list-data-header-data-items-div1-itemname">{{j.name}}</p>
-                  <p class="Restaurant-menu-main-list-data-header-data-items-div1-rs">${{j.price}}</p>
+                  <p class="Restaurant-menu-main-list-data-header-data-items-div1-rs">₹{{j.price}}</p>
                   <p class="Restaurant-menu-main-list-data-header-data-items-div1-rating" >
                     <img class="Restaurant-menu-main-list-data-header-data-items-div1-rating-img"  src="https://cdn-icons-png.flaticon.com/128/10453/10453904.png"> {{j.rating}}</p>
                   <p class="Restaurant-menu-main-list-data-header-data-items-div1-description">{{j.description}}</p>

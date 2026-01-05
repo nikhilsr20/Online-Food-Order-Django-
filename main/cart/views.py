@@ -1,10 +1,12 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404,redirect
 from django.http import HttpResponse
 from authentication.models import Cart
 from partner.models import Restaurants,Item
 # Create your views here.
 def cart(request):
-    print(request.POST)
+    if not request.user.is_authenticated:
+        return redirect('register')
+  
     if 'handle_cart' in request.POST:
         x = request.POST.get('handle_cart')
 
