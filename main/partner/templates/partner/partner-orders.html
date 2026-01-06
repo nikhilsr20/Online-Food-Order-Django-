@@ -6,14 +6,17 @@
   </div>
   <hr />
   <div class="partner-orders-current-orders" id="order-page-1">
+    {% if orders %}
+    {% for order in orders %}
+    {% if order.status == "pending" %}
     <div class="partner-orders-current-orders-div">
       <div class="partner-orders-current-orders-div-1">
         <div class="partner-orders-current-orders-div-1-elem1">
           <h1 class="partner-orders-current-orders-div-1-elem1-child">
-            order-id: #123
+            order-id: #{{order.id}}
           </h1>
           <h1 class="partner-orders-current-orders-div-1-elem1-child">
-            order-Time: 12Dec ,9:10PM
+            order-Time: {{order.order_date|date:"d M"}} ,{{ order.order_time|time:"H:i" }}PM
           </h1>
         </div>
         <div class="partner-orders-current-orders-div-1-elem2">
@@ -21,13 +24,13 @@
             Customer Details
           </h1>
           <h1 class="partner-orders-current-orders-div-1-elem2-child">
-            Customer: Rahul Sharma
+            Customer: {{order.customer_name}}
           </h1>
           <h1 class="partner-orders-current-orders-div-1-elem2-child">
-            Phone: 9000393827
+            Phone: {{order.customer_phone}}
           </h1>
           <h1 class="partner-orders-current-orders-div-1-elem2-child">
-            Address: 221B MG Road, Indore (Opp. City Mall)
+            Address: {{order.customer_address}}
           </h1>
         </div>
       </div>
@@ -35,13 +38,14 @@
         <div class="partner-orders-current-orders-div-2-elem1">
           <h1 class="partner-orders-current-orders-div-2-elem1-head">Items</h1>
           <ul class="partner-orders-current-orders-div-2-elem1-head-child">
-            <li>Paneer Butter Masala x 1 (No onion)</li>
-            <li>Butter Naan x 4</li>
+            {% for item in order.items.all %}
+            <li>{{ item.order_item_name }} × {{ item.order_item_quantity }}</li>
+            {% endfor %}
           </ul>
         </div>
         <div class="partner-orders-current-orders-div-2-elem2">
           <h1 class="partner-orders-current-orders-div-2-elem2-child">
-            Total Amount: ₹456
+            Total Amount: {{order.order_amount}}
           </h1>
           <h1 class="partner-orders-current-orders-div-2-elem2-child">
             Payment: UPI (Paid)
@@ -55,7 +59,89 @@
             Since Arrival
           </h1>
           <h1 class="partner-orders-current-orders-div-3-elem1-child2">
-            30 min
+           {{ order.created_at|timesince }} ago
+          </h1>
+        </div>
+        <div class="partner-orders-current-orders-div-3-elem2">
+          <form method="post">
+            {% csrf_token %}
+          <button class="partner-orders-current-orders-div-3-elem2-child1" value="{{order.id}}" name="complete_action">
+            Complete
+          </button>
+          </form>
+
+          <form method="post"  value="{{order.id}}" name="cancel_action">
+            {% csrf_token %}
+          <button class="partner-orders-current-orders-div-3-elem2-child2">
+            Cancel
+          </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+    {% else %}
+      <p class="no-order-history">No order History</p>
+    {% endif%}
+  </div>
+
+
+
+  <div class="partner-orders-order-history" id="order-page-2">
+    {% for order in orders %}
+    {% if order.status != "pending" %}
+    <div class="partner-orders-current-orders-div" >
+      <div class="partner-orders-current-orders-div-1">
+        <div class="partner-orders-current-orders-div-1-elem1">
+          <h1 class="partner-orders-current-orders-div-1-elem1-child">
+            order-id: #{{order.id}} <span id="{{order.status}}">({{order.status}})</span>
+          </h1>
+          <h1 class="partner-orders-current-orders-div-1-elem1-child">
+            order-Time: {{order.order_date|date:"d M"}} ,{{ order.order_time|time:"H:i" }}PM
+          </h1>
+        </div>
+        <div class="partner-orders-current-orders-div-1-elem2">
+          <h1 class="partner-orders-current-orders-div-1-elem2-child-head">
+            Customer Details
+          </h1>
+          <h1 class="partner-orders-current-orders-div-1-elem2-child">
+            Customer: {{order.customer_name}}
+          </h1>
+          <h1 class="partner-orders-current-orders-div-1-elem2-child">
+            Phone: {{order.customer_phone}}
+          </h1>
+          <h1 class="partner-orders-current-orders-div-1-elem2-child">
+            Address: {{order.customer_address}}
+          </h1>
+        </div>
+      </div>
+      <div class="partner-orders-current-orders-div-2">
+        <div class="partner-orders-current-orders-div-2-elem1">
+          <h1 class="partner-orders-current-orders-div-2-elem1-head">Items</h1>
+          <ul class="partner-orders-current-orders-div-2-elem1-head-child">
+            {% for item in order.items.all %}
+            <li>{{ item.order_item_name }} × {{ item.order_item_quantity }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="partner-orders-current-orders-div-2-elem2">
+          <h1 class="partner-orders-current-orders-div-2-elem2-child">
+            Total Amount: {{order.order_amount}}
+          </h1>
+          <h1 class="partner-orders-current-orders-div-2-elem2-child">
+            Payment: UPI (Paid)
+          </h1>
+        </div>
+      </div>
+
+      <div class="partner-orders-current-orders-div-3">
+        <div class="partner-orders-current-orders-div-3-elem1">
+          <h1 class="partner-orders-current-orders-div-3-elem1-child1">
+            Since Arrival
+          </h1>
+          <h1 class="partner-orders-current-orders-div-3-elem1-child2">
+         {{ order.created_at|timesince }} ago
           </h1>
         </div>
         <div class="partner-orders-current-orders-div-3-elem2">
@@ -68,17 +154,18 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="partner-orders-order-history" id="order-page-2">
-
-
-
-     <p class="no-order-history">No order History</p>
-
-
+    {% endif %}
+    {% endfor %}
+     
+      
+     <!-- <p class="no-order-history">No order History</p> -->
   </div>
 </div>
 <script>
+
+  if(window.history.replaceState){
+    window.history.replaceState(null,null,window.location.href)
+  }
 
   function openorderhistory(){
     let y=document.getElementById('order-page-1');

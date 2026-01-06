@@ -127,6 +127,11 @@
                   </div>
                   <div class="Restaurant-menu-main-list-data-header-data-items-div2">
                     <img class="Restaurant-menu-main-list-data-header-data-items-div2-img" src="{{j.image.url}}">
+
+                     {% if not request.user.is_authenticated %}
+                        <button  class="Restaurant-menu-main-list-data-header-data-items-div2-button-x"  onmouseenter="showwarning('{{j.id}}')" onmouseleave="leavewarning('{{j.id}}')">Add</button>
+                        <p class="add-hover" id="this{{j.id}}">sign up to add in cart</p>
+                    {% else %}
                     <form method="POST">
                       {% csrf_token %}
                       {% for x in q %}
@@ -146,6 +151,7 @@
                       {% endif %}
                     {% endfor %}
                      </form>
+                      {% endif %}
                   </div>
                     
                 </div>
@@ -176,7 +182,14 @@
    if(window.history.replaceState){
     window.history.replaceState(null,null,window.location.href)
    }
-
+  function showwarning(id){
+    let x= document.getElementById(`this${id}`)
+    x.style.display="block"
+  }
+  function leavewarning(id){
+    let x= document.getElementById(`this${id}`)
+    x.style.display="none"
+  }
 
   function right(){
     x=document.getElementById("offer-left")

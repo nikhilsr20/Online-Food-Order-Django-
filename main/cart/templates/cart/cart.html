@@ -90,7 +90,10 @@
               </p>
      </div>
      <div>
-        <button class="cart-main-div2-confirmorder">Confirm Order</button>
+      <form method="post">
+        {% csrf_token %}
+        <button class="cart-main-div2-confirmorder" name="confirm_order">Confirm Order</button>
+        </form>
      </div>
      </div>
     

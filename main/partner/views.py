@@ -1,7 +1,7 @@
 from django.shortcuts import render,get_object_or_404
 from django.shortcuts import redirect
 from .forms import PartnerSignupForm,PartnerLoginForm,RestaurantsForm,CategoryForm,ItemForm,EditItemForm
-from .models import PartnerSignup,Restaurants,Category,Item
+from .models import PartnerSignup,Restaurants,Category,Item,Order,OrderItem
 from django.views.decorators.cache import never_cache
 
 # Create your views here.
@@ -194,10 +194,32 @@ def menu(request):
 
         
     return render(request,'partner/partner-menu.html',{'form':form,'categories':categories,'item_form': item_form,'edit_form':edit_form,'item_list':items_list})
-
+   
 
 
 def orders(request):
-    return render(request,"partner/partner-orders.html")
+    phone = request.session.get('users-phone')
+    user_instance=get_object_or_404(PartnerSignup,phone=phone)
+
+    res_id=user_instance.USER
+    if request.method == "POST": 
+        if 'complete_action' in request.POST:
+            val=int(request.POST.get('complete_action'))
+
+            x=Order.objects.get(id=val)
+            x.status='completed'
+            x.save()
+
+        if 'cancel_action' in request.POST:
+            val=int(request.POST.get('cancel_action'))
+
+            x=Order.objects.get(id=val)
+            x.status='cancelled'    
+            x.save()
+
+    
+    orders=Order.objects.filter(restaurant=res_id).prefetch_related('items')
+
+    return render(request,"partner/partner-orders.html",{'orders':orders})
 
 

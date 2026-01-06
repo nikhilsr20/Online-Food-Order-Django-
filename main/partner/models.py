@@ -93,3 +93,38 @@ class Item(models.Model):
 
    def __str__(self):
       return self.name
+
+
+class Order(models.Model):
+   STATUS_CHOICES = (
+        ('pending', 'Pending'),
+        ('completed', 'Completed'),
+        ('cancelled', 'Cancelled'),
+    )
+
+    
+   restaurant=models.ForeignKey(Restaurants,on_delete=models.CASCADE,related_name='orders')
+   customer_name=models.CharField(max_length=100,blank=True,null=True)
+   customer_phone=models.CharField(max_length=10,blank=True,null=True)
+   customer_address=models.CharField(max_length=100,blank=True,null=True)
+   order_amount = models.DecimalField(max_digits=10, decimal_places=2)
+   order_date=models.DateField(auto_now_add=True)
+   order_time=models.TimeField(auto_now_add=True)
+   created_at = models.DateTimeField(auto_now_add=True)
+   status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default='pending'
+    )
+
+   def __str__(self):
+      return f"Order #{self.id}"
+
+class OrderItem(models.Model):
+   order=models.ForeignKey(Order,on_delete=models.CASCADE,related_name='items')
+   order_item_name=models.CharField(max_length=100,blank=True,null=True)
+   order_item_quantity=models.PositiveIntegerField(blank=True,null=True)
+
+   def __str__(self):
+        return f"{self.order_item_name} × {self.order_item_quantity}"
+
