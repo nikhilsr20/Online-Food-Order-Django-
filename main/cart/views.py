@@ -19,7 +19,6 @@ def cart(request):
             totalprice+=(i.quantity*i.price)
 
     
-
     if 'confirm_order' in request.POST:
         if Cart.objects.filter(user=request.user).exists():
             cart_data=Cart.objects.filter(user=request.user)
@@ -42,7 +41,7 @@ def cart(request):
            
   
     if 'handle_cart' in request.POST:
-        
+        print("call handle cart")
         x = request.POST.get('handle_cart')
 
         itemid, cat_id, res_id, AD = x.split(',')
@@ -92,8 +91,16 @@ def cart(request):
                 food_type=item_data.food_type,
                 quantity=1
                 )
-    
+    cart=Cart.objects.filter(user=request.user)
+    totalprice=0    
+    if cart.exists():
+        resid=cart[0].restaurantid
+        print(resid)
+        Restaurant=get_object_or_404(Restaurants,id=resid)
         
+        for i in cart:
+            totalprice+=(i.quantity*i.price)
+
    
     return render(request,'cart/cart.html',{'total':totalprice,'cart':cart,'restaurant':Restaurant})
 
