@@ -29,18 +29,7 @@
                 <h2 class="cart-main-card-items-heading">Items</h2>
                  <div class="cart-main-card-items-list">
                   {% for i in cart %}
-                  <div class="cart-main-card-items-1">
-                      <p> <img class="cart-main-card-items-1-img" src="https://cdn-icons-png.flaticon.com/128/14968/14968197.png"> {{i.item}}</p>
-                      <div class="cart-main-card-items-1-add">
-                        <form method="POST">
-                          {% csrf_token %}
-                        <button  class="cart-main-card-items-1-add-button" value="{{ i.item_id }},{{ '0' }},{{ restaurant.id }},minus"name="handle_cart">-</button>
-                        <span>{{i.quantity}}</span>
-                        <button class="cart-main-card-items-1-add-button" value="{{ i.item_id }},{{ '0' }},{{ restaurant.id }},ADD"name="handle_cart">+</button>
-                        </form>
-                      </div>
-                      <h4 class="cart-main-card-items-1-money">₹{{i.price}}</h4>
-                  </div>
+                   {% include "cart/cartpartial.html" %}
                   {% endfor %}
                   </div>
             </div>
@@ -65,14 +54,14 @@
 
                    <div  class="cart-main-card-bill-div3">
                    <p>Gst & Other Charges</p>
-                   <span>₹{{total}}</span>
+                   <span >₹{{total}}</span>
                    </div>
 
                    <hr class="cart-main-card-bill-hr2">
 
-                   <div  class="cart-main-card-bill-div4">
+                   <div id="cart-total-price"  class="cart-main-card-bill-div4">
                    <h5>To pay</h5>
-                   <span>₹{{total}}</span>
+                   <span  >₹{{total}}</span>
                    </div>
 
 
@@ -195,7 +184,7 @@
 </div>
 </div>
 
-
+<script src="https://unpkg.com/htmx.org@1.9.10"></script>
 <script>
   if(window.history.replaceState){
      window.history.replaceState(null,null,window.location.href);

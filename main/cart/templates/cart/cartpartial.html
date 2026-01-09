@@ -1,0 +1,45 @@
+<div class="cart-main-card-items-1" id="cart-item-{{ i.id }}">
+  <p>
+    <img class="cart-main-card-items-1-img"
+         src="https://cdn-icons-png.flaticon.com/128/14968/14968197.png">
+    {{ i.item }}
+  </p>
+
+  <div class="cart-main-card-items-1-add">
+
+
+    <button
+      hx-post="{% url 'update_my_cart' %}"
+      hx-target="#cart-item-{{ i.id }}"
+      hx-swap="outerHTML"
+      hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
+      hx-vals='{
+        "item-id":"{{ i.item_id }}",
+        "action":"MINUS"
+      }'
+      class="cart-main-card-items-1-add-button">-
+    </button>
+
+    <span>{{ i.quantity }}</span>
+
+    <button
+      hx-post="{% url 'update_my_cart' %}"
+      hx-target="#cart-item-{{ i.id }}"
+      hx-swap="outerHTML"
+      hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
+      hx-vals='{
+        "item-id":"{{ i.item_id }}",
+        "action":"ADD"
+      }'
+      class="cart-main-card-items-1-add-button">+
+    </button>
+  </div>
+
+  <h4 class="cart-main-card-items-1-money">₹{{  i.price  }}</h4>
+</div>
+
+
+
+
+
+

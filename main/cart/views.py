@@ -2,6 +2,7 @@ from django.shortcuts import render,get_object_or_404,redirect
 from django.http import HttpResponse
 from authentication.models import Cart
 from partner.models import Restaurants,Item,Order,OrderItem
+from django.template.loader import render_to_string
 # Create your views here.
 def cart(request):
     if not request.user.is_authenticated:
@@ -38,69 +39,7 @@ def cart(request):
             )
             cart_data.delete() 
             return redirect('trackorder')
-           
-  
-    if 'handle_cart' in request.POST:
-        print("call handle cart")
-        x = request.POST.get('handle_cart')
-
-        itemid, cat_id, res_id, AD = x.split(',')
-
-        itemid = int(itemid)
-        cat_id = int(cat_id)
-        res_id = int(res_id)
-    
-    
-        print("cat_id=", cat_id)
-        print("item_id=", itemid)
-        print("res_id=", res_id)
-        print("ADD=",AD)
-
-
-
-        if not Cart.objects.filter(user=request.user, restaurantid=res_id).exists():
-            Cart.objects.filter(user=request.user, restaurantid=res_id).delete()
-
-       
-        if Cart.objects.filter(user=request.user, item_id=itemid).exists():
-            
-            if AD=="ADD":
-                cart = Cart.objects.get(item_id=itemid)
-                cart.quantity+=1
-                cart.save()
-            else:
-                cart = Cart.objects.get(item_id=itemid)
-                cart.quantity-=1
-                cart.save()
-                if cart.quantity==0:
-                    cart.delete()  
         
-        else:
-            
-            restaurant=get_object_or_404(Restaurants,id=res_id)
-            item_data = Item.objects.get(category__restaurant=restaurant,id=itemid)
-            print("itemid:", itemid, type(itemid))
-            
-            print(item_data.price)
-            Cart.objects.create(
-                user=request.user,
-                restaurantid=id,
-                item_id=item_data.id,
-                item=item_data.name,
-                price=item_data.price,
-                food_type=item_data.food_type,
-                quantity=1
-                )
-    cart=Cart.objects.filter(user=request.user)
-    totalprice=0    
-    if cart.exists():
-        resid=cart[0].restaurantid
-        print(resid)
-        Restaurant=get_object_or_404(Restaurants,id=resid)
-        
-        for i in cart:
-            totalprice+=(i.quantity*i.price)
-
    
     return render(request,'cart/cart.html',{'total':totalprice,'cart':cart,'restaurant':Restaurant})
 
@@ -108,3 +47,38 @@ def cart(request):
 
 def track(request):
     return render(request,'cart/track_order.html')
+
+
+def update_my_cart(request):
+        print("🔥 update_my_cart hit")
+        itemid = int(request.POST.get("item-id"))
+        AD=request.POST.get("action")
+
+        if AD=="ADD":
+            cart = Cart.objects.get(item_id=itemid)
+            cart.quantity+=1
+            cart.save()
+        else:
+            cart = Cart.objects.get(item_id=itemid)
+            cart.quantity-=1
+            if cart.quantity==0:
+                cart.delete()  
+                return HttpResponse("")
+            cart.save()
+
+        cart = Cart.objects.filter(user=request.user, item_id=itemid).first()
+        user_cart = Cart.objects.filter(user=request.user)
+        total = sum(i.quantity * i.price for i in user_cart)
+
+        html = ""
+
+        if cart:
+            html += render_to_string("cart/cartpartial.html",{"i": cart}, request)
+
+    # 🔥 ALWAYS send total update
+        html += render_to_string("cart/cart_total_oob.html",{"total": total},request)
+
+        return HttpResponse(html)
+        
+
+
