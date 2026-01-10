@@ -115,7 +115,7 @@
                  {%for j in items%}
                 {% if i.id == j.category_id  %}
                
-                <div class="Restaurant-menu-main-list-data-header-data-items">
+                <div class="Restaurant-menu-main-list-data-header-data-items" id="">
                   <div class="Restaurant-menu-main-list-data-header-data-items-div1">
                   <img class="Restaurant-menu-main-list-data-header-data-items-div1-img" id="Restaurant-menu-main-list-data-header-data-items-div1-img-id" 
                   src="{% if j.food_type == 'veg' %}https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/veg-icon.png{% else %}https://uxwing.com/wp-content/themes/uxwing/download/food-and-drinks/non-veg-icon.png{% endif %}">
@@ -132,7 +132,7 @@
                         <button  class="Restaurant-menu-main-list-data-header-data-items-div2-button-x"  onmouseenter="showwarning('{{j.id}}')" onmouseleave="leavewarning('{{j.id}}')">Add</button>
                         <p class="add-hover" id="this{{j.id}}">sign up to add in cart</p>
                     {% else %}
-                    <form method="POST">
+                      <form method="POST">
                       {% csrf_token %}
                       {% for x in q %}
                       {% if x.id == j.id %}
@@ -179,6 +179,12 @@
 
 
 <script>
+
+   window.addEventListener("pageshow", function (event) {
+    if (event.persisted) {
+      window.location.reload();
+    }
+  });
    if(window.history.replaceState){
     window.history.replaceState(null,null,window.location.href)
    }

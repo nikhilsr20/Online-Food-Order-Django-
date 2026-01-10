@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from authentication.models import Cart
 from partner.models import Restaurants,Item,Order,OrderItem
 from django.template.loader import render_to_string
+from django.urls import reverse
+
 # Create your views here.
 def cart(request):
     if not request.user.is_authenticated:
@@ -51,9 +53,13 @@ def track(request):
 
 def update_my_cart(request):
         print("🔥 update_my_cart hit")
-        itemid = int(request.POST.get("item-id"))
+        itemid = request.POST.get("item-id")
         AD=request.POST.get("action")
+        if not itemid:
+            return HttpResponse("")
 
+        itemid = int(itemid)
+        response = HttpResponse("")
         if AD=="ADD":
             cart = Cart.objects.get(item_id=itemid)
             cart.quantity+=1
@@ -62,10 +68,16 @@ def update_my_cart(request):
             cart = Cart.objects.get(item_id=itemid)
             cart.quantity-=1
             if cart.quantity==0:
-                cart.delete()  
+                cart.delete() 
+                if not Cart.objects.filter(user=request.user).exists():
+                    # response = HttpResponse("")
+                    response["HX-Redirect"] = reverse('cart')
+                    return response 
                 return HttpResponse("")
+            
             cart.save()
-
+        response["HX-Trigger"] = "cart-updated"
+        
         cart = Cart.objects.filter(user=request.user, item_id=itemid).first()
         user_cart = Cart.objects.filter(user=request.user)
         total = sum(i.quantity * i.price for i in user_cart)
@@ -77,8 +89,9 @@ def update_my_cart(request):
 
     # 🔥 ALWAYS send total update
         html += render_to_string("cart/cart_total_oob.html",{"total": total},request)
-
-        return HttpResponse(html)
+        response.content=html
+        print(response)
+        return response
         
 
 
