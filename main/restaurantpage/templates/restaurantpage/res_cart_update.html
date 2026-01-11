@@ -1,0 +1,50 @@
+{% if j.quantity != 0 %}
+<div class="new-button-div-realtime-update">
+  <button
+    class="new-button-div-realtime-update-button"
+    hx-post="{% url 'update_cart' %}"
+    hx-target="#update-{{j.id}}"
+    hx-swap="innerHTML"
+    hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
+    hx-vals='{
+  "item_id": {{ j.id }},
+  "res_id": {{ restaurant.id }},
+  "action": "MINUS"
+}'
+  >
+    -
+  </button>
+  <span>{{j.quantity}}</span>
+  <button
+    hx-post="{% url 'update_cart' %}"
+    hx-target="#update-{{j.id}}"
+    hx-swap="innerHTML"
+    hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
+    hx-vals='{
+  "item_id": {{ j.id }},
+  "res_id": {{ restaurant.id }},
+  "action": "ADD"
+}'
+    class="new-button-div-realtime-update-button"
+  >
+    +
+  </button>
+</div>
+
+ {% else%}
+<button
+  hx-post="{% url 'update_cart' %}"
+  hx-target="#update-{{j.id}}"
+  hx-swap="innerHTML"
+  hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
+  hx-vals='{
+  "item_id": {{ j.id }},
+  "res_id": {{ restaurant.id }},
+  "action": "ADD"
+}'
+  class="Restaurant-menu-main-list-data-header-data-items-div2-button"
+>
+  Add
+</button>
+
+{% endif %}

@@ -89,6 +89,7 @@ class Item(models.Model):
    food_type=models.CharField(max_length=10,choices=Foodchoice)
    is_available=models.BooleanField(default=True)
    total_orders=models.IntegerField(default=0)
+   quantity=models.IntegerField(default=0)
 
 
    def __str__(self):

@@ -125,33 +125,27 @@
                     <img class="Restaurant-menu-main-list-data-header-data-items-div1-rating-img"  src="https://cdn-icons-png.flaticon.com/128/10453/10453904.png"> {{j.rating}}</p>
                   <p class="Restaurant-menu-main-list-data-header-data-items-div1-description">{{j.description}}</p>
                   </div>
-                  <div class="Restaurant-menu-main-list-data-header-data-items-div2">
-                    <img class="Restaurant-menu-main-list-data-header-data-items-div2-img" src="{{j.image.url}}">
+                  <div class="Restaurant-menu-main-list-data-header-data-items-div2" >
 
-                     {% if not request.user.is_authenticated %}
-                        <button  class="Restaurant-menu-main-list-data-header-data-items-div2-button-x"  onmouseenter="showwarning('{{j.id}}')" onmouseleave="leavewarning('{{j.id}}')">Add</button>
-                        <p class="add-hover" id="this{{j.id}}">sign up to add in cart</p>
-                    {% else %}
-                      <form method="POST">
-                      {% csrf_token %}
-                      {% for x in q %}
-                      {% if x.id == j.id %}
-                      {% if x.quantity == 0 %}
-                     <button  class="Restaurant-menu-main-list-data-header-data-items-div2-button"  value="{{ j.id }},{{ i.id }},{{ restaurant.id }},ADD"name="add_to_cart">Add</button>
-                     {% else %}
-                       <div class="new-button-div-realtime-update">
-
-                        <button class="new-button-div-realtime-update-button" value="{{ j.id }},{{ i.id }},{{ restaurant.id }},minus"name="add_to_cart">-</button>
-                            <span>{{x.quantity}}</span>
-                         <button class="new-button-div-realtime-update-button" value="{{ j.id }},{{ i.id }},{{ restaurant.id }},ADD"name="add_to_cart">+</button>
-                       </div>
-                    
-
-                      {% endif %}
-                      {% endif %}
-                    {% endfor %}
-                     </form>
-                      {% endif %}
+<img
+  class="Restaurant-menu-main-list-data-header-data-items-div2-img"
+  src="{{j.image.url}}"
+/>
+{% if not request.user.is_authenticated %}
+<button
+  class="Restaurant-menu-main-list-data-header-data-items-div2-button-x"
+  onmouseenter="showwarning('{{j.id}}')"
+  onmouseleave="leavewarning('{{j.id}}')"
+>
+  Add
+</button>
+<p class="add-hover" id="this{{j.id}}">sign up to add in cart</p>
+{% else %} 
+       <div id="update-{{j.id}}">
+        {% include "restaurantpage/res_cart_update.html" %}
+      </div>
+  {% endif %}
+                 
                   </div>
                     
                 </div>
@@ -177,6 +171,7 @@
     </div>
        
 
+<script src="https://unpkg.com/htmx.org@1.9.12"></script>
 
 <script>
 

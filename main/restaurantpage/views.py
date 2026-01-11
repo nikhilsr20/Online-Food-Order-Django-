@@ -1,97 +1,105 @@
 from django.shortcuts import render,get_object_or_404
 from partner.models import Restaurants,Item
 from authentication.models import Cart
-
+from django.http import HttpResponse
+from types import SimpleNamespace
 
 
    
 # Create your views here.
 
 def restaurant(request,id):
- 
-    
-    if 'add_to_cart' in request.POST:
-        x = request.POST.get('add_to_cart')
-
-        itemid, cat_id, res_id, AD = x.split(',')
-
-        itemid = int(itemid)
-        cat_id = int(cat_id)
-        res_id = int(res_id)
-    
-    
-        print("cat_id=", cat_id)
-        print("item_id=", itemid)
-        print("res_id=", res_id)
-        print("ADD=",AD)
-
-
-
-        if not Cart.objects.filter(user=request.user, restaurantid=res_id).exists():
-            Cart.objects.filter(user=request.user, restaurantid=res_id).delete()
-
-       
-        if Cart.objects.filter(user=request.user, item_id=itemid).exists():
-            
-            if AD=="ADD":
-                cart = Cart.objects.get(item_id=itemid)
-                cart.quantity+=1
-                cart.save()
-            else:
-                cart = Cart.objects.get(item_id=itemid)
-                cart.quantity-=1
-                cart.save()
-                if cart.quantity==0:
-                    cart.delete()  
-        
-        else:
-            
-            restaurant=get_object_or_404(Restaurants,id=res_id)
-            item_data = Item.objects.get(category__restaurant=restaurant,id=itemid)
-            print("itemid:", itemid, type(itemid))
-            
-            print(item_data.price)
-            Cart.objects.create(
-                user=request.user,
-                restaurantid=id,
-                item_id=item_data.id,
-                item=item_data.name,
-                price=item_data.price,
-                food_type=item_data.food_type,
-                quantity=1
-                )
-
-         
-
-
-
     restaurant=get_object_or_404(Restaurants,id=id)
     print(restaurant)
 
     category=restaurant.categories.all()
 
     items=Item.objects.filter(category__restaurant=restaurant)
+    cart_map = {
+        c.item_id: c.quantity
+        for c in Cart.objects.filter(user=request.user, restaurantid=id)
+    }
 
-    q=[]
-    for i in items:
-        x = Cart.objects.filter(item_id=i.id).first()
-        if x:
-            q.append({
-            "id":i.id,    
-            "quantity":x.quantity,
-            })
-        else:
-            q.append({
-            "id":i.id,    
-            "quantity": 0,
-            })   
+    # Temporary joined table
+    temp_items = []
+
+    for item in items:
+        temp_items.append(
+            SimpleNamespace(
+                id=item.id,
+                category_id=item.category_id,
+                name=item.name,
+                price=item.price,
+                desciption=item.description,
+                rating=item.rating,
+                image=item.image,
+                food_type=item.food_type,
+                quantity=cart_map.get(item.id, 0)  # 👈 KEY LINE
+            )
+        )
+
+  
 
 
-    return render(request,'restaurantpage/res.html',{'category':category,'items':items,'restaurant':restaurant,'q':q})
+    return render(request,'restaurantpage/res.html',{'category':category,'items':temp_items,'restaurant':restaurant})
 
 
 
 
 
+def update_cart(request):
+    itemid = int(request.POST.get("item_id"))
+    res_id = request.POST.get("res_id")
+    action = request.POST.get("action")
 
+    # allow cart only from one restaurant
+    Cart.objects.filter(user=request.user).exclude(restaurantid=res_id).delete()
 
+    cart = Cart.objects.filter(
+        user=request.user,
+        restaurantid=res_id,
+        item_id=itemid
+    ).first()
+
+    if cart:
+        if action == "ADD":
+            cart.quantity += 1
+            cart.save()
+        else:  # MINUS
+            cart.quantity -= 1
+            if cart.quantity == 0:
+                cart.delete()
+                cart = None
+            else:
+                cart.save()
+    else:
+        restaurant = get_object_or_404(Restaurants, id=res_id)
+        item = get_object_or_404(Item, id=itemid)
+
+        cart = Cart.objects.create(
+            user=request.user,
+            restaurantid=res_id,
+            item_id=item.id,
+            item=item.name,
+            price=item.price,
+            food_type=item.food_type,
+            quantity=1
+        )
+
+    quantity = cart.quantity if cart else 0
+
+    j = SimpleNamespace(
+        id=itemid,
+        quantity=quantity
+    )
+
+    restaurant = get_object_or_404(Restaurants, id=res_id)
+
+    return render(
+        request,
+        "restaurantpage/res_cart_update.html",
+        {
+            "j": j,
+            "restaurant": restaurant
+        }
+    )
