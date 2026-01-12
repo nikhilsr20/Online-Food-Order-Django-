@@ -633,7 +633,12 @@ box-shadow: 1px 1px 4px 1px #3a88f5;
     font-size: medium;
     border: 0.2px solid #bbb8b8;
     border-radius: 3px;
-    font-family: sans-serif;
+    color: #504f4f;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: center; 
+    padding: 0px 10px;
+    
 }
 .partner-menu-data-item-div1-itemname:focus{
    outline: none;
@@ -649,6 +654,9 @@ box-shadow: 1px 1px 4px 1px #3a88f5;
     border: 0.2px solid #bbb8b8;
     border-radius: 3px;
     font-family: sans-serif;
+       display: flex;
+     align-items: center; 
+    padding: 0px 10px;
    
 }
 .partner-menu-data-item-div1-itemprice:focus{
@@ -666,6 +674,8 @@ box-shadow: 1px 1px 4px 1px #3a88f5;
     border-radius: 3px;
     font-family: sans-serif;
     resize: none;
+    padding: 2px 10px;
+  
     
 }
 .marging-menu-items{
@@ -684,6 +694,9 @@ box-shadow: 1px 1px 4px 1px #3a88f5;
     border: 0.3px solid #929191;
     color: #686868;
     font-size: small;
+     display: flex;
+     align-items: center; 
+    padding: 0px 10px;
 }
 .partner-menu-data-item-div1-itemtype:focus{
    outline: none;
@@ -708,6 +721,7 @@ box-shadow: 1px 1px 4px 1px #3a88f5;
     width: 175px;
     height: 175px;
     border-radius:10px ;
+    margin-top: 30px;
 }
 .partner-menu-data-item-div1-itemimgchnge{
     margin-top: 60px;
@@ -818,6 +832,9 @@ box-shadow: 1px 1px 4px 1px #3a88f5;
     font-family: sans-serif;
      /* color: rgb(83, 158, 207);
    box-shadow: 1px 1px 1px 1px #0c90ee; */
+}
+.partner-avail{
+    display: inline;
 }
 .partner-orders-current-orders{
     height: 700px;

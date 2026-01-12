@@ -70,7 +70,7 @@
       <div class="profile-list">
         <ul>
           <li >
-            <a class="profile-list-li-1" href="{% url 'logout' %}">⬅️ &nbsp;  Logout</a>
+            <a class="profile-list-li-1" href="{% url 'logout' %}">⬅ &nbsp;  Logout</a>
           </li>
         </ul>
       </div>
@@ -79,18 +79,15 @@
 </div>
 
         <div class="navbar-3-3">
-          
-          
-          {% if cartlength %}
-          <span class="cart_length">{{cartlength}}</span>
-          {% else%}
+       
           <img
             class="navbar-3-cart"
             src="https://cdn-icons-png.flaticon.com/128/5337/5337564.png"
             alt="cart"
           />
-          {% endif %}
+
           <a class="navbar-3-3-cart" href="{% url 'cart' %}">cart</a>
+            <span id="cart-count" class="cart_length">{{cartlength}}</span>
         </div>
         
     </div>
@@ -114,10 +111,19 @@
 
     </div>
 
-    {% block body%} {% endblock %}
+    {% block body%}
+    
+    {% endblock %}
    
 
     <script>
+
+     window.addEventListener("pageshow", function (event) {
+    if (event.persisted) {
+      window.location.reload();
+    }
+  });
+
         window.addEventListener("scroll", () => {
                  console.log(window.scrollY);
                    let a = document.querySelector(".navbar");

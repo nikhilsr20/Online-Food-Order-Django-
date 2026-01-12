@@ -3,6 +3,7 @@ from partner.models import Restaurants,Item
 from authentication.models import Cart
 from django.http import HttpResponse
 from types import SimpleNamespace
+from django.template.loader import render_to_string
 
 
    
@@ -85,7 +86,7 @@ def update_cart(request):
             food_type=item.food_type,
             quantity=1
         )
-
+    total=Cart.objects.filter(user=request.user).count()
     quantity = cart.quantity if cart else 0
 
     j = SimpleNamespace(
@@ -95,11 +96,24 @@ def update_cart(request):
 
     restaurant = get_object_or_404(Restaurants, id=res_id)
 
-    return render(
-        request,
+    html=render_to_string(
+        
         "restaurantpage/res_cart_update.html",
         {
             "j": j,
-            "restaurant": restaurant
-        }
+            "restaurant": restaurant,
+           
+        },request
     )
+
+    html+=render_to_string(
+        
+        "restaurantpage/cart_count.html",
+        {
+           'cartlength':total
+           
+        }
+        ,request
+    )
+
+    return HttpResponse(html)
