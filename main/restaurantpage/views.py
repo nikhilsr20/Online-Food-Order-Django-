@@ -16,10 +16,12 @@ def restaurant(request,id):
     category=restaurant.categories.all()
 
     items=Item.objects.filter(category__restaurant=restaurant)
-    cart_map = {
-        c.item_id: c.quantity
-        for c in Cart.objects.filter(user=request.user, restaurantid=id)
-    }
+    cart_map={}
+    if request.user.is_authenticated:
+        cart_map = {
+            c.item_id: c.quantity
+            for c in Cart.objects.filter(user=request.user, restaurantid=id)
+            }
 
     # Temporary joined table
     temp_items = []
