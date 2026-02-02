@@ -531,3 +531,19 @@ background-color: #ffffff;
     height: 16px;
     margin-right: 3px;
 }
+
+/* search */
+#search-results{
+    margin-top: 100px;
+    margin-inline: 50px;
+    font-size: x-large;
+    font-weight: 200;
+    display: none;
+}
+#resdata-search{
+     margin-top: 30px;
+     margin-inline: 100px;
+}
+.main4-restaurantslist-restaurantcard-name-x{
+    font-size: medium;
+}

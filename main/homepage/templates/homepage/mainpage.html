@@ -4,6 +4,7 @@
 {% endblock %} 
 
 {% block body %}
+<div id="main-page">
 <div class="mainpage" id="mainpage--">
 <div class="main">
   <div class="main-div1">
@@ -155,6 +156,17 @@
        <a href="?page={{ Restaurant.paginator.num_pages }}"><img src="https://cdn-icons-png.flaticon.com/128/5279/5279789.png" alt=""></a>
     {% endif %}
   </div>
+  </div>
+
+  <div id="search-results">
+    <p>" search results "</p>
+    
+    <div id="resdata-search">
+      
+
+    </div>
+
+  </div>
 
 <!-- location -->
 <script>
@@ -163,6 +175,68 @@
       window.location.reload();
     }
   });
+
+  // function search(){
+   
+  // }
+
+  document.getElementById('searching').addEventListener("input",function(){
+     let a=document.getElementById('searching').value;
+    let m=document.getElementById('main-page')
+    let x=document.getElementById('search-results')
+    if(a.length!=0){
+          m.style.display="none"
+          x.style.display="block"
+    }
+    else{
+        m.style.display="block"
+        x.style.display="none"
+    }
+
+    fetch("{% url 'search' %}?q="+this.value)
+    .then(res => res.json())
+       .then(data => {
+      let html = "";
+
+      data.forEach(r => {
+        html += `
+        <div class="main4-restaurantslist-restaurantcard" 
+             id="${r.id}" 
+             onclick="gotomenu('${r.id}')">
+
+          <img
+            class="main4-restaurantslist-restaurantcard-img"
+            src="${r.image}"
+          />
+
+          <h3 class="main4-restaurantslist-restaurantcard-name-x">
+            ${r.Name}
+          </h3>
+
+          <h4 class="main4-restaurantslist-restaurantcard-rating">
+            <img class="res-rate-img" 
+                 src="https://cdn-icons-png.flaticon.com/128/10453/10453904.png">
+            ${r.rating} | ${r.deliverytime} mins
+          </h4>
+
+          <h5 class="main4-restaurantslist-restaurantcard-items">
+            ${r.Cuisenetypes}
+          </h5>
+
+          <h5 class="main4-restaurantslist-restaurantcard-location">
+            ${r.Location}
+          </h5>
+        </div>
+        `;
+      });
+
+      document.getElementById("resdata-search").innerHTML = html;
+      });
+  })
+
+  
+
+
 </script>
 
 <div class="location" id="location-main">
