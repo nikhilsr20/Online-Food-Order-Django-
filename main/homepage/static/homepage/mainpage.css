@@ -230,13 +230,33 @@ align-items: center;
 margin-top:6px ;
 
 }
+.main4-restaurantslist-restaurantcard-rating-x{
+font-weight: 300;
+color: rgb(124, 124, 124);
+display: flex;
+align-items: center;
+margin-top:6px ;
+font-size: medium;
+
+}
 .main4-restaurantslist-restaurantcard-items{
 font-weight: 100;
 color: rgb(124, 124, 124);
 }
+.main4-restaurantslist-restaurantcard-items-x{
+font-weight: 100;
+color: rgb(124, 124, 124);
+font-size: medium;
+}
 .main4-restaurantslist-restaurantcard-location{
 font-weight: 100;
 color: rgb(124, 124, 124);
+}
+.main4-restaurantslist-restaurantcard-location-x{
+font-weight: 100;
+color: rgb(124, 124, 124);
+font-size: medium;
+
 }
 
 /* location  */
@@ -545,5 +565,10 @@ background-color: #ffffff;
      margin-inline: 100px;
 }
 .main4-restaurantslist-restaurantcard-name-x{
+    font-weight: 700;
+font-family: sans-serif;
+background: linear-gradient(90deg,#252526,#7f7f7f,#757474,#676767,#676767,#252526);
+-webkit-background-clip: text;
+color: transparent;
     font-size: medium;
 }

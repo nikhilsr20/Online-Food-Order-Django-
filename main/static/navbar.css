@@ -193,7 +193,7 @@
     font-family: sans-serif;
     color: rgb(154, 154, 154);
     margin-left: 50px;
-  
+    background-color: #ffffff;
 
 }
 .navbar-3-input:focus{
@@ -211,7 +211,6 @@
        box-shadow: 1px 1px 3px 1px rgb(172, 205, 255);
 }
 .navbar-signin{
-    
     text-decoration: none;
     color: black;
 }
