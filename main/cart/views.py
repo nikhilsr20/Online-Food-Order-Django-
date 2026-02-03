@@ -1,12 +1,33 @@
 from django.shortcuts import render,get_object_or_404,redirect
 from django.http import HttpResponse
-from authentication.models import Cart
+from authentication.models import Cart  
+from .forms import Addressform
 from partner.models import Restaurants,Item,Order,OrderItem
 from django.template.loader import render_to_string
 from django.urls import reverse
+from django.contrib.auth.models import User
+from authentication.models import CurrAddress
+from .models import DeliveryAddress
 
 # Create your views here.
 def cart(request):
+    addresses=DeliveryAddress.objects.all()
+    form = Addressform()
+    if request.method == 'POST' and 'newaddress' in request.POST:
+        
+        form = Addressform(request.POST)
+        print(form)
+        if form.is_valid():
+            print("hello")
+
+            x=form.save(commit=False)
+            x.userr=request.user
+            x.save()
+            return redirect('cart')
+    
+
+
+
     if not request.user.is_authenticated:
         return redirect('register')
     
@@ -42,10 +63,39 @@ def cart(request):
             cart_data.delete() 
             return redirect('trackorder')
         
+    current = CurrAddress.objects.filter(user_id=request.user.id).first()
+    curr_address = ""
+    if current:
+        curr_address = current.curraddress
+    return render(request,'cart/cart.html',{'total':totalprice,'cart':cart,'restaurant':Restaurant,'form':form,'addresses':addresses,'curr':curr_address})
+
+def achange(request):
    
-    return render(request,'cart/cart.html',{'total':totalprice,'cart':cart,'restaurant':Restaurant})
+    y=request.GET.get('address_id') 
+    print("ID:", y)
+    add = get_object_or_404(
+    DeliveryAddress,
+    userr=request.user,
+    id=y
+    )
+    print(add)
+    address=""
+    if add:
+       address = f"{add.Flat}, {add.Address}, {add.Landmark}"
 
+    x=CurrAddress.objects.filter(user_id=request.user)
+    if not x:
+        CurrAddress.objects.create(
+            user_id=request.user.id,
+            curraddress=address
+        )
+    else:
+        
+        x.update(curraddress=address)   
+    
 
+ 
+    return redirect('cart')
 
 def track(request):
     return render(request,'cart/track_order.html')
@@ -92,6 +142,9 @@ def update_my_cart(request):
         response.content=html
         print(response)
         return response
-        
+
+
+
+
 
 

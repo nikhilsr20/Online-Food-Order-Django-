@@ -20,11 +20,7 @@
 width: 40px;
 height: 40px;
 }
-.cart-top-addresses-p{
-font-size: larger;
-margin-right:200px;
-cursor: pointer;
-}
+
 .cart-top-addresses-button{
    background-color: rgb(255, 255, 255);
    border: 0.6px solid rgb(187, 187, 187);
@@ -161,7 +157,12 @@ cursor: pointer;
 .cart-main-card-coupons:hover .not-available-coupans{
     display: block;
 }
+.cart-top-addresses-p{
+font-size: medium;
+margin-right:200px;
+cursor: pointer;
 
+}
 
 .cart-main-card-bill{
     margin-top: 10px;
@@ -232,7 +233,8 @@ cursor: pointer;
     width: 250px;
     padding: 10px;
     background-color: rgb(255, 255, 255);
-    
+    text-decoration: none;
+    color: black;
 }
 .adress-page-div{
     border: 0.3px solid rgb(228, 228, 228);
@@ -290,15 +292,30 @@ cursor: pointer;
 
 .adress-page-addresses{
     display: flex;
-    justify-content: space-evenly;
+   justify-content: flex-start;
     flex-wrap: wrap;
+    margin-inline: 10px;
+    gap: 10px;
+}
+.adress-page-address1-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+   
+
+
 }
 .adress-page-address1-details-button-unique{
-    margin-top: 30px;
+    /* margin-top: 30px; */
     background-color: #ffffff;
     border: 0.4px solid #83b7f2;
     padding: 3px 6px;
     color: rgb(133, 185, 246);
+
+    margin-top: 10px;
+}
+.adress-page-address1{
+    height: 130px;
 }
 .adress-page-address1-details-button-unique:hover{
     cursor: pointer;
@@ -348,7 +365,7 @@ cursor: pointer;
 .Addnewaddress-page-googlemap{
     margin-top: 20px;
     width: 400px;
-    height: 300px;
+    height: 230px;
     border: 1px solid black;
 }
 .Addnewaddress-page-inputs{
@@ -357,12 +374,12 @@ cursor: pointer;
     margin-top: 20px;
     
 }
-.Addnewaddress-page-inputs-div1,.Addnewaddress-page-inputs-div2,.Addnewaddress-page-inputs-div3{
+.Addnewaddress-page-inputs-div1,.Addnewaddress-page-inputs-div2,.Addnewaddress-page-inputs-div3,.Addnewaddress-page-inputs-div4{
     display: flex;
     flex-direction: column;
     margin-top: 5px;
 }
-.Addnewaddress-page-inputs-div1-input1,.Addnewaddress-page-inputs-div1-input2,.Addnewaddress-page-inputs-div1-input3{
+.Addnewaddress-page-inputs-div1-input1,.Addnewaddress-page-inputs-div1-input2,.Addnewaddress-page-inputs-div1-input3,.Addnewaddress-page-inputs-div4-input{
     margin-top: 3px;
     height: 40px;
     outline: none;     
@@ -371,7 +388,7 @@ cursor: pointer;
      cursor: pointer;
      padding: 3px;
 }
-.Addnewaddress-page-inputs-div1-input1:focus,.Addnewaddress-page-inputs-div1-input2:focus,.Addnewaddress-page-inputs-div1-input3:focus{
+.Addnewaddress-page-inputs-div1-input1:focus,.Addnewaddress-page-inputs-div1-input2:focus,.Addnewaddress-page-inputs-div1-input3:focus,.Addnewaddress-page-inputs-div4-input:focus{
    box-shadow:0px 0px 5px 0px  #83b7f2;
 
 }
@@ -414,3 +431,22 @@ background-color: #ffffff;
 
 
 
+
+.button-address{
+   
+   width: fit-content;
+   margin: 0% auto;
+   padding: 5px 20px;
+   margin-top: 10px;
+   background-color: rgb(108, 189, 255);
+   border: 0.1px solid white;
+   border-radius: 5px;
+   color: white;
+}
+
+.button-address:hover{
+   scale: 1.1;
+   transition: scale ease 0.5s;
+   cursor: pointer;
+
+}

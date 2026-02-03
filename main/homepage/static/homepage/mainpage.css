@@ -505,6 +505,7 @@ background-color: #ffffff;
 
 /* filter */
 .sortBy-filter{
+    
     display: none;
     position: absolute;
     bottom: 0;
@@ -524,7 +525,7 @@ background-color: #ffffff;
 .sortBy-filter div{
     margin-bottom: 10px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     
     
 }
