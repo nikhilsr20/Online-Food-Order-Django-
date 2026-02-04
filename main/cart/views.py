@@ -70,32 +70,52 @@ def cart(request):
     return render(request,'cart/cart.html',{'total':totalprice,'cart':cart,'restaurant':Restaurant,'form':form,'addresses':addresses,'curr':curr_address})
 
 def achange(request):
-   
-    y=request.GET.get('address_id') 
-    print("ID:", y)
-    add = get_object_or_404(
-    DeliveryAddress,
-    userr=request.user,
-    id=y
-    )
-    print(add)
-    address=""
-    if add:
-       address = f"{add.Flat}, {add.Address}, {add.Landmark}"
-
-    x=CurrAddress.objects.filter(user_id=request.user)
-    if not x:
-        CurrAddress.objects.create(
-            user_id=request.user.id,
-            curraddress=address
+    if request.GET.get('address_id') is not None:
+        y=request.GET.get('address_id') 
+        print("ID:", y)
+        add = get_object_or_404(
+        DeliveryAddress,
+        userr=request.user,
+        id=y
         )
-    else:
-        
-        x.update(curraddress=address)   
-    
+        print(add)
+        address=""
+        if add:
+          address = f"{add.Flat}, {add.Address}, {add.Landmark}"
 
- 
-    return redirect('cart')
+        x=CurrAddress.objects.filter(user_id=request.user)
+        if not x:
+            CurrAddress.objects.create(
+                user_id=request.user.id,
+                curraddress=address
+            )
+        else:
+            x.update(curraddress=address)   
+        return redirect('cart')
+    
+    elif request.GET.get('add_id') is not None:
+        y=request.GET.get('add_id') 
+        print("ID:", y)
+        add = get_object_or_404(
+        DeliveryAddress,
+        userr=request.user,
+        id=y
+        )
+        print(add)
+        address=""
+        if add:
+          address = f"{add.Flat}, {add.Address}, {add.Landmark}"
+
+        x=CurrAddress.objects.filter(user_id=request.user)
+        if not x:
+            CurrAddress.objects.create(
+                user_id=request.user.id,
+                curraddress=address
+            )
+        else:
+            x.update(curraddress=address)   
+        return redirect('home')
+
 
 def track(request):
     return render(request,'cart/track_order.html')

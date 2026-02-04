@@ -19,6 +19,7 @@ class Cart(models.Model):
     def __str__(self):
           return f"{self.item} ({self.user.username})"
 
+
 class CurrAddress(models.Model):
      user=models.ForeignKey(User,on_delete=models.CASCADE,related_name="useradd")
      curraddress=models.CharField(max_length=200)

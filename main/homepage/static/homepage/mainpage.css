@@ -326,7 +326,9 @@ transition: color ease 0.2s;
     scrollbar-width: thin;
     display: flex;
     flex-direction: column;
-    
+    text-decoration: none;
+    color: #2c2b2b;
+    font-family: sans-serif;
 }
 .location-popup-1-saved-head{
     font-size: larger;
@@ -441,12 +443,12 @@ transition: color ease 0.2s;
     margin-top: 20px;
     
 }
-.Addnewaddress-page-inputs-div1,.Addnewaddress-page-inputs-div2,.Addnewaddress-page-inputs-div3{
+.Addnewaddress-page-inputs-div1,.Addnewaddress-page-inputs-div2,.Addnewaddress-page-inputs-div3,.Addnewaddress-page-inputs-div4{
     display: flex;
     flex-direction: column;
     margin-top: 5px;
 }
-.Addnewaddress-page-inputs-div1-input1,.Addnewaddress-page-inputs-div1-input2,.Addnewaddress-page-inputs-div1-input3{
+.Addnewaddress-page-inputs-div1-input1,.Addnewaddress-page-inputs-div1-input2,.Addnewaddress-page-inputs-div1-input3,.Addnewaddress-page-inputs-div4-input{
     margin-top: 3px;
     height: 40px;
     outline: none;     
@@ -455,7 +457,8 @@ transition: color ease 0.2s;
      cursor: pointer;
      padding: 3px;
 }
-.Addnewaddress-page-inputs-div1-input1:focus,.Addnewaddress-page-inputs-div1-input2:focus,.Addnewaddress-page-inputs-div1-input3:focus{
+
+.Addnewaddress-page-inputs-div1-input1:focus,.Addnewaddress-page-inputs-div1-input2:focus,.Addnewaddress-page-inputs-div1-input3:focus,.Addnewaddress-page-inputs-div4-input:focus{
    box-shadow:0px 0px 5px 0px  #83b7f2;
 
 }
@@ -522,6 +525,14 @@ background-color: #ffffff;
     cursor: pointer;
 
 }
+.sorting{
+    text-decoration: none;
+    color: #252526;
+}
+.sorting:hover{
+    text-decoration: none;
+    color: #7abaff;
+}
 .sortBy-filter div{
     margin-bottom: 10px;
     display: flex;
@@ -572,4 +583,23 @@ background: linear-gradient(90deg,#252526,#7f7f7f,#757474,#676767,#676767,#25252
 -webkit-background-clip: text;
 color: transparent;
     font-size: medium;
+}
+
+.button-address{
+   
+   width: fit-content;
+   margin: 0% auto;
+   padding: 5px 20px;
+   margin-top: 10px;
+   background-color: rgb(108, 189, 255);
+   border: 0.1px solid white;
+   border-radius: 5px;
+   color: white;
+}
+
+.button-address:hover{
+   scale: 1.1;
+   transition: scale ease 0.5s;
+   cursor: pointer;
+
 }

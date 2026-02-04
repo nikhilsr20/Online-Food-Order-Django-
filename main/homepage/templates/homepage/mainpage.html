@@ -96,26 +96,24 @@
       src="https://cdn-icons-png.flaticon.com/128/3839/3839020.png"
     />
     <div class="sortBy-filter">
+        <div >
+          <a class="sorting" href="{% url 'home' %}?sort=default">Defaut</a>
+        </div>
+
         <div>
-          <p>Defaut</p>
-          <!-- <input type="checkbox"> -->
+          <a class="sorting"  href="{% url 'home' %}?sort=deliverytime" >Delivery Time</a>
         </div>
         <div>
-          <p>Delivery Time</p>
-          <!-- <input type="checkbox"> -->
+          <a class="sorting" href="{% url 'home' %}?sort=rating">Rating</a>
         </div>
-        <div>
-          <p>Rating</p>
-          <!-- <input type="checkbox"> -->
-        </div>
-        <div>
-          <p>Cost:Low to High</p>
-          <!-- <input type="checkbox"> -->
+        <!-- <div>
+          <p >Cost:Low to High</p>
+        
         </div>
         <div>
           <p>Cost:High to Low</p>
-          <!-- <input type="checkbox"> -->
-        </div>
+          
+        </div> -->
 
     </div>
   </div>
@@ -256,14 +254,20 @@
         <p class="location-popup-1-gps-p" class="location-popup-1-gps" onclick="openl()">Get Current Location</p>
     </div>
     <h1 class="location-popup-1-saved-head"> Saved Address</h1>
-    <div class="location-popup-1-saved">
+    {% for i in addresses %}
+          {% if i.userr_id == request.user.id %}
+          
+         <a class="location-popup-1-saved" href="{% url 'achange' %}?add_id={{i.id}}">
         
       <div class="location-popup-1-saved-1">
-        <h1 class="location-popup-1-saved-1-head">Home</h1>
-        <p>B-6, Railway Colony, Gwalior, Madhya Pradesh 474002, India</p>
+        <h1 class="location-popup-1-saved-1-head">{{i.head}}</h1>
+        <p>{{i.Flat}} , {{i.Address}} , {{i.Landmark}}</p>
       </div>
-    </div>
+    </a>
   </div>
+            {%endif%}
+          {% endfor %}
+    
 
   <div class="location-popup-2" id="location-2">
     <div class="location-popup-1-gp">
@@ -279,60 +283,37 @@
         </div>
 
         <div class="Addnewaddress-page-googlemap"></div>
+               <form method="POST">
+     {% csrf_token %}
+  <div class="Addnewaddress-page-inputs">
+    <div class="Addnewaddress-page-inputs-div1">
+    <p>Address</p>
+   
+    {{form.Address}}
 
-        <div class="Addnewaddress-page-inputs">
-          <div class="Addnewaddress-page-inputs-div1">
-            <label>Address</label>
+    <div class="Addnewaddress-page-inputs-div2">
 
-            <input class="Addnewaddress-page-inputs-div1-input1" type="text" />
-            <div class="Addnewaddress-page-inputs-div2">
-              <label>Door/Flat no</label>
-              <input
-                class="Addnewaddress-page-inputs-div1-input2"
-                type="text"
-              />
-            </div>
+    <label>Door/Flat no</label>
+      {{form.Flat}}
+    </div >
 
-            <div class="Addnewaddress-page-inputs-div3">
-              <label>Landmark</label>
-              <input
-                class="Addnewaddress-page-inputs-div1-input3"
-                type="text"
-              />
-            </div>
-            <div class="Addnewaddress-page-inputs-div4">
-              <div class="Addnewaddress-page-inputs-div4-1">
-                <img
-                  class="Addnewaddress-page-inputs-div4-img"
-                  src="https://cdn-icons-png.flaticon.com/128/1946/1946488.png"
-                />
-                <button class="Addnewaddress-page-inputs-div4-button">
-                  Home
-                </button>
-              </div>
+    <div class="Addnewaddress-page-inputs-div3">
+     <label>Landmark</label>
+     {{form.Landmark}}
 
-              <div class="Addnewaddress-page-inputs-div4-2">
-                <img
-                  class="Addnewaddress-page-inputs-div4-img"
-                  src="https://cdn-icons-png.flaticon.com/128/2910/2910791.png"
-                />
-                <button class="Addnewaddress-page-inputs-div4-button">
-                  Work
-                </button>
-              </div>
+    </div>
+    <div class="Addnewaddress-page-inputs-div4">
+       <label>Name</label>
+       {{form.head}}
+    </div>
 
-              <div class="Addnewaddress-page-inputs-div4-3">
-                <img
-                  class="Addnewaddress-page-inputs-div4-img"
-                  src="https://cdn-icons-png.flaticon.com/128/10348/10348994.png"
-                />
-                <button class="Addnewaddress-page-inputs-div4-button">
-                  other
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+    <button class="button-address" name="newaddress" >Save</button>
+  </div>
+
+  
+  
+</div>
+</form>
       </div>
     </div>
   </div>
