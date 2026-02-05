@@ -2,36 +2,45 @@
  {% block body %}
 <div class="partner-main">
   <div class="partner-main-div1">
+    <a href="{% url 'partner-main' %}?change=back">
     <img
       class="partner-main-div1-1"
       src="https://cdn-icons-png.flaticon.com/128/271/271220.png"
     />
-    <h1 class="partner-main-div1-2">Today</h1>
+    </a>
+    <h1 class="partner-main-div1-2">{{displaydate}}</h1>
+    <a href="{% url 'partner-main' %}?change=next">
     <img
       class="partner-main-div1-1"
       src="https://cdn-icons-png.flaticon.com/128/5343/5343102.png"
     />
+    </a>
   </div>
 
   <div class="partner-main-div2">
     <div class="partner-main-div2-elem1">
       <h1 class="partner-main-div2-elem1-1">Today's Orders</h1>
-      <h1 class="partner-main-div2-elem1-2">10</h1>
+      <h1 class="partner-main-div2-elem1-2">{{date_orders}}</h1>
     </div>
 
     <div class="partner-main-div2-elem2">
       <h1 class="partner-main-div2-elem1-1">Today's revenue</h1>
-      <h1 class="partner-main-div2-elem1-2">10</h1>
+      <h1 class="partner-main-div2-elem1-2">{{date_revenue}}</h1>
     </div>
     <div class="partner-main-div2-elem3">
       <h1 class="partner-main-div2-elem1-1">Pending Orders</h1>
-      <h1 class="partner-main-div2-elem1-2">10</h1>
+      <h1 class="partner-main-div2-elem1-2">{{date_pending}}</h1>
     </div>
     <div class="partner-main-div2-elem4">
       <h1 class="partner-main-div2-elem1-1">Today's Ratings</h1>
-      <h1 class="partner-main-div2-elem1-2">10</h1>
+      <h1 class="partner-main-div2-elem1-2">soon</h1>
     </div>
   </div>
   
 </div>
+<script>
+  if(window.history.replaceState){
+    window.history.replaceState(null,null,window.location.href)
+  }
+</script>
 {% endblock %}

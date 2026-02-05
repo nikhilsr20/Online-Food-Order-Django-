@@ -837,8 +837,13 @@ box-shadow: 1px 1px 4px 1px #3a88f5;
     display: inline;
 }
 .partner-orders-current-orders{
-    height: 700px;
+    height: 80vh;
     overflow-y: auto;
+}
+.partner-orders-order-history{
+     height: 80vh;
+    overflow-y: auto;
+    /* border: solid 1px black; */
 }
 
 .partner-orders-current-orders-div{

@@ -3,6 +3,10 @@ from django.shortcuts import redirect
 from .forms import PartnerSignupForm,PartnerLoginForm,RestaurantsForm,CategoryForm,ItemForm,EditItemForm
 from .models import PartnerSignup,Restaurants,Category,Item,Order,OrderItem
 from django.views.decorators.cache import never_cache
+from datetime import date, timedelta
+from django.utils import timezone
+from django.http import HttpResponse
+from django.db.models import Sum
 
 # Create your views here.
 def signup(request):
@@ -31,7 +35,64 @@ def signup(request):
 
 
 def main(request):
-    return render (request,'partner/partner-main.html')
+    today = timezone.now().date()
+    x = Order.objects.filter(order_date=today)
+    t = timezone.now().date().isoformat() 
+    selected_date = request.COOKIES.get('selected_date')
+    if selected_date:
+        selected_date = date.fromisoformat(selected_date)  # string → date
+    else:
+        selected_date = timezone.now().date()
+
+    if request.GET.get('change')=='back':
+        
+        selected_date = selected_date - timedelta(days=1)  
+        x = Order.objects.filter(order_date=selected_date)
+        t=selected_date.isoformat()
+    elif request.GET.get('change')=='next' and selected_date < today :
+        
+        selected_date = selected_date + timedelta(days=1)  
+        x = Order.objects.filter(order_date=selected_date)
+        t=selected_date.isoformat()    
+    
+  
+    
+    response= HttpResponse("Date cookie set ✅")
+    
+    
+    display_date = selected_date.strftime("%d %b")
+    
+    if selected_date==timezone.now().date():
+        display_date="Today"
+    
+
+
+
+    
+    date_orders=x.count()
+    date_revenue = x.aggregate(total_revenue=Sum('order_amount'))['total_revenue'] or 0
+    date_pending=x.filter(status='pending').count()
+    response = render(
+        request,
+        'partner/partner-main.html',
+        {
+            'date_orders': date_orders,
+            'date_revenue': date_revenue,
+            'date_pending': date_pending,
+            'displaydate': display_date,
+        }
+    )
+
+    
+    response.set_cookie(
+        'selected_date',
+        selected_date.isoformat(),
+        max_age=60*60*24
+    )
+
+    return response
+
+    
 
 
 def login(request):
