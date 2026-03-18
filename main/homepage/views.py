@@ -38,7 +38,7 @@ def home(request):
     if request.GET.get('sort')=="default":
             Restaurant=Restaurants.objects.all()
 
-    paginator=Paginator(Restaurant,12)
+    paginator=Paginator(Restaurant,6)
 
     page_number=request.GET.get('page')
 

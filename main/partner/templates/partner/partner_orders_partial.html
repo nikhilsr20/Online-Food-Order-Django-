@@ -1,0 +1,70 @@
+<div class="partner-orders-current-orders-div" id="order-{{order.id}}">
+      <div class="partner-orders-current-orders-div-1">
+        <div class="partner-orders-current-orders-div-1-elem1">
+          <h1 class="partner-orders-current-orders-div-1-elem1-child">
+            order-id: #{{order.id}}
+          </h1>
+          <h1 class="partner-orders-current-orders-div-1-elem1-child">
+            order-Time: {{order.order_date|date:"d M"}} ,{{ order.order_time|time:"H:i" }}PM
+          </h1>
+        </div>
+        <div class="partner-orders-current-orders-div-1-elem2">
+          <h1 class="partner-orders-current-orders-div-1-elem2-child-head">
+            Customer Details
+          </h1>
+          <h1 class="partner-orders-current-orders-div-1-elem2-child">
+            Customer: {{order.customer_name}}
+          </h1>
+          <h1 class="partner-orders-current-orders-div-1-elem2-child">
+            Phone: {{order.customer_phone}}
+          </h1>
+          <h1 class="partner-orders-current-orders-div-1-elem2-child">
+            Address: {{order.customer_address}}
+          </h1>
+        </div>
+      </div>
+      <div class="partner-orders-current-orders-div-2">
+        <div class="partner-orders-current-orders-div-2-elem1">
+          <h1 class="partner-orders-current-orders-div-2-elem1-head">Items</h1>
+          <ul class="partner-orders-current-orders-div-2-elem1-head-child">
+            {% for item in order.items.all %}
+            <li>{{ item.order_item_name }} × {{ item.order_item_quantity }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="partner-orders-current-orders-div-2-elem2">
+          <h1 class="partner-orders-current-orders-div-2-elem2-child">
+            Total Amount: {{order.order_amount}}
+          </h1>
+          <h1 class="partner-orders-current-orders-div-2-elem2-child">
+            Payment: UPI (Paid)
+          </h1>
+        </div>
+      </div>
+
+      <div class="partner-orders-current-orders-div-3">
+        <div class="partner-orders-current-orders-div-3-elem1">
+          <h1 class="partner-orders-current-orders-div-3-elem1-child1">
+            Since Arrival
+          </h1>
+          <h1 class="partner-orders-current-orders-div-3-elem1-child2">
+           {{ order.created_at|timesince }} ago
+          </h1>
+        </div>
+        <div class="partner-orders-current-orders-div-3-elem2">
+          <form method="post">
+            {% csrf_token %}
+          <button class="partner-orders-current-orders-div-3-elem2-child1" value="{{order.id}}" name="complete_action">
+            Complete
+          </button>
+          </form>
+
+          <form method="post"  value="{{order.id}}" name="cancel_action">
+            {% csrf_token %}
+          <button class="partner-orders-current-orders-div-3-elem2-child2">
+            Cancel
+          </button>
+          </form>
+        </div>
+      </div>
+    </div>

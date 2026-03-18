@@ -1,6 +1,7 @@
 {% extends "partner/partner-navbar.html" %}
 
 {% block body %}
+<div id="body-menu">
 <div class="partner-menu" id="main-parter">
       <div class="partner-menu-buttons">
             <button class="partner-menu-buttons-i" onclick="opencategory(event) ">Add Category +</button>
@@ -41,7 +42,7 @@
                   </div>
                   
       </div>
-      <div class="partner-menu-data" >
+      <div class="partner-menu-data" id="off-this">
 
             <div class="partner-menu-data-top">
                   <h1 class="partner-menu-data-top-h">Menu</h1>
@@ -106,7 +107,7 @@
 
                       <div id="edit_item_div" onclick="event.stopPropagation()">
                        
-                       <div class="partner-add-category-div" >
+                       <div class="partner-add-category-div" id="select-partner-add">
                         <img class="back-edit-item" src="https://cdn-icons-png.flaticon.com/128/3114/3114883.png" alt="" onclick="closeedit()">
                                 <h1 >Edit item</h1>
                      <form method="POST" enctype="multipart/form-data">
@@ -132,6 +133,7 @@
                      </form>
                         </div>
                         </div>
+  </div>                      
 
 
 <script>
@@ -148,6 +150,11 @@
             
             x.style.display='block'
             y.style.display='none'
+            let z=document.getElementById('off-this')
+            z.style.filter='blur(10px)'
+            z.style.opacity='0.4'
+            z.style.pointerEvents='none'
+                document.body.style.overflow = "hidden";  
             a=true
       }
       function openitem(event){
@@ -156,6 +163,11 @@
             let y=document.getElementById('additem')
             x.style.display='none'
             y.style.display='block'
+            let z=document.getElementById('off-this')
+            z.style.filter='blur(10px)'
+            z.style.opacity='0.4'
+            z.style.pointerEvents='none'
+            document.body.style.overflow = "hidden";
             a=true
       }
 
@@ -164,7 +176,12 @@
         document.getElementById('addcategory').style.display='none';
         document.getElementById('additem').style.display='none';
         document.getElementById('edit_item_div').style.display='none';
+        let z=document.getElementById('off-this')
+            z.style.filter='blur(0px)'
+            z.style.opacity='1'
+            z.style.pointerEvents='auto'
         a = false; 
+        document.body.style.overflow='auto'
     }
 
 
@@ -174,13 +191,18 @@
 });
 
 function edit_item(id, name,description, price, food_type, imageUrl, categoryName){
-     
+      
       let x=document.getElementById("edit_item_div");
       x.style.display="flex";
-
+      
+      let k=document.getElementById('select-partner-add')
+   
+      k.style.marginTop=`${window.scrollY+120}px`
+      
+      
       let y= document.getElementById('main-parter');
       y.style.opacity="0.3";
-      y.style.blur="10px";
+      y.style.filter="blur(10px)";
 
         
         document.getElementById('button-for-edit').value=id;
@@ -190,6 +212,7 @@ function edit_item(id, name,description, price, food_type, imageUrl, categoryNam
       document.getElementById("edit_food_type").value = food_type;
        document.getElementById("cat_name").value = categoryName; 
 
+        document.body.style.overflow='hidden'
     }
 
     function closeedit(){
@@ -198,6 +221,8 @@ function edit_item(id, name,description, price, food_type, imageUrl, categoryNam
 
       let y= document.getElementById('main-parter');
       y.style.opacity="1";
+       y.style.filter="blur(0px)";
+       document.body.style.overflow='auto'
      
     }
 

@@ -10,7 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
+from dotenv import load_dotenv
+load_dotenv()
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,7 +26,8 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-+4wen1*&@s5(9lu$o87n(rdw_169pl^jc(n4ssge(v)&^)iq+e'
+
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -34,6 +38,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -84,7 +89,17 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'main.wsgi.application'
+# WSGI_APPLICATION = 'main.wsgi.application'
+ASGI_APPLICATION = 'main.asgi.application'
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("127.0.0.1", 6379)],
+        },
+    },
+}
 
 
 # Database
@@ -145,26 +160,16 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
+
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
-         'scope':[
-             'profile',
-             'email'
-         ],
-         'Auth_params':{
-             'prompt': 'select_account',
-             'access_type':'online',
-         },
-         'OAUTH_PKCE_ENABLED': True,
-        
-        'client_id': '33333308681-cpmo1t289bip80lq42so9g691kgmhr1e.apps.googleusercontent.com',
-        'secret': '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',
-        'key': ''
-        
+        'scope': ['profile', 'email'],
+        'AUTH_PARAMS': {
+            'prompt': 'select_account',
+        },
     }
 }
-
-SITE_ID=2
+SITE_ID = 2
 LOGIN_URL='/authentication/login/'
 
 LOGIN_REDIRECT_URL = '/homepage/home'
@@ -178,5 +183,5 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 EMAIL_HOST_USER = 'nikhilsingh160604@gmail.com'
-EMAIL_HOST_PASSWORD = 'klxl iksb ltao qhwd' 
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = 'Food Order App <nikhilsingh160604@gmail.com>'

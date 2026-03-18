@@ -3,7 +3,11 @@
 {% endblock %} {% block body%}
 <div class="mealwheel" id="main-mealwheel">
   <div class="mealwheel-heading">
-    <h1 class="mealwheel-heading-1">Meal Picker Wheel</h1>
+    <h1 class="mealwheel-heading-1" >
+      <span class="head-name-mealwheel">Meal</span>
+      <span class="head-name-mealwheel">Picker</span>
+      <span class="head-name-mealwheel">Wheel</span>
+    </h1>
   </div>
 
   <div class="circle">
@@ -30,8 +34,12 @@
 <div class="pop-up-offer" id="main2-mealwheel">
 
   <div class="pop-up-offer-div">
- 
+    <div class="flexing-meal">
+      <a href="{%url 'meal'%}"> 
+    <img class="pop-up-offer-div-back" src="{% static 'Mealwheel/cross.png'%}" alt="">
+    </a>
     <h1 class="pop-up-offer-div-h-1">Your today's Mealwheel Offer </h1>
+    </div>
     <div class="wheel-image-div">
     <img class="wheel-image" src="{% static 'Mealwheel/wheel.png'%}">
     </div>
@@ -41,13 +49,34 @@
       <button class="pop-up-offer-div-button" id="id-pop-up-offer-div-button"><img class="pop-up-offer-div-img" src="https://cdn-icons-png.flaticon.com/128/126/126498.png" onclick="copycode()"></button>
     </div>
     <div class="pop-up-offer-div-div2">
-        <button class="pop-up-offer-div-button-2">Claim</button>
+        <button class="pop-up-offer-div-button-2">Available soon</button>
     </div>
   </div>
 
 </div>
 
 <script>
+
+let lo = document.querySelectorAll('.head-name-mealwheel');
+
+let j = 0;
+
+let inter = setInterval(() => {
+
+  lo[j].style.opacity = "1";
+
+  j++;
+
+  if (j === lo.length) {
+    clearInterval(inter);
+  }
+
+}, 300);
+
+
+
+
+
   let wheel = document.getElementById("wheel");
 
   let spinning = false;

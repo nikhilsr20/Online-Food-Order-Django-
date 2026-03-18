@@ -9,6 +9,9 @@ from django.contrib.auth.models import User
 from authentication.models import CurrAddress
 from .models import DeliveryAddress
 
+from asgiref.sync import async_to_sync
+from channels.layers import get_channel_layer
+
 # Create your views here.
 def cart(request):
     addresses=DeliveryAddress.objects.all()
@@ -54,6 +57,18 @@ def cart(request):
                customer_address="none",
                order_amount=totalprice,
             )
+            print("🔥 SENDING WS EVENT")
+            channel_layer=get_channel_layer()
+
+            async_to_sync(channel_layer.group_send)(
+                
+                 f"orders_{res_id}",
+                 {
+                    "type": "new_order",
+                    "order_id": order.id,
+                }
+                )
+            
             for item in cart_data:
              OrderItem.objects.create(
                 order=order,

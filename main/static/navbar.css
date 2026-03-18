@@ -8,16 +8,30 @@
     box-sizing: border-box;
     display: flex;
     justify-content: space-evenly;
-    background-color:  rgb(255, 255, 255);
+  
+    
     align-items: center;
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
-    border-bottom: 0.2px solid rgb(176, 173, 173);
+    /* border-bottom: 0.2px solid rgb(176, 173, 173); */
     height: 60px;
     z-index: 100;
     transition: all ease-in-out 0.2s;
+    backdrop-filter: blur(10px);
+   
+}
+.navbar::before{
+    content: '';
+    position: absolute;
+    inset: 0;  
+  background-color:  rgb(72, 71, 71);
+  filter: contrast(1.6)  ;
+
+  opacity: 0.70;
+  z-index: -1;
+
 }
 .navbar-foody-and-location{
     display: flex;
@@ -42,23 +56,7 @@
     z-index: 100;
     transition: all ease-in-out 0.2s;
 }
-.navbar-onscroll{
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-evenly;
-    transition: all ease-in-out 0.2s;
-    background-color: #ffffff;
-     box-shadow: 0.1px 0px 10px 0px rgb(105, 201, 239);
-    
-    align-items: center;
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    
-    z-index: 100;
-   
-}
+
 .navbar-1{
     display: flex;
     align-items: center;
@@ -72,14 +70,23 @@
 }
 .navbar-2{
     display: flex;
-    gap: 3px;
+    gap: 5px;
+    padding: 3px;
+    align-items: center;
+    /* margin-top: 5px; */
+    color: white;
+}
 
-}
 .navbar-2:hover{
-   color: rgb(0, 153, 255);
+   color: rgb(142, 203, 245);
     cursor: pointer;
-    transition: color ease-in-out 0.4s;
+
+    /* /* border-bottom:solid 2px rgb(10, 157, 249)  ; */
+    transition: all ease-in-out 0.1s; 
+    
 }
+
+
 
 .navbar-3{
      align-items: center;
@@ -88,17 +95,17 @@
 }
 
 .navbar-1-logo{
-    width: 40px;
-    height: 40px;
+    width: 130px;
+    height: 80px;
 }
 .navbar-2-location{
-
-     width: 20px;
-    height: 20px;
+    
+     width: 25px;
+    height: 25px;
 }
 .navbar-3-search{
-     width: 20px;
-    height: 20px;
+     width: 15px;
+    height: 15px;
     /* border: 1px solid blue; */
     padding: 4px;
     border-radius: 10px;
@@ -109,8 +116,8 @@
     height: 20px;
 }
 .navbar-4-wheel{
-     width: 20px;
-    height: 20px;
+     width: 25px;
+    height: 25px;
 
 }
 .navbar-4{
@@ -121,12 +128,13 @@
 }
 .navbar-4-name{
     text-decoration: none;
-    color: #000000;
+    color: #ffffff;
 }
 .navbar-4-name:hover{
- color: rgb(0, 153, 255);
+   color: rgb(142, 203, 245);
     cursor: pointer;
-    transition: color ease-in-out 0.4s;
+   /* border-bottom:solid 2px rgb(10, 157, 249)  ; */
+    transition: all ease-in-out 0.1s;
 }
 .navbar-5-name{
     text-decoration: none;
@@ -166,20 +174,20 @@
     text-decoration: none;
     
 }
-.navbar-2-other:hover{
-  
-    color: rgb(0, 153, 255);
-    cursor: pointer;
-    transition: color ease-in-out 0.4s;
+
+.navbar-3-3-cart:hover{
+
+    transition: all ease-in-out 0.1s;
 }
 .navbar-3-3:hover{
-    color: rgb(0, 153, 255);
+      color: rgb(142, 203, 245);
     cursor: pointer;
-    transition: color ease-in-out 0.4s;
+   
+    
 }
 .navbar-signin{
     
-    color: rgb(0, 153, 255);
+    color: rgb(255, 255, 255);
     cursor: pointer;
     transition: color ease-in-out 0.4s;
 }
@@ -187,18 +195,18 @@
 
 
 .navbar-3-input{
-    width: 400px;
-    border: none;
+    width: 300px;
+   border: none;
     font-size:  medium;
     font-family: sans-serif;
-    color: rgb(154, 154, 154);
-    margin-left: 50px;
+    color: rgb(18, 18, 18);
+    margin-left: 10px;
     background-color: #ffffff;
-
+    
 }
 .navbar-3-input:focus{
       outline: none;
-      background-color: rgb(255, 255, 255);
+      background-color: none;
       transition: background-color ease-in-out 0.4s;
       color: rgb(0, 0, 0);
       cursor: pointer;
@@ -212,19 +220,20 @@
 }
 .navbar-signin{
     text-decoration: none;
-    color: black;
+    color: rgb(150, 150, 150);
+  
 }
 .navbar-3-3-cart{
     text-decoration: none;
-    color: black;
+    color: rgb(255, 255, 255);
 }
 .navbar-3-3-cart:hover{
-    color: rgb(0, 153, 255);
+       color: rgb(142, 203, 245);
     cursor: pointer;
     transition: color ease-in-out 0.3s;
 }
 .navbar-signin:hover{
-    color: rgb(0, 153, 255);
+      color: rgb(142, 203, 245);
     cursor: pointer;
     transition: color ease-in-out 0.3s;
 }
@@ -247,7 +256,7 @@
 .navbar-3-2{
     align-items: center;
     position: relative;
-    
+    color: #ffffff;
 }
 .navbar-3-2:hover .profile-list{
     visibility: visible;
@@ -293,8 +302,12 @@
     border-radius: 100px;
     padding: 1px;
     width: 20px;
-    text-align: center;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: rgb(255, 255, 255);
     font-size: small;
+   
 
 }

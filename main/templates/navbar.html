@@ -15,19 +15,24 @@
       <a href="{% url 'home' %}" class="navbar-1">
         <img
           class="navbar-1-logo"
-          src="https://cdn-icons-png.flaticon.com/128/9526/9526193.png"
+          src="{% static 'logo.png' %}"
           alt="logo"
         />
-        <p class="navbar-1-logo-label">Foody</p>
+   
       </a>
 
       <div class="navbar-2">
         <img
           class="navbar-2-location"
-          src="https://cdn-icons-png.flaticon.com/128/535/535239.png"
+          src="{% static 'location.png'%}"
           alt="location"
         />
-        <a class="navbar-2-other" onclick="openlocation()">{{curr|truncatechars:8}}</a>
+         {% if not user.is_authenticated %}
+        <a class="navbar-signin" href="{% url 'register' %}"> Location </a>
+        {% else %}
+       
+        <a class="navbar-2-other" onclick="openlocation()">{{curr|truncatechars:20}}</a>
+         {%endif%}
       </div>
       </div>
 
@@ -58,7 +63,7 @@
         <div class="navbar-3-2">
           <img
             class="navbar-3-profile"
-            src="https://cdn-icons-png.flaticon.com/128/1077/1077114.png"
+            src="{% static 'profile.png'%}"
             alt="profile"
           />
         
@@ -82,7 +87,7 @@
        
           <img
             class="navbar-3-cart"
-            src="https://cdn-icons-png.flaticon.com/128/5337/5337564.png"
+            src="{% static 'cart.png'%}"
             alt="cart"
           />
 
@@ -124,20 +129,7 @@
     }
   });
 
-        window.addEventListener("scroll", () => {
-                 console.log(window.scrollY);
-                   let a = document.querySelector(".navbar");
-                 if(window.scrollY==0){
-                   a=document.querySelector(".navbar-onscroll");
-                   a.className="navbar"
-                   console.log(a);
-                 }
-                 else{
-                     a=document.querySelector(".navbar");
-                     a.className="navbar-onscroll"
-                    console.log(a);
-                 }
-         });
+       
 
 
          

@@ -10,26 +10,26 @@ from django.db.models import Sum
 
 # Create your views here.
 def signup(request):
-    if request.method=='POST':
-        form=PartnerSignupForm(request.POST)
-        print(request.POST)
-        
+    if request.method == 'POST':
+        form = PartnerSignupForm(request.POST)
 
         if form.is_valid():
-            phone=form.cleaned_data.get('phone')
-            name=PartnerSignup.objects.filter(phone=phone)
-            name=name.username
-            
+            phone = form.cleaned_data.get('phone')
+
             if PartnerSignup.objects.filter(phone=phone).exists():
                 form.add_error('phone', 'Phone number is already registered')
             else:
-                request.session['username']=name
-                request.session['users-phone']=phone
-                form.save()
+                user = form.save()   
+
+                request.session['username'] = user.username
+                request.session['users-phone'] = phone
+
                 return redirect('partner-main')
-            
+
     else:
-        form = PartnerSignupForm()        
+        form = PartnerSignupForm()
+
+    return render(request, 'partner/partner.html', {'form': form})  
             
     return render(request,'partner/partner.html',{'form':form})
 
@@ -260,27 +260,26 @@ def menu(request):
 
 def orders(request):
     phone = request.session.get('users-phone')
-    user_instance=get_object_or_404(PartnerSignup,phone=phone)
+    user_instance = get_object_or_404(PartnerSignup, phone=phone)
 
-    res_id=user_instance.USER
-    if request.method == "POST": 
+    restaurant = Restaurants.objects.filter(user=user_instance).first()
+
+    if request.method == "POST":
         if 'complete_action' in request.POST:
-            val=int(request.POST.get('complete_action'))
-
-            x=Order.objects.get(id=val)
-            x.status='completed'
+            val = int(request.POST.get('complete_action'))
+            x = Order.objects.get(id=val)
+            x.status = 'completed'
             x.save()
 
         if 'cancel_action' in request.POST:
-            val=int(request.POST.get('cancel_action'))
-
-            x=Order.objects.get(id=val)
-            x.status='cancelled'    
+            val = int(request.POST.get('cancel_action'))
+            x = Order.objects.get(id=val)
+            x.status = 'cancelled'
             x.save()
 
-    
-    orders=Order.objects.filter(restaurant=res_id).prefetch_related('items')
+    orders = Order.objects.filter(restaurant=restaurant).prefetch_related('items')
 
-    return render(request,"partner/partner-orders.html",{'orders':orders})
-
-
+    return render(request, "partner/partner-orders.html", {
+        'orders': orders,
+        'restaurant': restaurant
+    })

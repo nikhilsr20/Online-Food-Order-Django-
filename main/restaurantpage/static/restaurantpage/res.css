@@ -239,20 +239,23 @@ grid-column: 2/3;
     padding: 1px 5px;
     border-radius: 3px;
     cursor: pointer;
+    margin-top: 10px;
+       height: 30px;
+       transition: transform cubic-bezier(0.075, 0.82, 0.165, 1) 0.2s;
 }
 .Restaurant-menu-main-list-data-header:hover{
    
-    background-color: #c6e8fe;
- 
+    background-color: #bce0f9;
+    transform: scale(1.005);
     cursor: pointer;
 }
 .Restaurant-menu-main-list-data-header-img{
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
 }
 .Restaurant-menu-main-list-data-header-name{
-    color: #5c5c5c;
-    font: 1.2em sans-serif;
+    color: #2198d8;
+    font: 0.8em sans-serif;
 
 }
 .Restaurant-menu-main-list-data{
@@ -260,12 +263,13 @@ grid-column: 2/3;
 }
 .Restaurant-menu-main-list-data-header-data{
     transition: all ease-in-out 1s;
-    
+ 
 }
 .Restaurant-menu-main-list-data-header-data-items{
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
+
 }
 .Restaurant-menu-main-list-data-header-data-items-div1-img{
     width: 25px;
@@ -356,9 +360,20 @@ grid-column: 2/3;
  
 }
 .res-list-hr-break{
-    margin-top: 5px;
-    color: #a8a6a6;
-    border: 0.2px solid rgb(211, 211, 211);
+     margin: 30px 10px;
+
+    border: none;
+
+    height: 2px;
+
+    background: linear-gradient(
+        to right,
+        transparent,
+        #d1d1d1,
+        #9ecfff,
+        #d1d1d1,
+        transparent
+    );
 }
 
 .new-button-div-realtime-update{
@@ -385,4 +400,8 @@ grid-column: 2/3;
     color: rgb(108, 106, 106);
     cursor: pointer;
     font-size: larger;
+}
+
+#inp--1{
+    background-color: #007ff6;
 }

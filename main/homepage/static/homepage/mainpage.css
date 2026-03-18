@@ -9,52 +9,78 @@ left: 0;
 
 
 .main{
-    
-    margin-top: 55px;
     z-index: -1;
+    scroll-behavior: smooth;
     
 }
 .main-div1{
     display: flex;
     justify-content: center;
     cursor: pointer;
-    
+    overflow: hidden;
 }
 .main-div1-img{
-    position: relative;
     width:100%;
-    height: 370px;
-   
+  height:100vh;
+  position:relative;
+
+  filter: brightness(0.4) contrast(0.8) blur(1px);
+  transform-origin: center;
+    transform: scale(1.10);
+  animation: zoom 4s ease-in-out 1 alternate;
+}
+@keyframes zoom{
+  0%{
+    transform: scale(1.10);
+  }
+  50%{
+    transform: scale(1.25);
+  }
+  100%{
+    transform: scale(1.10);
+  }
 }
 
 
 .main-div1-text{
-    visibility: hidden;
     position: absolute;
-    background: rgb(255, 255, 255);
-    border-radius: 10px;
-    padding: 10px;
-
-    align-self: last baseline;
-    margin-bottom: 10px;
-    font-size: small;
-    /* z-index: 2; */
-    
-    color: rgb(0, 0, 0);
-  
-    
+    color: white;
+    text-align: center;
+    width: 1200px;
+    margin-top: 30vh;
+}
+.main-div1-text span{
+    display: inline-block;
     opacity: 0;
+    transform: translateY(40px) scale(0.8);
+    transition: transform 0.6s cubic-bezier(.17,.67,.83,.67), opacity 0.6s ease;
+
+    font-size: 96px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    letter-spacing: 4px;
+
+    padding: 12px 18px;
     
+    color: rgba(255,255,255,0.92);
+    margin-left: 1vh;
+    margin-top: 2vh;
+    text-shadow:
+        0 2px 8px rgba(0,0,0,0.35),
+        0 8px 24px rgba(0,0,0,0.25);
+
+    background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+    backdrop-filter: blur(6px);
+    border-radius: 12px;
 }
-.main-div1-text:hover{
+/* .main-div1-text:hover{
     animation: drop 0.3s ease-in-out 1 forwards ;
-}
+} */
 .main-div1:hover .main-div1-img {
     cursor: pointer;
-  filter: brightness(0.2) contrast(0.8) saturate(0.9);
-  transition: filter 0.2s ease-in;
+ 
 }
-.main-div1:hover .main-div1-text {
+.main-div1:hover .main-div1- text {
   visibility: visible;
   opacity: 1;
 }
@@ -82,29 +108,122 @@ left: 0;
     display: flex;
     justify-content: space-between;
     margin-inline: 55px;
-    margin-top: 20px;
+   
     
 }
 .main2-div1-topline{
-    font-weight: bold;
+   font-weight: bold;
    text-align: center;
-   font-size: x-large;
-   background: linear-gradient(90deg,#515050,#9c9b9b,#9c9b9b,#565454);
-   -webkit-background-clip: text;
-   color: transparent;
+   font-size: 3vh;
+   
+
+   color: #a0bbff;
+   transition: opacity 4s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+   background: rgba(20, 38, 236, 0.12);
+   backdrop-filter: blur(12px) saturate(140%);
+  
+
+   padding: 14px 22px;
+   
+
+   /* Glass border */
+   border: 1px solid rgba(255,255,255,0.25);
+   border-radius: 14px;
+
+   /* Soft shadow */
+   box-shadow: 0 8px 32px rgba(0, 109, 187, 0.25);
+}
+.main2-div1-topline-x{
+   font-weight: bold;
+   text-align: center;
+   font-size: 3vh;
+   
+
+   color: #a0bbff;
+   transition: opacity 4s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+   background: rgba(20, 38, 236, 0.12);
+   backdrop-filter: blur(12px) saturate(140%);
+  
+
+   padding: 14px 22px;
+   
+
+   /* Glass border */
+   border: 1px solid rgba(255,255,255,0.25);
+   border-radius: 14px;
+
+   /* Soft shadow */
+   box-shadow: 0 8px 32px rgba(0, 109, 187, 0.25);
+}
+
+.main2-div1-topline-x::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -10%;
+    width: 20%;
+    height: 100%;
+
+    backdrop-filter: blur(6px) brightness(1.4);
+    background: rgba(255,255,255,0.08);
+    border-radius: 2px;
+    animation: magnify 1.7s linear 1;
+}
+@keyframes magnify{
+    from{
+        transform: translateX(0) scale(1);
+    }
+    to{
+        transform: translateX(600%) scale(1);
+    }
+}
+
+
+
+.main-2-margin{
+    margin-top: 15vh;
+}
+
+.sortBy-filter div{
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    
 }
 .main2-div2-filter{
     position: relative;
     display: flex;
   align-items: center;
     font-size: medium;
-    width: fit-content;
+    width: 15vh;
     border: solid 0.3px rgb(223, 219, 219);
    
     border-radius: 10px;
     gap: 10px;
     padding: 3px 20px;
     cursor: pointer;
+    font-weight: bold;
+   text-align: center;
+   font-size: 3vh;
+
+   color: #a0bbff;
+   transition: opacity 4s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+   background: rgba(20, 38, 236, 0.12);
+   backdrop-filter: blur(12px) saturate(140%);
+  
+
+   padding: 14px 22px;
+   
+
+   /* Glass border */
+   border: 1px solid rgba(255,255,255,0.25);
+   border-radius: 14px;
+
+   /* Soft shadow */
+   box-shadow: 0 8px 32px rgba(0, 109, 187, 0.25);
     
 }
 .main2-div2-filter:hover{
@@ -113,16 +232,16 @@ left: 0;
 
 @keyframes drop {
   0% {
-    background-image: linear-gradient(rgb(113, 185, 240));
+    background-image: linear-gradient(#a0bbff);
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: 1px 1px;
   }
   100% {
-    background-image: linear-gradient(rgb(113, 185, 240));
+    background-image: linear-gradient(#a0bbff);
     background-repeat: no-repeat;
     background-position: 50% 50%;
-    background-size: 240px 240px;
+    background-size: 340px 340px;
     color: rgb(253, 254, 255);
   }
 }
@@ -140,31 +259,125 @@ left: 0;
     background-color: #ffffff;
 }
 .main3-topline{
-   font-weight: bold;
+    opacity: 0;
+ font-weight: bold;
    text-align: center;
-   font-size: x-large;
-   background: linear-gradient(90deg,#343434,#9c9b9b,#2c2b2b);
-   -webkit-background-clip: text;
-   color: transparent;
+   font-size: 5vh;
+
+   color: #000000;
+
+   /* Glass background */
+   background: rgba(0, 0, 0, 0.12);
+   backdrop-filter: blur(12px) saturate(140%);
+   -webkit-backdrop-filter: blur(12px);
+
+   padding: 14px 22px;
+   text-shadow: 1px 1px 10px rgb(136, 225, 255);
+
+   /* Glass border */
+   border: 1px solid rgba(255,255,255,0.25);
+   border-radius: 14px;
+
+   /* Soft shadow */
+   box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+}
+.main3-topline-new{
+    opacity: 1;
+ font-weight: bold;
+   text-align: center;
+   font-size: 5vh;
+
+   color: #a85454;
+   transition: opacity 4s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+   background: rgba(255, 0, 0, 0.12);
+   backdrop-filter: blur(12px) saturate(140%);
+  
+
+   padding: 14px 22px;
+   
+
+   /* Glass border */
+   border: 1px solid rgba(255,255,255,0.25);
+   border-radius: 14px;
+
+   /* Soft shadow */
+   box-shadow: 0 8px 32px rgba(187, 0, 0, 0.25);
 }
 .separator-x{
+    position: relative;
+    margin-top: 6vh;
     border: 1px solid rgb(230, 230, 230);
+   
 }
+.hanger{
+    position: absolute;
+    top: 200;
+    left: 44%;
+    width: 30vh;
+    animation: hang 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite 0.3s alternate;
+    transform-origin:center top;
+}
+@keyframes hang {
+    from{
+        transform: rotate(-15deg);
+    }
+    to{
+       transform: rotate(15deg);
+    }
+
+
+}
+
 .main-3-food{
     display: flex;
-    height: 130px;
+    height: 60vh;
     overflow-x: auto;
    scroll-behavior: smooth;
    scrollbar-width: none;
+   gap: 24vh;
+   
 }
+
 .main-3-food *{
-    width: 100px;
+    width: 230px;
     cursor: pointer;
 }
 .main3-div2{
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    margin-top: 10vh;
+    gap: 10vh;
 }
+.banner-small-1,.banner-small-2,.banner-small-3{
+    width: 40vh;
+    height: 25vh;
+    border-radius: 10px;
+    transform: scale(0.8);
+    filter: blur(2px);
+    opacity: 0;
+}
+.banner-small-new {
+     width: 40vh;
+    height: 25vh;
+     border-radius: 10px;
+    opacity: 1;
+    transform: scale(1.1);
+    filter: blur(0px);
+    /* Fixed the opacity duration syntax below */
+    transition: transform 0.4s cubic-bezier(.17,.67,.83,.67), 
+                filter 0.2s ease, 
+                opacity 0.5s ease; 
+}
+.banner-small-new:hover {
+    
+    transform: scale(1.5);
+    cursor: pointer;
+    z-index: 100;
+    
+}
+
 .main3-div2-arrows{
     margin-inline: 15px;
     width: 20px;
@@ -189,73 +402,129 @@ left: 0;
 }
 .main4-restaurantslist{
     margin-inline:55px;
-    margin-top: 20px;
+    margin-top: 50px;
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
     gap: 25px;
+
 }
 .main4-restaurantslist-restaurantcard{
-    
-    width: 200px;
-    height: 300px;
+    position: relative;
+    width: 45vh;
+    height: 27vh;
    cursor: pointer;
+  /* border: solid black 0.1px; */
+  display: flex;
+  /* padding: 10px; */
+  gap: 10px;
+  border-radius: 10px;
+   background: rgba(0, 72, 255, 0.1) ;   /* transparent glass */
+    backdrop-filter: blur(2px);         /* blur behind */
+    /* -webkit-backdrop-filter: blur(10px); safari support */
+    box-shadow: 1px 1px 10px #81a0d6;
+    font-weight: bolder;
+   margin-top: 7vh;
 }
+
 .main4-restaurantslist-restaurantcard-img{
     width: 200px;
-    height: 190px;
+    height: 27vh;
     border-radius: 10px;
     transition: transform 0.3s ease-in-out;
     
 }
+.main4-restaurantslist-restaurantcard:hover{
+     box-shadow: 1px 1px 10px #0850cd;
+}
 .main4-restaurantslist-restaurantcard:hover .main4-restaurantslist-restaurantcard-img {
-  transform: scale(1.03);
+
    box-shadow: 2px 8px 10px rgba(25, 154, 218, 0.2);
 }
+.main4-restaurantslist-restaurantcard-name-head{
+ position: absolute;
+    top: 0px;
+    width: 45vh;
+border-radius: 10px;
+height: 40px;
+    align-items: center;
+display: flex;
+justify-content: center;
+ background: rgba(0, 0, 0, 0.3);  /* transparent */
+
+ backdrop-filter: blur(10px);
+
+}
+
 .main4-restaurantslist-restaurantcard-name{
-font-weight: 700;
+   
+font-weight: bolder;
 font-family: sans-serif;
-background: linear-gradient(90deg,#252526,#7f7f7f,#757474,#676767,#676767,#252526);
--webkit-background-clip: text;
-color: transparent;
+color:rgb(255, 255, 255);
+font-size: large;
+text-shadow: 1px 1px 2px #121313;
+transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 1.5s;
+
+
 }
 .main4-restaurantslist-restaurantcard:hover .main4-restaurantslist-restaurantcard-name{
-color: rgb(0, 100, 188);
+text-shadow: 0px 0px 1px #4b80e9;
+font-size: x-large;
 }
 .main4-restaurantslist-restaurantcard-rating{
 font-weight: 300;
-color: rgb(124, 124, 124);
+color: rgb(95, 136, 232);
 display: flex;
 align-items: center;
-margin-top:6px ;
+margin-top: 60px;
+font-size: 1.4vh;
 
 }
 .main4-restaurantslist-restaurantcard-rating-x{
 font-weight: 300;
-color: rgb(124, 124, 124);
+color: rgb(95, 136, 232);
 display: flex;
 align-items: center;
-margin-top:6px ;
+margin-top: 8px;
 font-size: medium;
-
+font-size: 1.3vh;
 }
 .main4-restaurantslist-restaurantcard-items{
+     position: absolute;
 font-weight: 100;
-color: rgb(124, 124, 124);
+color: rgb(117, 117, 118);
+margin-top: 10px;
+font-size: 1.3vh;
+bottom: 10vh;
 }
 .main4-restaurantslist-restaurantcard-items-x{
 font-weight: 100;
-color: rgb(124, 124, 124);
-font-size: medium;
+color: rgb(95, 136, 232);
+margin-top: 10px;
+font-size: 1.7vh;
+
 }
 .main4-restaurantslist-restaurantcard-location{
+    position: absolute;
 font-weight: 100;
-color: rgb(124, 124, 124);
+color: rgb(117, 117, 118);
+margin-top: 10vh;
+font-size: 1.2vh;
+bottom: 5.5vh;
+}
+.main4-restaurantslist-restaurantcard-time{
+     position: absolute;
+font-weight: 100;
+color: rgb(117, 117, 118);
+margin-top: 10vh;
+font-size: 1.3vh;
+bottom: 1vh;
 }
 .main4-restaurantslist-restaurantcard-location-x{
 font-weight: 100;
-color: rgb(124, 124, 124);
-font-size: medium;
+color: rgb(95, 136, 232);
+font-size: 1.7vh;
+margin-top: 12vh;
 
 }
 
@@ -512,34 +781,46 @@ background-color: #ffffff;
     display: none;
     position: absolute;
     bottom: 0;
-    left: -28px;
-   color: black;      /* override parent color */
+  
+    left: 0%;
+    bottom: 40%;
   font-size: 14px;   /* override parent font-size */
   font-family: Arial, sans-serif; /* override font */
     margin-bottom: 25px;
-    width: 150px;
+    width: 18vh;
     border:0.7px solid #c2c2c2;
     background-color: #ffffff;
     padding: 10px;
     border-radius: 10px;
     cursor: pointer;
+     color: #113daa;
+   transition: opacity 4s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+   background: rgba(8, 129, 181, 0.12);
+   backdrop-filter: blur(12px) saturate(140%);
+  
+
+   
+   
+
+   /* Glass border */
+   border: 1px solid rgba(255,255,255,0.25);
+   border-radius: 14px;
+
+   /* Soft shadow */
+   box-shadow: 0 8px 32px rgba(0, 109, 187, 0.25);
 
 }
 .sorting{
     text-decoration: none;
-    color: #252526;
+    color: #5771e3;
+    font-weight: bolder;
 }
 .sorting:hover{
     text-decoration: none;
-    color: #7abaff;
+    color: #0b0747;
 }
-.sortBy-filter div{
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: center;
-    
-    
-}
+
 .sortBy-filter div:hover{
    color: #1869c6;
 }
@@ -549,19 +830,39 @@ background-color: #ffffff;
 .paginator{
     display: flex;
     justify-content: center;
+    margin-top: 10vh;
+    align-items: center;
+    gap: 10px;
 }
-
+.lefty{
+    width: 2vw;
+    height: 3vh;
+    margin-top: 0.5vh;
+    transition: transform cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
+}
+.lefty:hover{
+transform: scale(1.1);
+    
+}
 .paginator-num{
-    width: fit-content;
-    border-radius: 100px;
+    /* width: fit-content; */
+    border-radius: 3px;
     padding: 4px;
-    background-color: #95c2f5;
+    background-color: #95a5f5;
     color: #ffffff;
 }
+.z1{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
 .res-rate-img{
-    width: 16px;
-    height: 16px;
+    width: 1.5vw;
+    height: 3vh;
     margin-right: 3px;
+}
+.rate-text{
+    font-size: larger;
 }
 
 /* search */
@@ -575,6 +876,10 @@ background-color: #ffffff;
 #resdata-search{
      margin-top: 30px;
      margin-inline: 100px;
+     
+}
+.r-list-div2-x{
+    margin-top: 5vh;
 }
 .main4-restaurantslist-restaurantcard-name-x{
     font-weight: 700;
@@ -601,5 +906,107 @@ color: transparent;
    scale: 1.1;
    transition: scale ease 0.5s;
    cursor: pointer;
+
+}
+.tagline-main-div1{
+    position: absolute;
+    top: 20vh;
+    left: 30vh;
+    z-index: 1;
+   
+    font-size: 100px;
+    color: white;
+    font-family: cursive;
+    width: 1000px;
+    border: solid black 1px;
+}
+
+
+/* footer */
+.footer{
+  position:relative;
+  background:#e6d5c8;
+  margin-top: 150px;
+ 
+}
+
+.footer-wave{
+  position:absolute;
+  top:-80px;
+  left:0;
+  width:100%;
+}
+
+.footer-wave svg{
+  width:100%;
+  height:120px;
+  display:block;
+
+}
+
+.footer-content{
+  width: 100%;
+  height: 500px;
+} 
+ .footer::before{
+  content:"";
+  position:absolute;
+  top:-100px;
+  left:0;
+  width:100%;
+  height:600px;
+
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255,120,0,0.3),
+    rgba(0,0,0,0)
+  );
+
+  filter: blur(60px);
+} 
+.footer-content-c1{
+    display: flex;
+    justify-content: space-between;
+    margin-inline: 100px;
+    
+}
+.footer-content-c1-d1{
+margin-top: 100px;
+}
+.footer-content-c1-d1-e1{
+display: flex;
+align-items: center;
+gap: 10px;
+}
+.footer-content-c1-d1-e2{
+margin-top: 37vh;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+color: #676767;
+font-size: medium;
+}
+.footer-content-c1-d1-e1-f1{
+width: 140px;
+height: 90px;
+
+}
+.footer-content-c1-d1-e1-f2{
+    font-family: sans-serif;
+    font-size: larger;
+    font-weight: bolder;
+    color: #252526;
+}
+.footer-content-c1-d2{
+    margin-top: 100px;
+    
+}
+.footer-content-c1-d2-e1{
+border-spacing: 40px 30px;  
+}
+.footer-content-c1-d2-e1-f1{
+    color: #757474;
+    font-size: small;
+}
+.footer-content-c1-d2-e1-f2{
+ font-size: small;
 
 }

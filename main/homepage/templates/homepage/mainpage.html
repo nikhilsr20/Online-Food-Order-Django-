@@ -1,4 +1,5 @@
-{% extends 'navbar.html' %} {% load static %}
+{% extends 'navbar.html' %} 
+{% load static %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'homepage/mainpage.css' %}" />
 {% endblock %} 
@@ -8,86 +9,39 @@
 <div class="mainpage" id="mainpage--">
 <div class="main">
   <div class="main-div1">
-    <img class="main-div1-img" src="{% static 'banner.png' %}" alt="logo" />
-    <span class="main-div1-text">Explore More Restaurants </span>
-  </div>
+   
+    <img class="main-div1-img" src="{% static 'banner.jpg' %}" alt="logo" />
+   
+    <span class="main-div1-text" id="text-appear">
+      <span id="text-appear-1">Bringing</span>
+       <span id="text-appear-2">your</span>
+        <span id="text-appear-3">favorite</span>
+         <span id="text-appear-4"> meals </span>
+          <span id="text-appear-5">closer</span>
+    </span>
+    </div>
+ 
+  
 </div>
 
 <div class="main3">
-  <div class="main3-topline">What's on your mind ?</div>
+  <div class="main3-topline" id="changing-main3-topline">Why Choose Us ?</div>
   <div class="main3-div2">
-    <img
-      class="main3-div2-arrows"
-      src="https://cdn-icons-png.flaticon.com/128/271/271220.png"
-     onclick="leftmove()"/>
-    <div class="main-3-food" id="main-3">
-      <img
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/6ef07bda-b707-48ea-9b14-2594071593d1_Biryani.png"
-      />
 
-      <img
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/6ef07bda-b707-48ea-9b14-2594071593d1_Pizzas.png"
-      />
-      <img
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2025/1/24/897bc750-6b57-4e7d-9365-87c1ab2c6d7e_Chinese2.png"
-      />
-      <img
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2025/1/24/05a939eb-fd4e-4308-b989-d1c54f4421b3_northindian1.png"
-      />
-      <img
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/6ef07bda-b707-48ea-9b14-2594071593d1_Biryani.png"
-      />
-
-      <img
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/6ef07bda-b707-48ea-9b14-2594071593d1_Pizzas.png"
-      />
-      <img
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2025/1/24/897bc750-6b57-4e7d-9365-87c1ab2c6d7e_Chinese2.png"
-      />
-      <img
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2025/1/24/05a939eb-fd4e-4308-b989-d1c54f4421b3_northindian1.png"
-      />
-      <img
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/6ef07bda-b707-48ea-9b14-2594071593d1_Biryani.png"
-      />
-
-      <img
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/6ef07bda-b707-48ea-9b14-2594071593d1_Pizzas.png"
-      />
-      <img
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2025/1/24/897bc750-6b57-4e7d-9365-87c1ab2c6d7e_Chinese2.png"
-      />
-      <img
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2025/1/24/05a939eb-fd4e-4308-b989-d1c54f4421b3_northindian1.png"
-      />
-      <img
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/6ef07bda-b707-48ea-9b14-2594071593d1_Biryani.png"
-      />
-
-      <img
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/6ef07bda-b707-48ea-9b14-2594071593d1_Pizzas.png"
-      />
-      <img
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2025/1/24/897bc750-6b57-4e7d-9365-87c1ab2c6d7e_Chinese2.png"
-      />
-      <img
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2025/1/24/05a939eb-fd4e-4308-b989-d1c54f4421b3_northindian1.png"
-      />
-    </div>
-    <img
-      class="main3-div2-arrows"
-      src="https://cdn-icons-png.flaticon.com/128/271/271228.png"
-      alt=""
-      onclick="rightmove()"
-    />
+   <img src="{% static 'homepage/banner-small-1.png' %}" class="banner-small-1">
+   <img src="{% static 'homepage/banner-small-3.png'%}"  class="banner-small-2" alt="">
+   <img src="{% static 'homepage/banner-small-2.png'%}" class="banner-small-3" alt="">
+   
+   
   </div>
   
 </div>
 <hr class="separator-x">
+<img class="hanger" src="{% static 'homepage/hanging-banner.png'%}" alt="">
 
-
+<div class="main-2-margin">
 <div class="main2">
-  <div class="main2-div1-topline">What you want to order today ?</div>
+  <div class="main2-div1-topline" id="MAIN2-TOPLINE">What you want to order today ?</div>
    
   <div class="main2-div2-filter">
     <span> Sort By </span>
@@ -106,17 +60,10 @@
         <div>
           <a class="sorting" href="{% url 'home' %}?sort=rating">Rating</a>
         </div>
-        <!-- <div>
-          <p >Cost:Low to High</p>
-        
-        </div>
-        <div>
-          <p>Cost:High to Low</p>
-          
-        </div> -->
-
+      
     </div>
   </div>
+</div>
 </div>
 
 <div class="main4">
@@ -124,18 +71,30 @@
   <div class="main4-restaurantslist">
     {% for r in Restaurant%}
     <div  class="main4-restaurantslist-restaurantcard" id="{{r.id}}" onclick="gotomenu('{{r.id}}')">
+      <div class="main4-restaurantslist-restaurantcard-name-head">
+       <h3 class="main4-restaurantslist-restaurantcard-name">{{r.Name}}</h3>
+       </div>
+      <div>
       <img
         class="main4-restaurantslist-restaurantcard-img"
         src="{{r.image.url}}"
       />
-      <h3 class="main4-restaurantslist-restaurantcard-name">{{r.Name}}</h3>
+      </div>
+
+      <div class="r-list-div2">
+     
       <h4 class="main4-restaurantslist-restaurantcard-rating">
-        <img class="res-rate-img" src="https://cdn-icons-png.flaticon.com/128/10453/10453904.png" alt=""> {{r.rating}} | {{r.deliverytime}} mins
+        <div class="z1">
+        <img class="res-rate-img" src="https://cdn-icons-png.flaticon.com/128/10453/10453904.png" alt=""> 
+        <span class="rate-text">{{r.rating}} </span>
+        </div>
+       
       </h4>
-      <h5 class="main4-restaurantslist-restaurantcard-items">{{r.Cuisenetypes}}</h5>
-      <h5 class="main4-restaurantslist-restaurantcard-location">{{r.Location}}</h5>
+      <h5 class="main4-restaurantslist-restaurantcard-items">Cuisenes: {{r.Cuisenetypes}}</h5>
+      <h5 class="main4-restaurantslist-restaurantcard-location">Location: {{r.Location}}</h5>
+      <h6 class="main4-restaurantslist-restaurantcard-time"> {{r.deliverytime}} mins</h6>
+      </div>
     </div>
-    
     {% endfor %}
   </div>
 </div>
@@ -143,31 +102,204 @@
 </div>
  <div class="paginator">
     {% if Restaurant.has_previous %}
-       <a href="?page=1">1</a>
-       <a href="?page={{Restaurant.previous_page_number}}"><img src="https://cdn-icons-png.flaticon.com/128/5343/5343109.png" alt=""></a>
+       
+       <a  href="?page={{Restaurant.previous_page_number}}"><img class="lefty" src="https://cdn-icons-png.flaticon.com/128/271/271220.png" alt=""></a>
     {% endif %}
 
     <span class="paginator-num">{{Restaurant.number}}</span>
 
      {% if Restaurant.has_next %}
-       <a href="?page={{Restaurant.next_page_number}}">1</a>
-       <a href="?page={{ Restaurant.paginator.num_pages }}"><img src="https://cdn-icons-png.flaticon.com/128/5279/5279789.png" alt=""></a>
+       <a  href="?page={{ Restaurant.paginator.num_pages }}"><img class="lefty" src="https://cdn-icons-png.flaticon.com/128/271/271228.png" alt=""></a>
     {% endif %}
   </div>
+
+    <section class="footer">
+
+  <div class="footer-wave">
+    <svg viewBox="0 0 1440 120">
+      <path fill="#e6d5c8" 
+      d="M0,64 C240,120 480,0 720,40 C960,80 1200,20 1440,60 L1440,160 L0,160 Z">
+      </path>
+    </svg>
   </div>
+
+  <div class="footer-content">
+      <div class="footer-content-c1">
+        <div class="footer-content-c1-d1">
+          <div class="footer-content-c1-d1-e1">
+            <img class="footer-content-c1-d1-e1-f1" src="{%static 'homepage/logo.png'%}" alt="">
+            <p class="footer-content-c1-d1-e1-f2">Foodish</p>
+            </div>
+            <h1 class="footer-content-c1-d1-e2">@2026 Foodish.Inc.All rights reserved</h1>
+        </div>
+        <div class="footer-content-c1-d2">
+               <table class="footer-content-c1-d2-e1">
+                <tr class="footer-content-c1-d2-e1-f1">
+                  <th>Company</th>
+                  <th>Resources</th>
+                  <th>Connect</th>
+                </tr>
+                <tr class="footer-content-c1-d2-e1-f2">
+                  <th>About</th>
+                   <th>Terms to use</th>
+                  <th>Linkedln</th>
+                </tr>
+                <tr class="footer-content-c1-d2-e1-f2">
+                  <th>carrers</th>
+                  <th>Download</th>
+                   <th>Instagram</th>
+                 
+                </tr>
+                <tr class="footer-content-c1-d2-e1-f2">
+                 <th>Brand</th>
+                  <th>Privacy policy</th>
+                  <th>Facebook</th>
+                </tr>
+               </table>
+        </div>
+      </div>
+  </div>
+
+</section>
+  
+  </div>
+
+  
 
   <div id="search-results">
     <p>" search results "</p>
     
-    <div id="resdata-search">
+    <div  id="resdata-search">
       
-
+        
     </div>
+
 
   </div>
 
+
+
+
+
 <!-- location -->
 <script>
+
+  // slide
+  let play=1
+  window.addEventListener('scroll',function(){
+    let x=document.getElementById('MAIN2-TOPLINE')
+    console.log(scrollY)
+    if(scrollY>600 && play==0){
+      x.classList.replace('main2-div1-topline','main2-div1-topline-x');
+      setTimeout(()=>{
+     x.classList.replace('main2-div1-topline-x','main2-div1-topline');
+      },1700)
+      play=1
+    }
+    else if(scrollY<150){
+      play=0
+    }
+    
+  })
+
+
+
+
+
+
+
+
+ let i = 1
+  let interval = setInterval(() => {
+  if (i <= 5) {
+    document.getElementById(`text-appear-${i}`).style.opacity="1"
+    document.getElementById(`text-appear-${i}`).style.transform="scale(1)"
+    i++
+  } else {
+    clearInterval(interval) 
+  }
+}, 500)
+ let show=false;
+  window.addEventListener("scroll",function(){
+    
+     if(scrollY<200 && show==true){
+  let i = 1
+  let interval = setInterval(() => {
+  if (i <= 5 ) {
+    document.getElementById(`text-appear-${i}`).style.opacity="1"
+    document.getElementById(`text-appear-${i}`).style.transform="scale(1)"
+    i++
+  } else {
+    show=false;
+    clearInterval(interval) 
+  }
+}, 500)
+
+
+}
+     else if(scrollY>370){
+      let i = 1
+  let interval = setInterval(() => {
+  if (i <= 5) {
+    document.getElementById(`text-appear-${i}`).style.opacity="0"
+    document.getElementById(`text-appear-${i}`).style.transform="scale(0.8)"
+    i++
+  } else {
+    show=true
+    clearInterval(interval) 
+  }
+  
+}, 5)
+
+}
+  })
+
+  let vis=true;
+  window.addEventListener("scroll",function(){
+    if(scrollY>=170 && vis){
+      let x=document.getElementById('changing-main3-topline')
+      x.classList.replace("main3-topline", "main3-topline-new");
+    
+      let i = 1;
+    let st = setInterval(() => {
+      if (i > 3) { 
+        clearInterval(st);
+        return;
+      }
+      
+     
+      let y = document.getElementsByClassName(`banner-small-${i}`);
+      if (y.length > 0) {
+        y[0].classList.replace(`banner-small-${i}`, 'banner-small-new');
+      }
+      i++;
+    }, 400);
+    vis=false
+    }
+
+  })
+
+   window.addEventListener("scroll",function(){
+    if(scrollY<100){
+      let x=document.getElementById('changing-main3-topline')
+      x.classList.replace( "main3-topline-new","main3-topline");
+     let banners = document.querySelectorAll('.banner-small-new');
+
+if (banners.length >= 3) {
+    // We target them by their position in the static list
+    banners[0].classList.replace('banner-small-new', 'banner-small-1');
+    banners[1].classList.replace('banner-small-new', 'banner-small-2');
+    banners[2].classList.replace('banner-small-new', 'banner-small-3');
+    vis=true
+}
+    }
+  })
+    
+  
+
+
+
+
     window.addEventListener("pageshow", function (event) {
     if (event.persisted) {
       window.location.reload();
@@ -198,33 +330,26 @@
 
       data.forEach(r => {
         html += `
-        <div class="main4-restaurantslist-restaurantcard" 
-             id="${r.id}" 
-             onclick="gotomenu('${r.id}')">
+        <div  class="main4-restaurantslist-restaurantcard" id="${r.id}" onclick="gotomenu('${r.id}')">
+      <div class="main4-restaurantslist-restaurantcard-name-head">
+       <h3 class="main4-restaurantslist-restaurantcard-name">${r.Name}</h3>
+       </div>
+      <div>
+      <img
+        class="main4-restaurantslist-restaurantcard-img"
+        src="${r.image}"
+      />
+      </div>
 
-          <img
-            class="main4-restaurantslist-restaurantcard-img"
-            src="${r.image}"
-          />
-
-          <h3 class="main4-restaurantslist-restaurantcard-name-x">
-            ${r.Name}
-          </h3>
-
-          <h4 class="main4-restaurantslist-restaurantcard-rating-x">
-            <img class="res-rate-img" 
-                 src="https://cdn-icons-png.flaticon.com/128/10453/10453904.png">
-            ${r.rating} | ${r.deliverytime} mins
-          </h4>
-
-          <h5 class="main4-restaurantslist-restaurantcard-items-x">
-            ${r.Cuisenetypes}
-          </h5>
-
-          <h5 class="main4-restaurantslist-restaurantcard-location-x">
-            ${r.Location}
-          </h5>
-        </div>
+      <div class="r-list-div2-x">
+     
+      <h4 class="main4-restaurantslist-restaurantcard-rating-x">
+        <img class="res-rate-img" src="https://cdn-icons-png.flaticon.com/128/10453/10453904.png" alt=""> ${r.rating} | ${r.deliverytime} mins
+      </h4>
+      <h5 class="main4-restaurantslist-restaurantcard-items-x"> ${r.Cuisenetypes}</h5>
+      <h5 class="main4-restaurantslist-restaurantcard-location-x">${r.Location}</h5>
+      </div>
+    </div>
         `;
       });
 
@@ -282,7 +407,8 @@
           <h1 class="Addnewaddress-page-heading-text">Save delivery address</h1>
         </div>
 
-        <div class="Addnewaddress-page-googlemap"></div>
+       
+        <img class="Addnewaddress-page-googlemap" src="{% static 'homepage/nav.png'%}" alt="">
                <form method="POST">
      {% csrf_token %}
   <div class="Addnewaddress-page-inputs">
@@ -317,6 +443,8 @@
       </div>
     </div>
   </div>
+
+    
 
  
 
@@ -355,16 +483,19 @@
       l1.style.pointerEvents='none'
   }
 
-  function rightmove(){
-    x=document.getElementById("main-3")
-    x.scrollBy({ left: 100, behavior: "smooth" });
-  }
-    function leftmove(){
-    x=document.getElementById("main-3")
-    x.scrollBy({ left: -100, behavior: "smooth" });
-  }
+  // function rightmove(){
+  //   x=document.getElementById("main-3")
+  //   x.scrollBy({ left: 100, behavior: "smooth" });
+  // }
+  //   function leftmove(){
+  //   x=document.getElementById("main-3")
+  //   x.scrollBy({ left: -100, behavior: "smooth" });
+  // }
+// const container = document.getElementById("main-3");
 
-
+// const slide = setInterval(() => {
+//   container.scrollBy({ left: 390 });
+// }, 1000);
   function gotomenu(restaurantid){
     window.location.href=`/restaurant/res/${restaurantid}/`
   }
